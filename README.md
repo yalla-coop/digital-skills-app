@@ -6,8 +6,8 @@
 
 | Who🧍‍♀️🧍       | Role 🌐     | Intro 💬 |
 | :-------------: | :----------: | :-----------: |
-| Stefano   | Yala - Development | |
-| Simon| Yala - | |
+| Stefano | Yala - Development | |
+| Simon | Yala - | |
 | Jem | Yala - Lead Designer | |
 | Joe | Yala - UI/UX & Development | |
 | John | | |
