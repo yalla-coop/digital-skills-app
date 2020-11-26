@@ -15,7 +15,7 @@
 | Ahmed | Yalla - Development |
 | Tom | Scouts ⚜️ - Senior Project Manager | |
 | Rachel | Scouts ⚜️ - Digital Product Manager | |
-| Stefano | ⚜️ - UX Designer | |
+| Stefano | Scouts ⚜️ - UX Designer | |
 | Adam | Scouts ⚜️ - Digital Volunteer | |
 | Harley | Scouts ⚜️ - Digital Volunteer | | 
 | Stephanie | Scouts ⚜️ - Digital Volunteer | |
