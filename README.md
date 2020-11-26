@@ -10,9 +10,9 @@
 | Jem | Yalla - Lead Designer | |
 | Joe | Yalla - UI/UX & Development | |
 | John | Yalla | |
-| Ramy | Yalla | Development
-| Fadi | Yalla | Development
-| Ahmed | Yalla | Development
+| Ramy | Yalla - Development | 
+| Fadi | Yalla - Development |
+| Ahmed | Yalla - Development |
 | Tom | Scouts ⚜️ - Senior Project Manager | |
 | Rachel | Scouts ⚜️ - Digital Product Manager | |
 | Stefano | ⚜️ - UX Designer | |
