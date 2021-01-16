@@ -7,10 +7,10 @@ let createdData;
 
 describe('findTestById()', () => {
   before(async () => {
-    createdData = await build();
+    /* createdData = */ await build();
   });
   it('should return...', async () => {
-    await find.findTestById();
-    expect(1).to().eq(1);
+    const user = await find.findTestById(1);
+    expect(user.id).eq(1);
   });
 });

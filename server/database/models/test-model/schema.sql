@@ -1,13 +1,7 @@
 DROP TABLE IF EXISTS "users" CASCADE;
 
 CREATE TABLE "users" (
-	"id" serial PRIMARY KEY,
-	"role" users_roles NOT NULL,
-	"supervisor_id" INTEGER REFERENCES users(id),
-	"credential_id" INTEGER REFERENCES credentials(id) ON DELETE SET NULL,
-	"status" user_statuses NOT NULL DEFAULT 'activated',
-  "created_at" timestamp NOT NULL DEFAULT NOW(),
-  "updated_at" timestamp NOT NULL DEFAULT NOW()
+	"id" serial PRIMARY KEY
 );
 
 CREATE TRIGGER set_timestamp
