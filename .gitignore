@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# db config files
+/server/database/prod-data/config/*
+/server/database/training-data/config/*
+
+.DS_Store
