@@ -8,7 +8,7 @@ const validate = (schema, data, { abortEarly = false, ...options } = {}) => {
     });
     return { data: validData };
   } catch (error) {
-    throw new errorMsgs.VALIDATION_ERROR(errorData);
+    throw new errorMsgs.VALIDATION_ERROR(error);
   }
 };
 
