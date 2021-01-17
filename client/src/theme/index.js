@@ -9,24 +9,35 @@ const constants = {
 };
 
 const colors = {
-  pink: '#C43BAD',
+  pink: '#FFB4E5',
+  blue: '#0061CE',
+  liteBlue: '#E6EFFA',
+  teal: '#00A794',
+  mediumTeal: '#61C5BA',
+  liteTeal: '#CCEDEA',
+  purple: '#490499',
+  lightPurple: '#9B51E0',
+  navy: '#002F6C',
+  black: ' #1E1E1E',
+  gray: '404040',
 };
 
 const spacings = {
-  0: '0rem',
-  1: '0.5rem',
-  2: '1rem',
-  3: '1.5rem',
-  4: '2rem',
-  5: '3rem',
-  6: '4rem',
-  7: '7rem',
+  0: '0',
+  1: '0.25rem',
+  2: '0.5rem',
+  3: '1rem',
+  4: '1.5rem',
+  5: '2rem',
+  6: '3rem',
+  7: '4rem',
+  8: '5rem',
 };
 
 export const screensWidth = {
-  mobile: 449,
-  tablet: 949,
-  desktop: 1442,
+  mobile: 768,
+  tablet: 1152,
+  desktop: 1440,
 };
 
 export const media = {
