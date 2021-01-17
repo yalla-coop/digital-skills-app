@@ -1,0 +1,11 @@
+{
+  "dev": {
+      "driver": "pg",
+      "url": {
+          "ENV": "TRY_TEMPO_DATABASE_URL"
+      },
+      "ssl": {
+          "rejectUnauthorized": false
+      }
+  }
+}
