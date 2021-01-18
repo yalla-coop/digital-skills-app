@@ -7,6 +7,7 @@ import theme, { globalStyle } from './theme';
 import { Route } from './components';
 
 import './App.css';
+import 'antd/dist/antd.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ function App() {
         <Router>
           <Switch>
             <Route
+              exact
               path="/"
               isLoggedIn={isLoggedIn}
               isMounted={isMounted}
