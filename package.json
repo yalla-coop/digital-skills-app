@@ -19,7 +19,6 @@
     "init:both": "npm i && cd client && npm i && npm run build"
   },
   "dependencies": {
-    "@emotion/core": "^11.0.0",
     "@hapi/boom": "^9.1.1",
     "@sentry/node": "^5.27.6",
     "axios": "^0.20.0",
