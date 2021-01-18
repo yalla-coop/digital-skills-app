@@ -1,7 +1,7 @@
 import * as User from '../model';
 
 const getUserById = ({ id }) => {
-  return User.findTestById(id);
+  return User.findUserById(id);
 };
 
 export default getUserById;
