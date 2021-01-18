@@ -4,11 +4,7 @@ import theme from "./../src/theme"
 
 const style = {
   width: '100%',
-  height: "100vh",
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontFamily: '"Nunito Sans", sans-serif',
+  minHeight: "100vh",
 }
 
 const ThemeDecorator = storyFn => (
