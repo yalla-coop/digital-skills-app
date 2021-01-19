@@ -1,7 +1,7 @@
 import axios from 'axios';
 import handleError from './format-error';
 
-const CHECK_INS_BASE = '/skills';
+const CHECK_INS_BASE = '/check-ins';
 
 const createCheckIn = async ({ body, options }) => {
   try {
