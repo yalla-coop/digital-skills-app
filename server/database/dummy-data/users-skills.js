@@ -41,7 +41,7 @@ const createUsersSkills = async (data) => {
       userId: JohnReese.id,
       skillId: skills[2].id,
       status: skillStatuses.COMPLETED,
-      addedScore: 1250,
+      addedScore: 2.5,
     },
     {
       userId: JohnReese.id,

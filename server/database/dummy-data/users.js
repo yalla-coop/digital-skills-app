@@ -57,7 +57,7 @@ const createUsers = async (data) => {
       password,
       organisation: null,
       selectedPath: learningPaths.BASIC,
-      assessmentScore: 2050,
+      assessmentScore: 20.5,
       improvementScore: 0,
     },
     {
@@ -68,8 +68,8 @@ const createUsers = async (data) => {
       password,
       organisation: null,
       selectedPath: learningPaths.IMPROVE,
-      assessmentScore: 1050,
-      improvementScore: 2000,
+      assessmentScore: 10.5,
+      improvementScore: 20.0,
     },
     // HQs
     {

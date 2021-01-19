@@ -4,7 +4,7 @@ CREATE TABLE "users_completed_activities" (
   "id" SERIAL PRIMARY KEY,
   "user" INTEGER REFERENCES users(id) NOT NULL,
   "activity" INTEGER REFERENCES activities(id) NOT NULL, -- could be reference to activities_skills
-  "added_score" INTEGER, -- 12.77% => 1277
+  "added_score" REAL,
   "created_at" TIMESTAMPTZ DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );

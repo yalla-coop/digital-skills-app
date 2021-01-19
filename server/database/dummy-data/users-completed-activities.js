@@ -30,7 +30,7 @@ const createUserCompletedActivities = async (data) => {
     {
       userId: JohnReese.id,
       activityId: microsoftWordActivity.id,
-      addedScore: 700,
+      addedScore: 7.0,
     },
   ];
 

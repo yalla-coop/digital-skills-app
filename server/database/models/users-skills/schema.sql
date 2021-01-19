@@ -5,7 +5,7 @@ CREATE TABLE "users_skills" (
   "user" INTEGER REFERENCES users(id) NOT NULL,
   "skill" INTEGER REFERENCES skills(id) NOT NULL,
   "status" skills_statuses NOT NULL,
-  "added_score" INTEGER, -- 12.77% => 1277
+  "added_score" REAL,
   "created_at" TIMESTAMPTZ DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
