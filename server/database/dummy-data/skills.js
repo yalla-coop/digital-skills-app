@@ -1,4 +1,5 @@
 import { query } from '../connect';
+import { skillsCodes } from '../../constants';
 
 const createSkill = async (values) => {
   const sql = `
@@ -27,10 +28,9 @@ const createSkills = async () => {
   const skills = [
     // Foundation skills
     // The basic skills you need if you are not currently using digital technology
-
     {
       title: 'I can turn on a device',
-      code: 'TURN_ON_DEVICE',
+      code: skillsCodes.TURN_ON_DEVICE,
       number: 1,
       icon: 'defaultSkill',
       // basics
@@ -38,7 +38,7 @@ const createSkills = async () => {
     {
       title:
         'I can use the basic controls on my device e.g. turn up the volume.',
-      code: 'DEVICE_BASIC_CONTROL',
+      code: skillsCodes.DEVICE_BASIC_CONTROL,
       number: 2,
       icon: 'defaultSkill',
       // basics
@@ -46,7 +46,7 @@ const createSkills = async () => {
     {
       title:
         'I can use accessibility tools on my device to make it easier to use e.g. increase font size.',
-      code: 'USE_ACCESSIBILITY_TOOL',
+      code: skillsCodes.USE_ACCESSIBILITY_TOOL,
       number: 3,
       icon: 'defaultSkill',
       // basics
@@ -54,7 +54,7 @@ const createSkills = async () => {
     {
       title:
         'I can interact with the home screen on my device e.g. I can locate text messages.',
-      code: 'INTERACT_WITH_THE_HOME_SCREEN',
+      code: skillsCodes.INTERACT_WITH_THE_HOME_SCREEN,
       number: 4,
       icon: 'defaultSkill',
       // basics
@@ -62,7 +62,7 @@ const createSkills = async () => {
     {
       title:
         'I can connect my device to a safe and secure Wi-Fi network e.g. I can connect to Wi-Fi in my house.',
-      code: 'CONNECT_DEVICE_TO_SAFE_WI_FI',
+      code: skillsCodes.CONNECT_DEVICE_TO_SAFE_WI_FI,
       number: 5,
       icon: 'defaultSkill',
       // basics
@@ -70,35 +70,35 @@ const createSkills = async () => {
     {
       title:
         'I know that my passwords and personal information need to be kept safely as they have a value to others e.g. I don’t write my passwords down or tell them to anyone else.',
-      code: 'KEEP_PERSONAL_INFORMATION_SAFE',
+      code: skillsCodes.KEEP_PERSONAL_INFORMATION_SAFE,
       number: 6,
       icon: 'defaultSkill',
       // basics
     },
     {
       title: 'I can update and change my password when prompted to do so',
-      code: 'CHANGE_MY_PASSWORD_WHEN_PROMPTED',
+      code: skillsCodes.CHANGE_MY_PASSWORD_WHEN_PROMPTED,
       number: 7,
       icon: 'defaultSkill',
       // basics
     },
     {
       title: 'I can send a messages',
-      code: 'SEND_MESSAGES',
+      code: skillsCodes.SEND_MESSAGES,
       number: 8,
       icon: 'defaultSkill',
       // basics
     },
     {
       title: 'I can send, read and reply to emails',
-      code: 'SEND_READ_REPLY_TO_EMAILS',
+      code: skillsCodes.SEND_READ_REPLY_TO_EMAILS,
       number: 9,
       icon: 'defaultSkill',
       // basics
     },
     {
       title: 'I can use a digital calendar',
-      code: 'USE_DIGITAL_CALENDAR',
+      code: skillsCodes.USE_DIGITAL_CALENDAR,
       number: 10,
       icon: 'defaultSkill',
       // basics
@@ -108,7 +108,7 @@ const createSkills = async () => {
     // Act safely and responsibly in digital environments
     {
       title: 'I can create strong and secure passwords',
-      code: 'CREATE_STRONG_PASSWORDS',
+      code: skillsCodes.CREATE_STRONG_PASSWORDS,
       number: 11,
       icon: 'defaultSkill',
       // basics
@@ -116,7 +116,7 @@ const createSkills = async () => {
     {
       title:
         'I understand that viruses can damage my computer and that security software should be used to prevent this',
-      code: 'UNDERSTAND_VIRUSES_DAMAGE',
+      code: skillsCodes.UNDERSTAND_VIRUSES_DAMAGE,
       number: 12,
       icon: 'defaultSkill',
       // basics
@@ -124,7 +124,7 @@ const createSkills = async () => {
     {
       title:
         'I understand that my online activity produces a permanent record which could be accessed and used by others both now and in the future',
-      code: 'ONLINE_ACTIVITY_PRODUCES_PERMANENT_RECORD',
+      code: skillsCodes.ONLINE_ACTIVITY_PRODUCES_PERMANENT_RECORD,
       number: 13,
       icon: 'defaultSkill',
       // Finances / meetings /	Data / word out
@@ -132,7 +132,7 @@ const createSkills = async () => {
     {
       title:
         'I understand that I must not share other people’s data online without their consent',
-      code: 'MUST_NOT_SHARE_OTHER_PEOPLE_DATA',
+      code: skillsCodes.MUST_NOT_SHARE_OTHER_PEOPLE_DATA,
       number: 14,
       icon: 'defaultSkill',
       // Events / Finances /	Data
@@ -140,7 +140,7 @@ const createSkills = async () => {
     {
       title:
         'I can respond to requests for authentication for my online accounts and email',
-      code: 'RESPOND_TO_REQUESTS_FOR_AUTHENTICATION',
+      code: skillsCodes.RESPOND_TO_REQUESTS_FOR_AUTHENTICATION,
       number: 15,
       icon: 'defaultSkill',
       //  Finances /	Data
@@ -148,7 +148,7 @@ const createSkills = async () => {
     {
       title:
         'I understand why it is important to keep my computer systems and security software up to date and I allow them to be updated when prompted',
-      code: 'COMPUTER_SYSTEMS_UP_TO_DATE',
+      code: skillsCodes.COMPUTER_SYSTEMS_UP_TO_DATE,
       number: 16,
       icon: 'defaultSkill',
       //  basics /	Data
@@ -156,7 +156,7 @@ const createSkills = async () => {
     {
       title:
         'I understand online material is subject to copyright and cannot be used without the owners’ permission',
-      code: 'ONLINE_MATERIAL_COPYRIGHT',
+      code: skillsCodes.ONLINE_MATERIAL_COPYRIGHT,
       number: 17,
       icon: 'defaultSkill',
       //  Data / word out
@@ -164,7 +164,7 @@ const createSkills = async () => {
     {
       title:
         'I can tell an official, legitimate website or email from a potentially dangerous one',
-      code: 'TELL_OFFICIAL_WEBSITE_OR_EMAIL',
+      code: skillsCodes.TELL_OFFICIAL_WEBSITE_OR_EMAIL,
       number: 18,
       icon: 'defaultSkill',
       //  basic / meeting
@@ -172,7 +172,7 @@ const createSkills = async () => {
     {
       title:
         'I can alert the relevant person in my organisation to potential data breaches',
-      code: 'ALERT_RELEVANT_PERSON_TO_DATA_BREACHES',
+      code: skillsCodes.ALERT_RELEVANT_PERSON_TO_DATA_BREACHES,
       number: 19,
       icon: 'defaultSkill',
       //  data
@@ -180,21 +180,21 @@ const createSkills = async () => {
     {
       title:
         'I understand GDPR and can apply it to my role within my organisation',
-      code: 'GDPR_IN_ORGANISATION',
+      code: skillsCodes.GDPR_IN_ORGANISATION,
       number: 20,
       icon: 'defaultSkill',
       //  data
     },
     {
       title: 'I know how to fact-check information that I find online',
-      code: 'FACT_CHECK_INFORMATION',
+      code: skillsCodes.FACT_CHECK_INFORMATION,
       number: 21,
       icon: 'defaultSkill',
       //  basic , word out
     },
     {
       title: 'I know how to report bad content',
-      code: 'REPORT_BAD_CONTENT',
+      code: skillsCodes.REPORT_BAD_CONTENT,
       number: 22,
       icon: 'defaultSkill',
       //  word out
@@ -202,7 +202,7 @@ const createSkills = async () => {
     {
       title:
         'I know how to use the internet to learn how to use digital tools and services and increase my skills',
-      code: 'USE_DIGITAL_TOOLS_AND_INCREASE_SKILLS',
+      code: skillsCodes.USE_DIGITAL_TOOLS_AND_INCREASE_SKILLS,
       number: 23,
       icon: 'defaultSkill',
       //  basic
@@ -212,7 +212,7 @@ const createSkills = async () => {
     {
       title:
         'I can recognise if I am being affected physically or mentally by being online',
-      code: 'RECOGNISE_IF_BEING_AFFECTED_BY_BEING_ONLINE',
+      code: skillsCodes.RECOGNISE_IF_BEING_AFFECTED_BY_BEING_ONLINE,
       number: 24,
       icon: 'defaultSkill',
       //  basic
@@ -220,7 +220,7 @@ const createSkills = async () => {
     {
       title:
         'I am aware of my behaviours and value and activity avoid saying something online that I would not say face to face',
-      code: 'AWARE_OF_BEHAVIOURS_AND_AVOID_SAYING_SOMETHING_ONLINE',
+      code: skillsCodes.AWARE_OF_BEHAVIOURS_AND_AVOID_SAYING_SOMETHING_ONLINE,
       number: 25,
       icon: 'defaultSkill',
       //  basic
@@ -228,21 +228,21 @@ const createSkills = async () => {
     {
       title:
         'I am kind and caring in online interactions, paying attention to others and showing empathy',
-      code: 'KIND_AND_CARING_IN_ONLINE_INTERACTIONS',
+      code: skillsCodes.KIND_AND_CARING_IN_ONLINE_INTERACTIONS,
       number: 26,
       icon: 'defaultSkill',
       //  basic
     },
     {
       title: 'I know that not everyone is digitally enabled',
-      code: 'NOT_EVERYONE_IS_DIGITALLY_ENABLED',
+      code: skillsCodes.NOT_EVERYONE_IS_DIGITALLY_ENABLED,
       number: 27,
       icon: 'defaultSkill',
       //  basic , work together
     },
     {
       title: 'I can share digital skills with others',
-      code: 'SHARE_DIGITAL_SKILLS_WITH_OTHERS',
+      code: skillsCodes.SHARE_DIGITAL_SKILLS_WITH_OTHERS,
       number: 28,
       icon: 'defaultSkill',
       //  meeting , data , work together
@@ -250,7 +250,7 @@ const createSkills = async () => {
     {
       title:
         'I know when something has gone wrong and are able to solve simple problems',
-      code: 'KNOW_WHEN_SOMETHING_HAS_GONE_WRONG',
+      code: skillsCodes.KNOW_WHEN_SOMETHING_HAS_GONE_WRONG,
       number: 29,
       icon: 'defaultSkill',
       //  finance , meetings , data, work together
@@ -258,7 +258,7 @@ const createSkills = async () => {
     {
       title:
         'I know how to look online and who to contact for the help and support',
-      code: 'LOOK_ONLINE_AND_CONTACT_FOR_HELP',
+      code: skillsCodes.LOOK_ONLINE_AND_CONTACT_FOR_HELP,
       number: 30,
       icon: 'defaultSkill',
       // basic , work together
@@ -268,42 +268,42 @@ const createSkills = async () => {
     // Communicate, collaborate and share online
     {
       title: 'I can write and edit simple documents',
-      code: 'WRITE_AND_EDIT_SIMPLE_DOCUMENTS',
+      code: skillsCodes.WRITE_AND_EDIT_SIMPLE_DOCUMENTS,
       number: 31,
       icon: 'defaultSkill',
       // basic , word out
     },
     {
       title: 'I can apply simple formatting to bodies of text',
-      code: 'SIMPLE_FORMATTING_TEXT',
+      code: skillsCodes.SIMPLE_FORMATTING_TEXT,
       number: 32,
       icon: 'defaultSkill',
       // data , word out
     },
     {
       title: 'I can use spreadsheets to process data',
-      code: 'USE_SPREADSHEETS_TO_PROCESS_DATA',
+      code: skillsCodes.USE_SPREADSHEETS_TO_PROCESS_DATA,
       number: 33,
       icon: 'defaultSkill',
       // programme , finance , data
     },
     {
       title: 'I can share documents with others',
-      code: 'SHARE_DOCUMENTS_WITH_OTHERS',
+      code: skillsCodes.SHARE_DOCUMENTS_WITH_OTHERS,
       number: 34,
       icon: 'defaultSkill',
       // data , word out
     },
     {
       title: 'I can work on a shared document with others',
-      code: 'WORK_ON_SHARED_DOCUMENT',
+      code: skillsCodes.WORK_ON_SHARED_DOCUMENT,
       number: 35,
       icon: 'defaultSkill',
       // meeting , work together
     },
     {
       title: 'I know when to use different communication methods',
-      code: 'USE_DIFFERENT_COMMUNICATION_METHODS',
+      code: skillsCodes.USE_DIFFERENT_COMMUNICATION_METHODS,
       number: 36,
       icon: 'defaultSkill',
       // meetings , working together
@@ -311,7 +311,7 @@ const createSkills = async () => {
     {
       title:
         'I can use email and messaging to communicate with multiple contacts',
-      code: 'EMAIL_AND_MESSAGING_MULTIPLE_CONTACTS',
+      code: skillsCodes.EMAIL_AND_MESSAGING_MULTIPLE_CONTACTS,
       number: 37,
       icon: 'defaultSkill',
       // programme, events , word out , working together
@@ -320,14 +320,14 @@ const createSkills = async () => {
     {
       title:
         'I can use online collaboration tools (eg Office365/Teams/OneDrive, G-Suite/Google Drive, Dropbox)',
-      code: 'USE_ONLINE_COLLABORATION_TOOLS',
+      code: skillsCodes.USE_ONLINE_COLLABORATION_TOOLS,
       number: 38,
       icon: 'defaultSkill',
       // programme , events , finance , meeting  data , word out, working together
     },
     {
       title: 'I know how to use social media to interact with users',
-      code: 'USE_SOCIAL_MEDIA_TO_INTERACT_WITH_USERS',
+      code: skillsCodes.USE_SOCIAL_MEDIA_TO_INTERACT_WITH_USERS,
       number: 39,
       icon: 'defaultSkill',
       // events ,  word out
@@ -335,42 +335,42 @@ const createSkills = async () => {
     {
       title:
         'I understand that the comments and views I share on social media or via email create a permanent, online record.',
-      code: 'COMMENTS_AND_VIEWS_CREATE_PERMANENT_ONLINE_RECORD',
+      code: skillsCodes.COMMENTS_AND_VIEWS_CREATE_PERMANENT_ONLINE_RECORD,
       number: 40,
       icon: 'defaultSkill',
       // meeting ,  word out
     },
     {
       title: 'I can join video calls/meetings',
-      code: 'JOIN_VIDEO_CALLS_MEETINGS',
+      code: skillsCodes.JOIN_VIDEO_CALLS_MEETINGS,
       number: 41,
       icon: 'defaultSkill',
       // events ,  meetings, working together
     },
     {
       title: 'I can run video calls/meetings',
-      code: 'RUN_VIDEO_CALLS_MEETINGS',
+      code: skillsCodes.RUN_VIDEO_CALLS_MEETINGS,
       number: 42,
       icon: 'defaultSkill',
       // programme ,  events, meetings , working together
     },
     {
       title: 'I can ensure online meetings are set up securely',
-      code: 'ENSURE_ONLINE_MEETINGS_ARE_SECURELY',
+      code: skillsCodes.ENSURE_ONLINE_MEETINGS_ARE_SECURELY,
       number: 43,
       icon: 'defaultSkill',
       // basic, events, meetings , working together
     },
     {
       title: 'I can share my screen to present things',
-      code: 'SHARE_SCREEN_TO_PRESENT',
+      code: skillsCodes.SHARE_SCREEN_TO_PRESENT,
       number: 44,
       icon: 'defaultSkill',
       // programme, meetings , working together
     },
     {
       title: 'I can run webinars for users',
-      code: 'RUN_WEBINARS',
+      code: skillsCodes.RUN_WEBINARS,
       number: 45,
       icon: 'defaultSkill',
       // events , meetings
@@ -378,7 +378,7 @@ const createSkills = async () => {
     {
       title:
         'I know how to use digital marketing techniques and tools to promote activities and events',
-      code: 'USE_DIGITAL_MARKETING_TECHNIQUES',
+      code: skillsCodes.USE_DIGITAL_MARKETING_TECHNIQUES,
       number: 46,
       icon: 'defaultSkill',
       // events , meetings, word out
@@ -389,21 +389,21 @@ const createSkills = async () => {
     {
       title:
         'I can create engaging, mobile first and easy to use (inc plain English) content for users.',
-      code: 'CREATE_ENGAGING_MOBILE_FIRST_CONTENT',
+      code: skillsCodes.CREATE_ENGAGING_MOBILE_FIRST_CONTENT,
       number: 47,
       icon: 'defaultSkill',
       // meetings, word out
     },
     {
       title: 'I can take and use photos and videos',
-      code: 'TAKE_AND_USE_PHOTOS_AND_VIDEOS',
+      code: skillsCodes.TAKE_AND_USE_PHOTOS_AND_VIDEOS,
       number: 48,
       icon: 'defaultSkill',
       // events, word out
     },
     {
       title: 'I can edit photos and videos',
-      code: 'EDIT_PHOTOS_AND_VIDEOS',
+      code: skillsCodes.EDIT_PHOTOS_AND_VIDEOS,
       number: 49,
       icon: 'defaultSkill',
       // word out
@@ -411,14 +411,14 @@ const createSkills = async () => {
     {
       title:
         'I know how to set the search engine optimisation (SEO) for content and how to use SEO images',
-      code: 'SET_SEO',
+      code: skillsCodes.SET_SEO,
       number: 50,
       icon: 'defaultSkill',
       // word out
     },
     {
       title: 'I know how to make sure content (text and media) is accessible',
-      code: 'MAKE_SURE_CONTENT_IS_ACCESSIBLE',
+      code: skillsCodes.MAKE_SURE_CONTENT_IS_ACCESSIBLE,
       number: 51,
       icon: 'defaultSkill',
       // word out
@@ -428,21 +428,21 @@ const createSkills = async () => {
     // Find, manage and store digital information and data securely
     {
       title: 'I can effectively name and store files',
-      code: 'EFFECTIVELY_NAME_AND_STORE_FILES',
+      code: skillsCodes.EFFECTIVELY_NAME_AND_STORE_FILES,
       number: 52,
       icon: 'defaultSkill',
       // finance , meetings, data
     },
     {
       title: 'I know how to handle personal data',
-      code: 'HANDLE_PERSONAL_DATA',
+      code: skillsCodes.HANDLE_PERSONAL_DATA,
       number: 53,
       icon: 'defaultSkill',
       // finance , meetings, data
     },
     {
       title: 'I know how to respond to data subject access requests',
-      code: 'RESPOND_TO_DATA_SUBJECT_ACCESS_REQUESTS',
+      code: skillsCodes.RESPOND_TO_DATA_SUBJECT_ACCESS_REQUESTS,
       number: 54,
       icon: 'defaultSkill',
       // finance , data
@@ -450,14 +450,14 @@ const createSkills = async () => {
     {
       title:
         'I know how to complete a review on any new processes or systems to ensure it is GDPR aligned',
-      code: 'REVIEW_SYSTEMS_TO_ENSURE_IT_IS_GDPR_ALIGNED',
+      code: skillsCodes.REVIEW_SYSTEMS_TO_ENSURE_IT_IS_GDPR_ALIGNED,
       number: 55,
       icon: 'defaultSkill',
       // data
     },
     {
       title: 'I know how to keep a backup of data',
-      code: 'KEEP_A_BACKUP_OF_DATA',
+      code: skillsCodes.KEEP_A_BACKUP_OF_DATA,
       number: 56,
       icon: 'defaultSkill',
       // finance , data
@@ -467,35 +467,35 @@ const createSkills = async () => {
     // Using tools for everyday tasks in your volunteering
     {
       title: 'I can locate information using a search tool',
-      code: 'LOCATE_INFORMATION_USING_SEARCH_TOOL',
+      code: skillsCodes.LOCATE_INFORMATION_USING_SEARCH_TOOL,
       number: 57,
       icon: 'defaultSkill',
       // programme , events , meetings
     },
     {
       title: 'I can use Online Scout Manager',
-      code: 'USE_ONLINE_SCOUT_MANAGER',
+      code: skillsCodes.USE_ONLINE_SCOUT_MANAGER,
       number: 58,
       icon: 'defaultSkill',
       // programme , events , finance , word out, working together
     },
     {
       title: 'I can use the Scouts Programme planning tool and activity finder',
-      code: 'USE_THE_SCOUTS_PROGRAMME_PLANNING_TOOL',
+      code: skillsCodes.USE_THE_SCOUTS_PROGRAMME_PLANNING_TOOL,
       number: 59,
       icon: 'defaultSkill',
       // programme
     },
     {
       title: 'I can use Compass',
-      code: 'I_CAN_USE_COMPASS',
+      code: skillsCodes.I_CAN_USE_COMPASS,
       number: 60,
       icon: 'defaultSkill',
       // data , word out
     },
     {
       title: 'I can use digital maps (e.g. Google Maps)',
-      code: 'USE_DIGITAL_MAPS',
+      code: skillsCodes.USE_DIGITAL_MAPS,
       number: 61,
       icon: 'defaultSkill',
       // events , meetings ,
@@ -503,7 +503,7 @@ const createSkills = async () => {
     {
       title:
         'I can place orders online for products and services (in line with procurement policies and processes)',
-      code: 'PLACE_ORDERS_ONLINE_FOR_PRODUCTS_AND_SERVICES',
+      code: skillsCodes.PLACE_ORDERS_ONLINE_FOR_PRODUCTS_AND_SERVICES,
       number: 62,
       icon: 'defaultSkill',
       // events , finance
@@ -511,7 +511,7 @@ const createSkills = async () => {
     {
       title:
         'I can create bookings online for things like travel and events (in line with procurement policies and processes)',
-      code: 'CREATE_BOOKINGS_ONLINE',
+      code: skillsCodes.CREATE_BOOKINGS_ONLINE,
       number: 63,
       icon: 'defaultSkill',
       // events , finance

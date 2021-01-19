@@ -1,4 +1,5 @@
 import { query } from '../connect';
+import { skillAreasCodes } from '../../constants';
 
 const createSkillArea = async (values) => {
   const sql = `
@@ -20,42 +21,42 @@ const createSkillAreas = async () => {
   const skillAreas = [
     {
       title: 'The basics',
-      code: 'BASICS',
+      code: skillAreasCodes.BASICS,
       icon: 'computer',
     },
     {
       title: 'Planning your programme digitally',
-      code: 'PLANNING_PROGRAMME_DIGITALLY',
+      code: skillAreasCodes.PLANNING_PROGRAMME_DIGITALLY,
       icon: 'online',
     },
     {
       title: 'Planning events and activities',
-      code: 'PLANNING_EVENTS_AND_ACTIVITIES',
+      code: skillAreasCodes.PLANNING_EVENTS_AND_ACTIVITIES,
       icon: 'plan',
     },
     {
       title: 'Digital Finances',
-      code: 'DIGITAL_FINANCES',
+      code: skillAreasCodes.DIGITAL_FINANCES,
       icon: 'finance',
     },
     {
       title: 'Digital meetings and training',
-      code: 'DIGITAL_MEETINGS_AND_TRAINING',
+      code: skillAreasCodes.DIGITAL_MEETINGS_AND_TRAINING,
       icon: 'meeting',
     },
     {
       title: 'Data and documents',
-      code: 'DATA_AND_DOCUMENTS',
+      code: skillAreasCodes.DATA_AND_DOCUMENTS,
       icon: 'document',
     },
     {
       title: 'Getting the word out',
-      code: 'GETTING_THE_WORD_OUT',
+      code: skillAreasCodes.GETTING_THE_WORD_OUT,
       icon: 'speaker',
     },
     {
       title: 'Working together',
-      code: 'WORKING_TOGETHER',
+      code: skillAreasCodes.WORKING_TOGETHER,
       icon: 'team',
     },
   ];
