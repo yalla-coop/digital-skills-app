@@ -3,40 +3,30 @@ import React from 'react';
 import Button from '.';
 
 export default {
-  title: 'Example/Button',
+  title: 'Common components/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = ({ txt, ...args }) => (
+  <div style={{ maxWidth: 350, margin: '0 auto' }}>
+    <Button {...args}>{txt}</Button>
+  </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  variant: 'primary',
+  txt: 'Primary button',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  variant: 'secondary',
+  txt: 'Secondary button',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
-
-export const Mid = Template.bind({});
-Mid.args = {
-  size: 'mid',
-  label: 'Button',
+export const Outlined = Template.bind({});
+Outlined.args = {
+  variant: 'outlined',
+  txt: 'Outlined button',
 };

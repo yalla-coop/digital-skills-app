@@ -1,56 +1,59 @@
-import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './button.css';
+import { LoadingOutlined } from '@ant-design/icons';
+import * as S from './style';
 
-/**
- * Primary UI component for user interaction
- */
-const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary';
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+const Button = (props) => {
+  const {
+    variant = 'primary',
+    size = variant === 'secondary' ? 'small' : 'large',
+    to,
+    handleClick,
+    loading,
+    disabled,
+
+    children,
+    ...rest
+  } = props;
+
+  const history = useHistory();
+
+  const onClick = (e) => {
+    if (to) history.push(to);
+    if (handleClick instanceof Function) handleClick(e);
+  };
+
   return (
-    <button
+    <S.Button
+      onClick={onClick}
+      variant={variant}
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
+      size={size}
+      disabled={disabled || loading}
+      {...rest}
     >
-      {label}
-    </button>
+      {loading && <S.Loading variant={variant} indicator={antIcon} />}
+      {typeof children === 'string' ? (
+        <S.Label as="span" variant={variant} isLoading={loading}>
+          {children}
+        </S.Label>
+      ) : (
+        children
+      )}
+    </S.Button>
   );
 };
 
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'outlined']),
+  size: PropTypes.oneOf(['small', 'large']),
+  to: PropTypes.string,
+  handleClick: PropTypes.func,
+  bgColor: PropTypes.oneOf(['blue', 'teal', 'purple']),
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default Button;
