@@ -44,7 +44,7 @@ const createUser = async (values) => {
 
 const createUsers = async (data) => {
   const {
-    organisations: { AvonTyrrellOrg, LegendsAndPioneersOrg },
+    organisations: { ScoutsOrg, LegendsAndPioneersOrg },
   } = data;
 
   const users = [
@@ -78,7 +78,7 @@ const createUsers = async (data) => {
       postcode: null,
       role: userRoles.HQ,
       password,
-      organisation: AvonTyrrellOrg.id,
+      organisation: ScoutsOrg.id,
       selectedPath: null,
       assessmentScore: 0,
       improvementScore: 0,

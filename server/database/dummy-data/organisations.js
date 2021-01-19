@@ -13,13 +13,13 @@ const createOrganisation = async (values) => {
 };
 
 const createOrganisations = async () => {
-  const AvonTyrrellOrg = await createOrganisation(['Avon Tyrrell']);
+  const ScoutsOrg = await createOrganisation(['Scouts']);
   const LegendsAndPioneersOrg = await createOrganisation([
     'Legends & pioneers',
   ]);
 
   return {
-    AvonTyrrellOrg,
+    ScoutsOrg,
     LegendsAndPioneersOrg,
   };
 };

@@ -17,11 +17,11 @@ const createVolunteersOrganisation = async (values) => {
 const createVolunteersOrganisations = async (data) => {
   const {
     users: { JohnReese, HaroldFinch },
-    organisations: { AvonTyrrellOrg, LegendsAndPioneersOrg },
+    organisations: { ScoutsOrg, LegendsAndPioneersOrg },
   } = data;
 
   await createVolunteersOrganisation({
-    organisationId: AvonTyrrellOrg.id,
+    organisationId: ScoutsOrg.id,
     volunteerId: JohnReese.id,
   });
 
@@ -31,7 +31,7 @@ const createVolunteersOrganisations = async (data) => {
   });
 
   await createVolunteersOrganisation({
-    organisationId: AvonTyrrellOrg.id,
+    organisationId: ScoutsOrg.id,
     volunteerId: HaroldFinch.id,
   });
 };
