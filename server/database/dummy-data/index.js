@@ -10,6 +10,7 @@ import createUsersCompletedActivities from './users-completed-activities';
 import createUsersSkillAreas from './users-skill-areas';
 import createActivitiesSkills from './activities-skills';
 import createUsersSkills from './users-skills';
+import createUsersCheckIns from './users-check-ins';
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
@@ -28,6 +29,7 @@ const buildData = async () => {
   await createUsersSkillAreas(createdData);
   await createActivitiesSkills(createdData);
   await createUsersSkills(createdData);
+  await createUsersCheckIns(createdData);
 
   return createdData;
 };

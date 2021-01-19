@@ -28,7 +28,6 @@ const createUsersSkills = async (data) => {
   const {
     skills,
     users: { JohnReese },
-    activities: { microsoftWordActivity, outlookExpress },
   } = data;
 
   const activitiesSkills = [
