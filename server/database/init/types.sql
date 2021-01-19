@@ -4,17 +4,17 @@ DROP TYPE IF EXISTS learning_paths CASCADE;
 DROP TYPE IF EXISTS skills_statuses CASCADE;
 
 CREATE TYPE "users_roles" AS ENUM (
-  'volunteer',
-  'hq'
+  'VOLUNTEER',
+  'HQ'
 );
 
 CREATE TYPE "learning_paths" AS ENUM (
-  'basic',
-  'improve'
+  'BASIC',
+  'IMPROVE'
 );
 
 CREATE TYPE "skills_statuses" AS ENUM (
-  'already_has',
-  'completed',
-  'queued'
+  'ALREADY_HAS',
+  'COMPLETED',
+  'QUEUED'
 );
