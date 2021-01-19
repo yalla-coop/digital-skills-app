@@ -30,7 +30,7 @@ const createUsersSkills = async (data) => {
     users: { JohnReese },
   } = data;
 
-  const activitiesSkills = [
+  const userSkills = [
     {
       userId: JohnReese.id,
       skillId: skills[1].id,
@@ -46,7 +46,7 @@ const createUsersSkills = async (data) => {
     {
       userId: JohnReese.id,
       skillId: skills[3].id,
-      status: skillStatuses.QUEUED,
+      status: skillStatuses.COMPLETED,
     },
   ];
 
@@ -55,9 +55,9 @@ const createUsersSkills = async (data) => {
       /* keep it empty to make index works */
     },
   ];
-  for (let i = 0; i < activitiesSkills.length; i += 1) {
+  for (let i = 0; i < userSkills.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
-    const userSkill = await createUserSkill(activitiesSkills[i]);
+    const userSkill = await createUserSkill(userSkills[i]);
     _data.push(userSkill);
   }
   return _data;

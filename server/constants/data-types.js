@@ -12,5 +12,4 @@ export const learningPaths = {
 export const skillStatuses = {
   ALREADY_HAS: 'ALREADY_HAS',
   COMPLETED: 'COMPLETED',
-  QUEUED: 'QUEUED',
 };
