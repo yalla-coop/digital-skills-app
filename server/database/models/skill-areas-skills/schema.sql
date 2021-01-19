@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS "skills_areas_skills" CASCADE;
+DROP TABLE IF EXISTS "skill_areas_skills" CASCADE;
 
-CREATE TABLE "skills_areas_skills" (
+CREATE TABLE "skill_areas_skills" (
   "id" SERIAL PRIMARY KEY,
   "skill_area" INTEGER REFERENCES skill_areas(id),
   "skill" INTEGER REFERENCES skills(id),
@@ -9,6 +9,6 @@ CREATE TABLE "skills_areas_skills" (
 );
 
 CREATE TRIGGER set_timestamp
-BEFORE UPDATE ON "skills_areas_skills"
+BEFORE UPDATE ON "skill_areas_skills"
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();

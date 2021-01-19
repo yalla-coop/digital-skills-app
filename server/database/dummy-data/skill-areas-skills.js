@@ -2,7 +2,7 @@ import { query } from '../connect';
 
 const createSkillAreasSkill = async (values) => {
   const sql = `
-    INSERT INTO skills_areas_skills(
+    INSERT INTO skill_areas_skills(
       skill,
       skill_area
     ) VALUES (

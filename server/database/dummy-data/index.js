@@ -4,7 +4,7 @@ import createOrganisations from './organisations';
 import volunteersOrganisations from './volunteers-organisations';
 import createSkillAreas from './skill-areas';
 import createSkills from './skills';
-import createSkillsAreasSkills from './skills-areas-skills';
+import createSkillsAreasSkills from './skill-areas-skills';
 import createActivities from './activities';
 import createUsersCompletedActivities from './users-completed-activities';
 import createUsersSkillAreas from './users-skill-areas';

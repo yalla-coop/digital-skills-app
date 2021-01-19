@@ -5,7 +5,7 @@ import Organisation from './organisation';
 import VolunteersOrganisation from './volunteers-organisations';
 import SkillAreas from './skill-areas';
 import Skills from './skills';
-import SkillAreasSkills from './skills-areas-skills';
+import SkillAreasSkills from './skill-areas-skills';
 import UsersCheckIns from './users-check-ins';
 import UsersCompletedActivities from './users-completed-activities';
 import UsersSkillAreas from './users-skill-areas';
