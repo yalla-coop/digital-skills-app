@@ -24,7 +24,6 @@ const buildData = async () => {
   createdData.skills = await createSkills(createdData);
   await createSkillsAreasSkills(createdData);
   createdData.activities = await createActivities(createdData);
-  createdData.activities = await createActivities(createdData);
   await createUsersCompletedActivities(createdData);
   await createUsersSkillAreas(createdData);
   await createActivitiesSkills(createdData);
