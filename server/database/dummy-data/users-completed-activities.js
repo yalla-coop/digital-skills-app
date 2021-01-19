@@ -35,7 +35,7 @@ const createUserCompletedActivities = async (data) => {
   ];
 
   const JohnReeseCompletedMicrosoftWord = await createUserCompletedActivity(
-    completedActivities,
+    completedActivities[0],
   );
 
   return {
