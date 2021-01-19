@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS "users_skills" CASCADE;
 
 CREATE TABLE "users_skills" (
   "id" SERIAL PRIMARY KEY,
-  "user" INTEGER REFERENCES users(id),
-  "skill" INTEGER REFERENCES skills(id),
-  "status" skills_statuses,
+  "user" INTEGER REFERENCES users(id) NOT NULL,
+  "skill" INTEGER REFERENCES skills(id) NOT NULL,
+  "status" skills_statuses NOT NULL,
   "added_score" INTEGER, -- 12.77% => 1277
-  "created_at" TIMESTAMPTZ,
-  "updated_at" TIMESTAMPTZ
+  "created_at" TIMESTAMPTZ DEFAULT NOW(),
+  "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TRIGGER set_timestamp

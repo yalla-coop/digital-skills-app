@@ -21,8 +21,8 @@ const build = async () => {
   await init.createTypes();
   await init.createAutoTimestamps();
   await init.buildMigrations();
-  await User.createTable();
   await Organisation.createTable();
+  await User.createTable();
   await VolunteersOrganisation.createTable();
   await Activities.createTable();
   await UsersCompletedActivities.createTable();

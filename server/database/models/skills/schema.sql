@@ -2,13 +2,13 @@ DROP TABLE IF EXISTS "skills" CASCADE;
 
 CREATE TABLE "skills" (
   "id" SERIAL PRIMARY KEY,
-  "title" VARCHAR,
-  "code" VARCHAR,
+  "title" VARCHAR NOT NULL,
+  "code" VARCHAR NOT NULL,
   "description" TEXT,
-  "image" VARCHAR,
+  "icon" VARCHAR,
   "tasks" VARCHAR[],
-  "created_at" TIMESTAMPTZ,
-  "updated_at" TIMESTAMPTZ
+  "created_at" TIMESTAMPTZ DEFAULT NOW(),
+  "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TRIGGER set_timestamp
