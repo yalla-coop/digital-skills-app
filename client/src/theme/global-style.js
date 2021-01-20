@@ -24,6 +24,15 @@ const style = css`
     padding: 0;
     font-family: 'Nunito Sans', sans-serif;
     overflow-x: hidden;
+
+    // ANTD OVERRIDES
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      background-color: red !important;
+    }
+
+    .ant-select-item-group {
+      color: red;
+    }
   }
 
   code {
@@ -43,6 +52,15 @@ const style = css`
     padding: 0;
     box-sizing: inherit;
     font-family: 'Nunito Sans', sans-serif;
+
+    // ANTD OVERRIDES
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      background-color: red !important;
+    }
+
+    .ant-select-item-group {
+      color: red;
+    }
   }
 `;
 

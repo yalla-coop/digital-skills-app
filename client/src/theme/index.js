@@ -8,7 +8,7 @@ const constants = {
   // ...
 };
 
-const colors = {
+export const colors = {
   pink: '#FFB4E5',
   blue: '#0061CE',
   liteBlue: '#E6EFFA',
@@ -19,7 +19,12 @@ const colors = {
   lightPurple: '#9B51E0',
   navy: '#002F6C',
   black: ' #1E1E1E',
-  gray: '404040',
+  gray: '#404040',
+  liteGray: '#6E6E6E',
+  error: '#E22E12',
+  literGray: '#E5E5E5',
+  litestGray: '#F1F1F1',
+  white: '#FFFFFF',
 };
 
 const spacings = {
@@ -52,6 +57,11 @@ export const breakpoints = {
   desktop: `${screensWidth.desktop}px`,
 };
 
+export const borders = {
+  primary: `2px solid`,
+  emphasis: `5px solid`,
+};
+
 const theme = {
   name: 'default', // for storybook
   colors,
@@ -60,6 +70,7 @@ const theme = {
   media,
   breakpoints,
   constants,
+  borders,
 };
 
 export { globalStyle };

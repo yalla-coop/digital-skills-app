@@ -2,6 +2,7 @@ import theme from './../../theme';
 
 // ICONS
 import Email from './icons/Email';
+import Tick from './icons/Tick';
 import LeftRow from './icons/LeftRow';
 import Planning from './icons/Planning';
 import Office from './icons/Office';
@@ -24,6 +25,7 @@ const Icon = (props) => {
 
   const IconMap = {
     email: Email,
+    tick: Tick,
     leftRow: LeftRow,
     planning: Planning,
     office: Office,
