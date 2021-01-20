@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import setMargin from '../../helpers/setMargin';
+import setMargin from '../../helpers/set-margin';
 
 const communStyle = ({ theme, color, caps, ...props }) => `
 font-style: normal;
