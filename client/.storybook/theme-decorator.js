@@ -1,7 +1,6 @@
 import React from "react"
-import { ThemeProvider } from '@emotion/react';
-import theme from "./../src/theme"
-import 'antd/dist/antd.css';
+import { ThemeProvider, Global } from '@emotion/react';
+import theme, { globalStyle } from "./../src/theme";
 
 import 'antd/dist/antd.css';
 
@@ -11,7 +10,12 @@ const style = {
 }
 
 const ThemeDecorator = storyFn => (
-  <ThemeProvider theme={theme}><div style={style}>{storyFn()}</div></ThemeProvider>
-)
+  <>
+    <Global styles={globalStyle} />
+    <ThemeProvider theme={theme}>
+      <div style={style}>{storyFn()}</div>
+    </ThemeProvider>
+  </>
+);
 
 export default ThemeDecorator

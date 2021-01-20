@@ -25,6 +25,8 @@ export const colors = {
   literGray: '#E5E5E5',
   litestGray: '#F1F1F1',
   white: '#FFFFFF',
+  gray1: '#cccccc',
+  blackDark: '#000',
 };
 
 const spacings = {
