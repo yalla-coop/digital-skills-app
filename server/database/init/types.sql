@@ -1,4 +1,19 @@
 
-DROP TYPE IF EXISTS test_type CASCADE;
+DROP TYPE IF EXISTS users_roles CASCADE;
+DROP TYPE IF EXISTS learning_paths CASCADE;
+DROP TYPE IF EXISTS skills_statuses CASCADE;
 
-CREATE TYPE test_type AS ENUM('type_1', 'type_2');
+CREATE TYPE "users_roles" AS ENUM (
+  'VOLUNTEER',
+  'HQ'
+);
+
+CREATE TYPE "learning_paths" AS ENUM (
+  'BASIC',
+  'IMPROVE'
+);
+
+CREATE TYPE "skills_statuses" AS ENUM (
+  'ALREADY_HAS',
+  'COMPLETED'
+);

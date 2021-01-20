@@ -4,7 +4,7 @@ import Debug from 'debug';
 import config from '../config';
 import { toCamelcase, toParentChild, sanitizeCSVInjection } from './utils';
 
-const debug = Debug('server');
+const debug = Debug('database');
 
 const connectionString = config.database.url;
 const { env } = config.common;
