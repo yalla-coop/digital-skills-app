@@ -1,12 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const General = ({ children, ...props }) => {
+import SideBar from './SideBar';
+import Menu from './Menu';
+import Header from './Header';
+
+import * as S from './style';
+
+const General = ({ children, headerIcon, ...props }) => {
   return (
     <>
-      <header>header</header>
-      <main>{children}</main>
-      <footer>footer</footer>
+      <S.Layout>
+        <SideBar menu={<Menu />} />
+        <S.Layout>
+          <Header headerIcon={headerIcon} />
+          <S.AntdContent>{children}</S.AntdContent>
+          <S.AntdFooter>Footer</S.AntdFooter>
+        </S.Layout>
+      </S.Layout>
     </>
   );
 };

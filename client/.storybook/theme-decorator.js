@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 const style = {
   width: '100%',
   minHeight: "100vh",
+  fontFamily: '"Nunito Sans", sans-serif',
 }
 
 const ThemeDecorator = storyFn => (

@@ -19,30 +19,42 @@ import Darts from './icons/Darts';
 import Crown from './icons/Crown';
 import Flash from './icons/Flash';
 import Cup from './icons/Cup';
+import Diamond from './icons/Diamond';
+import Resources from './icons/Resources';
+import SkillComplete from './icons/SkillComplete';
+import ActivityComplete from './icons/ActivityComplete';
+import ThankYou from './icons/ThankYou';
+import Success from './icons/Success';
+
+export const IconMap = {
+  email: Email,
+  leftRow: LeftRow,
+  planning: Planning,
+  office: Office,
+  brokenLamp: BrokenLamp,
+  camera: Camera,
+  file: File,
+  textFile: TextFile,
+  discussion: Discussion,
+  shareMedia: ShareMedia,
+  backup: Backup,
+  calendar: Calendar,
+  notebook: Notebook,
+  darts: Darts,
+  crown: Crown,
+  flash: Flash,
+  cup: Cup,
+  diamond: Diamond,
+  resources: Resources,
+  skillComplete: SkillComplete,
+  activityComplete: ActivityComplete,
+  thankYou: ThankYou,
+  success: Success,
+  tick: Tick,
+};
 
 const Icon = (props) => {
   const { icon, color } = props;
-
-  const IconMap = {
-    email: Email,
-    tick: Tick,
-    leftRow: LeftRow,
-    planning: Planning,
-    office: Office,
-    brokenLamp: BrokenLamp,
-    camera: Camera,
-    file: File,
-    textFile: TextFile,
-    discussion: Discussion,
-    shareMedia: ShareMedia,
-    backup: Backup,
-    calendar: Calendar,
-    notebook: Notebook,
-    darts: Darts,
-    crown: Crown,
-    flash: Flash,
-    cup: Cup,
-  };
 
   const StyledIcon = IconMap[icon];
 

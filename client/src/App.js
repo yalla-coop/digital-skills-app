@@ -30,6 +30,8 @@ function App() {
               isLoggedIn={isLoggedIn}
               isMounted={isMounted}
               Component={() => <Example onLogin={() => {}} />}
+              layout="notification"
+              headerIcon="email"
             />
           </Switch>
         </Router>

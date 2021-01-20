@@ -5,6 +5,8 @@ const constants = {
   gridGutter: { mobile: 8, tablet: 16, desktop: 16 },
   // side menu width
   // header height
+  headerHeight: { desktop: '300px', mobile: '180px' },
+  blockWidth: '15.7%',
   // ...
 };
 
