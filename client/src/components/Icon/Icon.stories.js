@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icon, { IconMap } from '.';
+import Icon, { IconMap } from './index';
 
 export default {
   title: 'Common Components/Icon',
@@ -25,7 +25,7 @@ export const Icons = () => (
   <div style={{ display: 'flex', flexWrap: 'wrap' }}>
     {Object.keys(IconMap).map((i) => (
       <div style={{ width: '20%', marginTop: 20 }}>
-        <Icon icon={i} width={50} height={50} color="black" />
+        <Icon icon={i || 'email'} width={50} height={50} color="black" />
         <h4 style={{ margin: '7px 5px' }}>{i}</h4>
       </div>
     ))}

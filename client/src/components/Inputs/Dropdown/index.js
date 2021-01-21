@@ -22,6 +22,9 @@ const Dropdown = ({
   selected,
   multi,
   matrix,
+  big,
+  outline,
+  mb,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -93,12 +96,21 @@ const Dropdown = ({
       multi={multi}
       color={decideColor()}
       matrix={matrix}
+      big={big}
+      outline={outline}
+      mb={mb || '3'}
     >
       {label && (
         <S.Label htmlFor={label} matrix={matrix}>
-          <T.Body16B color={decideColor()} m="0" mb="1" ml="1">
-            {label}
-          </T.Body16B>
+          {big ? (
+            <T.H5 color={decideColor()} m="0" mb="3" ml="1">
+              {label}
+            </T.H5>
+          ) : (
+            <T.Body16B color={decideColor()} m="0" mb="1" ml="1">
+              {label}
+            </T.Body16B>
+          )}
           {helper && (
             <T.Body16 color={decideColor()} m="0" mb="1" ml="1">
               {helper}

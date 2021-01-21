@@ -15,6 +15,9 @@ const BasicInput = ({
   color,
   w,
   disabled,
+  outline,
+  mb,
+  big,
 }) => {
   const decideColor = () => {
     if (error) return 'error';
@@ -22,12 +25,18 @@ const BasicInput = ({
   };
 
   return (
-    <CS.Field w={w} disabled={disabled} mb="3">
+    <CS.Field w={w} disabled={disabled} mb={mb || '3'}>
       {label && (
         <CS.Label htmlFor={label}>
-          <T.Body16B color={decideColor()} m="0" mb="1" ml="1">
-            {label}
-          </T.Body16B>
+          {big ? (
+            <T.H5 color={decideColor()} m="0" mb="2" ml="1">
+              {label}
+            </T.H5>
+          ) : (
+            <T.Body16B color={decideColor()} m="0" mb="1" ml="1">
+              {label}
+            </T.Body16B>
+          )}
           {helper && (
             <T.Body16 color={decideColor()} m="0" mb="1" ml="1">
               {helper}
@@ -48,6 +57,8 @@ const BasicInput = ({
         onChange={handleChange}
         color={decideColor()}
         disabled={disabled}
+        outline={outline}
+        big={big}
       />
       {error && (
         <T.Body16 color="error" m="0" mt="1">

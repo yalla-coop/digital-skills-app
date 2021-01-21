@@ -18,6 +18,7 @@ export const colors = {
   mediumTeal: '#61C5BA',
   liteTeal: '#CCEDEA',
   purple: '#490499',
+  medPurple: '#7413DC',
   lightPurple: '#9B51E0',
   navy: '#002F6C',
   black: ' #1E1E1E',
@@ -41,6 +42,10 @@ const spacings = {
   6: '3rem',
   7: '4rem',
   8: '5rem',
+};
+
+const shadows = {
+  card: `drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.03)) drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05)) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.03))`,
 };
 
 export const screensWidth = {
@@ -70,6 +75,7 @@ const theme = {
   name: 'default', // for storybook
   colors,
   spacings,
+  shadows,
   screensWidth,
   media,
   breakpoints,

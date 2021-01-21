@@ -23,7 +23,9 @@ export const Button = styled.button`
     return color;
   }};
   border: ${({ variant, theme }) =>
-    variant === 'outlined' ? `4px solid ${theme.colors.teal}` : 'none'};
+    variant === 'outlined'
+      ? `4px solid ${theme.colors.teal}`
+      : `4px solid ${theme.colors.white}`};
 
   /* for disabled style */
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};

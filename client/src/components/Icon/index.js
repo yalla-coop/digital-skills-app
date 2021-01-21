@@ -19,6 +19,7 @@ import Darts from './icons/Darts';
 import Crown from './icons/Crown';
 import Flash from './icons/Flash';
 import Cup from './icons/Cup';
+import Help from './icons/Help';
 import Diamond from './icons/Diamond';
 import Resources from './icons/Resources';
 import SkillComplete from './icons/SkillComplete';
@@ -51,10 +52,17 @@ export const IconMap = {
   thankYou: ThankYou,
   success: Success,
   tick: Tick,
+  help: Help,
 };
 
 const Icon = (props) => {
-  const { icon, color } = props;
+  const { icon, color, m } = props;
+
+  if (!IconMap[icon]) {
+    // eslint-disable-next-line no-console
+    console.warn(`<Icon /> called with invalid icon prop "${icon}"`);
+    return null;
+  }
 
   const StyledIcon = IconMap[icon];
 
@@ -62,6 +70,7 @@ const Icon = (props) => {
     <StyledIcon
       {...props}
       color={theme.colors[color] || color || 'currentColor'}
+      style={{ margin: m || '0' }}
     />
   );
 };

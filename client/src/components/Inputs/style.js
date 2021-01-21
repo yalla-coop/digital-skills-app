@@ -2,30 +2,30 @@
 import styled from '@emotion/styled';
 import setMargin from '../../helpers/set-margin';
 
-export const placeholderStyle = ({ theme }) => `
+export const placeholderStyle = ({ theme, big, outline }) => `
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.liteGray};
+    font-size: ${big ? '23.3px' : '1rem'};
+    color: ${outline ? theme.colors.white : theme.colors.liteGray};
   }
   ::-moz-placeholder { /* Firefox 19+ */
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.liteGray};
+    font-size: ${big ? '23.3px' : '1rem'};
+    color: ${outline ? theme.colors.white : theme.colors.liteGray};
   }
   :-ms-input-placeholder { /* IE 10+ */
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.liteGray};
+    font-size: ${big ? '23.3px' : '1rem'};
+    color: ${outline ? theme.colors.white : theme.colors.liteGray};
   }
   :-moz-placeholder { /* Firefox 18- */
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.liteGray};
+    font-size: ${big ? '23.3px' : '1rem'};
+    color: ${outline ? theme.colors.white : theme.colors.liteGray};
   }
 `;
 
