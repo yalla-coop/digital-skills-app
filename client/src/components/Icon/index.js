@@ -26,6 +26,7 @@ import SkillComplete from './icons/SkillComplete';
 import ActivityComplete from './icons/ActivityComplete';
 import ThankYou from './icons/ThankYou';
 import Success from './icons/Success';
+import Scouts from './icons/Scouts';
 
 export const IconMap = {
   email: Email,
@@ -52,6 +53,7 @@ export const IconMap = {
   thankYou: ThankYou,
   success: Success,
   tick: Tick,
+  scouts: Scouts,
   help: Help,
 };
 

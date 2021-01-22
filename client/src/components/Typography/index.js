@@ -5,7 +5,7 @@ const communStyle = ({ theme, color, caps, ...props }) => `
 font-style: normal;
 letter-spacing: 0.2px;
 color: ${theme.colors[color] || color || theme.colors.black};
-text-transform: ${caps ? 'uppercase' : 'initial'}
+text-transform: ${caps ? 'uppercase' : 'initial'};
 `;
 
 const h1Style = `

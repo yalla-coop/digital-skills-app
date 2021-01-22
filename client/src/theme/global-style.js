@@ -35,6 +35,21 @@ const style = css`
     }
   }
 
+  /* to override body margin on storybook */
+  .sb-show-main.sb-main-padded {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
