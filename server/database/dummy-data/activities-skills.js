@@ -1,4 +1,5 @@
 import { query } from '../connect';
+import { formattedSkillActivities } from './initSkillsToActivitiesData';
 
 const createActivitySkill = async (values) => {
   const sql = `
@@ -17,36 +18,26 @@ const createActivitySkill = async (values) => {
 const createActivitiesSkills = async (data) => {
   const {
     skills,
-    activities: { microsoftWordActivity, outlookExpress },
+    activities: { addedActivities },
   } = data;
 
-  const activitiesSkills = [
-    {
-      skillId: skills[1].id,
-      activityId: microsoftWordActivity.id,
-    },
-    {
-      skillId: skills[2].id,
-      activityId: microsoftWordActivity.id,
-    },
-    {
-      skillId: skills[13].id,
-      activityId: microsoftWordActivity.id,
-    },
+  const activitiesSkills = [];
 
-    {
-      skillId: skills[1].id,
-      activityId: outlookExpress.id,
-    },
-    {
-      skillId: skills[2].id,
-      activityId: outlookExpress.id,
-    },
-    {
-      skillId: skills[29].id,
-      activityId: outlookExpress.id,
-    },
-  ];
+  formattedSkillActivities.forEach((skill) => {
+    const foundSkill = skills.find((s) => s.title === skill.skillTitle);
+
+    if (foundSkill) {
+      skill.activityTitles.forEach((title) => {
+        const foundActivity = addedActivities.find((a) => a.title === title);
+        if (foundActivity) {
+          activitiesSkills.push({
+            skillId: foundSkill.id,
+            activityId: foundActivity.id,
+          });
+        }
+      });
+    }
+  });
 
   const _data = [
     {

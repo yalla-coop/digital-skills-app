@@ -23,13 +23,17 @@ const createUserCompletedActivity = async (values) => {
 const createUserCompletedActivities = async (data) => {
   const {
     users: { JohnReese },
-    activities: { microsoftWordActivity },
+    activities: { addedActivities },
   } = data;
+
+  const microsoftActivity = addedActivities.find(
+    (a) => a.title === 'Using Microsoft Word',
+  );
 
   const completedActivities = [
     {
       userId: JohnReese.id,
-      activityId: microsoftWordActivity.id,
+      activityId: microsoftActivity.id,
       addedScore: 7.0,
     },
   ];
