@@ -24,13 +24,16 @@ export const Row = styled.div`
 
 export const Col = styled('div')`
   box-sizing: border-box;
-  padding-left: 10;
-  padding-right: 10;
+  padding-left: 10px;
+  padding-right: 10px;
   flex-shrink: 0;
   position: relative;
   width: 100%;
   min-height: 1;
   height: 100%;
+  margin-top: ${({ mt, theme }) => theme.spacings[mt] || '0'};
+  margin-bottom: ${({ mb, theme }) => theme.spacings[mb] || '0'};
+
   flex-basis: ${({ theme, c3 }) =>
     `calc(${(c3 / theme.constants.columns.desktop) * 100}%)`};
   max-width: ${({ theme, c3 }) =>

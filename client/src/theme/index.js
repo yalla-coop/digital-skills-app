@@ -15,10 +15,10 @@ const spacings = {
 
 const constants = {
   columns: { mobile: 4, tablet: 6, desktop: 12 },
-  gridGutter: { mobile: 8, tablet: 16, desktop: 16 },
+  gridGutter: { mobile: 8, tablet: 12, desktop: 12 },
   layout: {
     withoutHeader: {
-      padding: { desktop: '60px', mobile: '16px' },
+      padding: { desktop: '48px', mobile: '16px' },
     },
   },
   // side menu width

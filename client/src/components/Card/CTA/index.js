@@ -27,8 +27,8 @@ const CTA = ({ title, text, path, pathLabel, color = 'blue', icon, align }) => {
       )}
       <CS.Content mb="4">
         {text &&
-          createTextArr.map((sentence) => (
-            <T.BodyR color="white" m="0" mb="3">
+          createTextArr.map((sentence, i) => (
+            <T.BodyR color="white" m="0" mb="3" key={i}>
               {sentence}.
             </T.BodyR>
           ))}

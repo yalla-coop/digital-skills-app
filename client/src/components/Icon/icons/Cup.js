@@ -14,16 +14,16 @@ const Cup = ({ width, height, color, strokeColor, ...props }) => (
     <path
       d="M45.7186 118.719H87.2811M66.4999 118.719V85.9688M99.7499 57.3125C99.7499 44.3558 99.7291 22.8662 99.7187 16.375C99.7187 15.2893 99.2808 14.248 98.5014 13.4803C97.7219 12.7126 96.6648 12.2813 95.5625 12.2812L37.4295 12.3478C36.3295 12.3478 35.2743 12.7773 34.4952 13.5423C33.7161 14.3072 33.2767 15.3452 33.2733 16.4287C33.2733 24.2529 33.2395 49.4781 33.2395 57.3125C33.2395 73.7591 54.8 85.9688 66.4895 85.9688C78.1789 85.9688 99.7499 73.7591 99.7499 57.3125Z"
       stroke={strokeColor || '#0061CE'}
-      stroke-width="4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M99.75 24.5625H120.531V28.6562C120.531 42.7848 111.816 57.3125 99.75 57.3125M33.25 24.5625H12.4688V28.6562C12.4688 42.7848 21.1839 57.3125 33.25 57.3125V24.5625Z"
       stroke={strokeColor || '#0061CE'}
-      stroke-width="4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

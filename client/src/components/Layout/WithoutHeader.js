@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import SideBar from './SideBar';
 import Menu from './Menu';
 
-import { Layout, AntdFooter, AntdContent } from './style';
+import { Layout, AntdFooter, Content } from './style';
 
 const WithoutHeader = ({ children }) => {
   return (
@@ -14,7 +14,7 @@ const WithoutHeader = ({ children }) => {
       <Layout>
         <SideBar menu={<Menu />} />
         <Layout>
-          <AntdContent>{children}</AntdContent>
+          <Content withoutHeader>{children}</Content>
           <AntdFooter>Footer</AntdFooter>
         </Layout>
       </Layout>

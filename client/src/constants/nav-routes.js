@@ -2,6 +2,8 @@ const GENERAL = {
   HOME: '/',
   LOGIN: '/login',
   UNAUTHORIZED: '/unauthorized',
+  ASSESSMENT: '/digital-test',
+  HELP_OTHERS: '/help-others',
 };
 
 const VOLUNTEER = {

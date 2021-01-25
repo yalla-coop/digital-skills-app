@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import * as Pages from './pages';
 import theme, { globalStyle } from './theme';
 import { Route } from './components';
-import { navRoutes, roles } from './constants';
+import { navRoutes } from './constants';
 import { AuthProvider } from './context/auth';
 
 import './App.css';
@@ -18,15 +18,6 @@ function App() {
         <AuthProvider>
           <Router>
             <Switch>
-              <Route
-                exact
-                path="/"
-                isPrivate
-                allowedRoles={[roles.VOLUNTEER, roles.HQ]}
-                Component={() => <Pages.Example onLogin={() => {}} />}
-                layout="notification"
-                headerIcon="email"
-              />
               {/* Auth Routes */}
               <Route
                 exact
@@ -45,6 +36,13 @@ function App() {
                 path={navRoutes.GENERAL.LOGIN}
                 Component={Pages.Login}
                 layout="withBlocks"
+              />
+              {/* General routes */}
+              <Route
+                exact
+                path={navRoutes.GENERAL.HOME}
+                Component={() => <Pages.Landing />}
+                layout="withoutHeader"
               />
             </Switch>
           </Router>

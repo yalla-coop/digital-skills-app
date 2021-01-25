@@ -3,7 +3,7 @@ import * as T from '../../Typography';
 import Button from '../../Button';
 import Icon from '../../Icon';
 
-const HelpOut = ({ title, text, path, pathLabel, color = 'teal', icon }) => {
+const HelpOut = ({ title, text, path, pathLabel, color = 'purple', icon }) => {
   const createTextArr = text.split('. ');
   return (
     <CS.Wrapper color={color}>
@@ -25,12 +25,13 @@ const HelpOut = ({ title, text, path, pathLabel, color = 'teal', icon }) => {
           />
         )}
         {text &&
-          createTextArr.map((sentence) => (
+          createTextArr.map((sentence, i) => (
             <T.BodyR
               color="white"
               m="0"
               mb="3"
               style={{ maxWidth: icon && '60%' }}
+              key={i}
             >
               {sentence}.
             </T.BodyR>
