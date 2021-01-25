@@ -63,20 +63,18 @@ app.use(
   }),
 );
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, _, res, next) => {
-  if (Boom.isBoom(err)) {
-    const { statusCode, payload } = err.output;
-
-    return res.status(statusCode).json({
-      ...payload,
-      ...err.data,
-    });
+  let error = err;
+  if (!Boom.isBoom(err)) {
+    error = Boom.badImplementation(err.message);
   }
+  const { statusCode, payload } = error.output;
 
-  const error = Boom.badImplementation(err.message);
-  res.status(500).json(error);
-
-  return next(err);
+  return res.status(statusCode).json({
+    ...payload,
+    ...error.data,
+  });
 });
 
 export default app;

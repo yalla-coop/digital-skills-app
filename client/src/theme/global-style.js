@@ -24,29 +24,20 @@ const style = css`
     padding: 0;
     font-family: 'Nunito Sans', sans-serif;
     overflow-x: hidden;
-
-    // ANTD OVERRIDES
-    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-      background-color: red !important;
-    }
-
-    .ant-select-item-group {
-      color: red;
-    }
   }
 
-  /* to override body margin on storybook */
+  /* to override body margin from antd */
   .sb-show-main.sb-main-padded {
     margin: 0;
     padding: 0;
   }
-
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     margin: 0;
   }
 
@@ -67,15 +58,6 @@ const style = css`
     padding: 0;
     box-sizing: inherit;
     font-family: 'Nunito Sans', sans-serif;
-
-    // ANTD OVERRIDES
-    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-      background-color: red !important;
-    }
-
-    .ant-select-item-group {
-      color: red;
-    }
   }
 `;
 

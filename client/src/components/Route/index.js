@@ -4,41 +4,30 @@ import Layout from './../../components/Layout';
 import { navRoutes } from '../../constants/';
 
 import { authorization } from '../../helpers';
-
-const Loading = () => 'loading...';
+import { useAuth } from '../../context/auth';
 
 const Route = (props) => {
-  const {
-    isMounted,
-    isPrivate,
-    layout,
-    path,
-    isLoggedIn,
-    role,
-    Component,
-    exact,
-    allowedRoles,
-  } = props;
+  const { isPrivate, layout, path, Component, exact, allowedRoles } = props;
 
-  if (!isMounted) return <Loading />;
+  const { user } = useAuth();
 
   if (isPrivate) {
-    const authorized = authorization(role, allowedRoles);
+    const authorized = authorization(user.role, allowedRoles);
 
-    if (isLoggedIn) {
+    if (user.id) {
       return (
         <Layout layout={layout} {...props}>
           <RouterRoute path={path} props exact={exact}>
             {authorized ? (
               <Component {...props} />
             ) : (
-              <Redirect to={navRoutes.UNAUTHORIZED} {...props} />
+              <Redirect to={navRoutes.GENERAL.UNAUTHORIZED} {...props} />
             )}
           </RouterRoute>
         </Layout>
       );
     }
-    return <Redirect to={navRoutes.LOGIN} />;
+    return <Redirect to={navRoutes.GENERAL.LOGIN} />;
   }
 
   return (

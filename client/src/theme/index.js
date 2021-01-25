@@ -1,5 +1,18 @@
 import globalStyle from './global-style';
 
+const spacings = {
+  0: '0', //        0
+  1: '0.25rem', //  4px
+  2: '0.5rem', //   8px
+  3: '1rem', //     16px
+  4: '1.5rem', //   24px
+  5: '2rem', //     32px
+  6: '3rem', //     48px
+  7: '4rem', //     64px
+  8: '5rem', //     80px
+  9: '6rem', //     96px
+};
+
 const constants = {
   columns: { mobile: 4, tablet: 6, desktop: 12 },
   gridGutter: { mobile: 8, tablet: 16, desktop: 16 },
@@ -12,6 +25,8 @@ const constants = {
   // header height
   headerHeight: { desktop: '300px', mobile: '180px' },
   blockWidth: '15.7%',
+  colouredBlockTopPaddingDesktop: spacings['9'],
+  colouredBlockTopPaddingMobile: spacings['4'],
   // ...
 };
 
@@ -35,18 +50,6 @@ export const colors = {
   white: '#FFFFFF',
   gray1: '#cccccc',
   blackDark: '#000',
-};
-
-const spacings = {
-  0: '0',
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '1rem',
-  4: '1.5rem',
-  5: '2rem',
-  6: '3rem',
-  7: '4rem',
-  8: '5rem',
 };
 
 const shadows = {

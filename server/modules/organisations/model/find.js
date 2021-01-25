@@ -8,4 +8,18 @@ const findOrganisationById = async (id) => {
   return res.rows[0];
 };
 
-export { findOrganisationById };
+// for public
+const findOrganisations = async () => {
+  const values = [];
+  const sql = `
+    SELECT
+      id,
+      name
+    FROM organisations
+  `;
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
+export { findOrganisationById, findOrganisations };

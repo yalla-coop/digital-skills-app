@@ -186,7 +186,6 @@ const SliderExample = (args) => {
   });
 
   const handleChange = (e) => {
-    console.log(e, '------');
     setSelected({ ...args.options[e], key: e });
   };
 

@@ -22,9 +22,9 @@ const Dropdown = ({
   selected,
   multi,
   matrix,
+  margins,
   big,
   outline,
-  mb,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -44,7 +44,6 @@ const Dropdown = ({
               {groupLabel}
             </T.Body16B>
           }
-          style={{ color: 'red' }}
           key={groupLabel}
         >
           {_options.map((opt) => (
@@ -98,7 +97,8 @@ const Dropdown = ({
       matrix={matrix}
       big={big}
       outline={outline}
-      mb={mb || '3'}
+      mb={margins.mb || '3'}
+      {...margins}
     >
       {label && (
         <S.Label htmlFor={label} matrix={matrix}>

@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { errorMsgs } from '../services/error-handler';
+import Boom from '@hapi/boom';
+
 import { users, checkIns, skills, activities, organisations } from '../modules';
 
 const router = Router();
@@ -12,7 +13,7 @@ router.use('/organisations', organisations.controllers);
 
 // catch 404 and forward to error handler
 router.use((req, res, next) => {
-  next(errorMsgs.PAGE_NOT_FOUND());
+  next(Boom.notFound());
 });
 
 export default router;

@@ -31,7 +31,7 @@ const Newsletter = ({ color = 'medPurple' }) => {
         handleChange={handleChange}
         color="white"
         outline
-        mb="4"
+        margins={{ mb: '4' }}
       />
       <Button bgColor={color} handleClick={handleSubmit}>
         Subscribe

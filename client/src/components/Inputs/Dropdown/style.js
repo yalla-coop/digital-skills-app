@@ -92,16 +92,6 @@ export const Field = styled.div`
     color: ${({ theme, outline }) =>
       outline ? theme.colors.white : theme.colors.black};
   }
-
-  // STYLE INPUT TEXT
-  .ant-select-selection-overflow-item {
-    font-size: 1rem;
-    color: ${({ theme }) => theme.colors.black};
-  }
-
-  .ant-select-item-group {
-    color: red;
-  }
 `;
 
 export const Label = styled.label`

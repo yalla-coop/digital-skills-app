@@ -16,7 +16,7 @@ const Checkbox = ({
   return (
     <S.Field w={w} disabled={disabled} mb="3" color={color} error={error}>
       <AntdCheckbox
-        onChange={handleChange}
+        onChange={(e) => handleChange(e.target.checked)}
         checked={checked}
         disabled={disabled}
         defaultChecked={defaultChecked}

@@ -1,4 +1,4 @@
-import { errorMsgs } from '../error-handler';
+import Boom from '@hapi/boom';
 
 const validate = (schema, data, { abortEarly = false, ...options } = {}) => {
   try {
@@ -8,7 +8,7 @@ const validate = (schema, data, { abortEarly = false, ...options } = {}) => {
     });
     return { data: validData };
   } catch (error) {
-    throw new errorMsgs.VALIDATION_ERROR(error);
+    throw Boom.badData(error.message, error);
   }
 };
 

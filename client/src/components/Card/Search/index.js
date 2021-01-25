@@ -35,7 +35,7 @@ const Search = ({ color = 'teal', btnText = 'Search' }) => {
         handleChange={handleTask}
         color="white"
         outline
-        mb="6"
+        margins={{ mb: '6' }}
         name="task"
         big
         placeholder="your task here..."
@@ -48,7 +48,7 @@ const Search = ({ color = 'teal', btnText = 'Search' }) => {
         big
         outline
         color="white"
-        mb="6"
+        margins={{ mb: '6' }}
       />
       <Button bgColor={color} handleClick={handleSubmit}>
         {btnText}

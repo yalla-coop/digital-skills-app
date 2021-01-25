@@ -27,3 +27,21 @@ export const Header = styled(AntdHeader)`
     height: ${({ theme }) => theme.constants.headerHeight.mobile};
   }
 `;
+
+export const WithBlocksContentWrapper = styled.div`
+  padding-top: ${({ theme }) => theme.constants.colouredBlockTopPaddingDesktop};
+  width: 50%;
+  margin: 0 auto;
+
+  ${({ theme }) => theme.media.tablet} {
+    width: 80%;
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    padding-top: ${({ theme }) =>
+      theme.constants.colouredBlockTopPaddingMobile};
+    padding-right: ${({ theme }) => theme.spacings[5]};
+    padding-left: ${({ theme }) => theme.spacings[5]};
+    width: 100%;
+  }
+`;

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Spin } from 'antd';
 import * as T from '../Typography';
+import setMargin from './../../helpers/set-margin';
 
 const heights = {
   small: 48,
@@ -8,6 +9,7 @@ const heights = {
 };
 
 export const Button = styled.button`
+  ${setMargin};
   display: flex;
   justify-content: center;
   align-items: center;

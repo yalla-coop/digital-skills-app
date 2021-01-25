@@ -6,6 +6,8 @@ import theme from '../../theme';
 import NavBar from './NavBar';
 import Menu from './Menu';
 
+import * as S from './style';
+
 import { Layout, AntdFooter, AntdContent, AntdSider } from './style';
 
 const WithBlocks = ({ children, ...props }) => {
@@ -21,7 +23,9 @@ const WithBlocks = ({ children, ...props }) => {
           width={theme.constants.blockWidth}
         />
         <Layout>
-          <AntdContent>{children}</AntdContent>
+          <AntdContent>
+            <S.WithBlocksContentWrapper>{children}</S.WithBlocksContentWrapper>
+          </AntdContent>
           <AntdFooter>Footer</AntdFooter>
         </Layout>
         <AntdSider
