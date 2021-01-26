@@ -20,6 +20,19 @@ const constants = {
     withoutHeader: {
       padding: { desktop: '48px', mobile: '16px' },
     },
+    page: {
+      desktop: {
+        top: '80px',
+        left: '62px',
+        right: '38px',
+      },
+      mobile: {
+        top: '26px',
+        left: '16px',
+        right: '16px',
+        bottom: '24px',
+      },
+    },
   },
   // side menu width
   // header height

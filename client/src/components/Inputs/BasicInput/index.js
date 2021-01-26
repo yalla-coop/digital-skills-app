@@ -25,7 +25,12 @@ const BasicInput = ({
   };
 
   return (
-    <CS.Field w={w} disabled={disabled} mb={margins.mb || '3'} {...margins}>
+    <CS.Field
+      w={w}
+      disabled={disabled}
+      mb={(margins && margins.mb) || '3'}
+      {...margins}
+    >
       {label && (
         <CS.Label htmlFor={label}>
           {big ? (

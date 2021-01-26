@@ -57,6 +57,12 @@ function App() {
               />
               <Route
                 exact
+                path={navRoutes.VOLUNTEER.ENTER_POSTCODE}
+                Component={() => <Pages.PostcodePage />}
+                layout="page"
+              />
+              <Route
+                exact
                 path={navRoutes.HQ.HOME}
                 Component={() => <Pages.HQLanding />}
                 layout="withoutHeader"

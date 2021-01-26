@@ -150,3 +150,13 @@ export const Link = styled(RouterLink)`
   line-height: 143%;
   text-decoration-line: underline;
 `;
+
+export const Link16 = styled.a`
+  ${setMargin}
+  ${commonStyle}
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 143%;
+  text-decoration: underline;
+`;

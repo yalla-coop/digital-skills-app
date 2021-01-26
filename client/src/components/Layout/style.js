@@ -79,3 +79,26 @@ export const WithBlocksContentWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const PageContent = styled(AntdContent)`
+  padding: ${({
+    theme: {
+      constants: {
+        layout: {
+          page: { desktop },
+        },
+      },
+    },
+  }) => `${desktop.top} ${desktop.right} 0 ${desktop.left}`};
+  ${({ theme }) => theme.media.mobile} {
+    padding: ${({
+      theme: {
+        constants: {
+          layout: {
+            page: { mobile },
+          },
+        },
+      },
+    }) => `${mobile.top} ${mobile.right} ${mobile.bottom} ${mobile.left}`};
+  }
+`;

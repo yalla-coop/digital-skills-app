@@ -6,6 +6,7 @@ import HqVolunteersStats from './HqVolunteersStats';
 import HQLanding from './Landing/HQLanding';
 import VolunteerLanding from './Landing/VolunteerLanding';
 import TestLanding from './TestLanding';
+import PostcodePage from './Postcode';
 
 export {
   Example,
@@ -16,4 +17,5 @@ export {
   HQLanding,
   VolunteerLanding,
   TestLanding,
+  PostcodePage,
 };

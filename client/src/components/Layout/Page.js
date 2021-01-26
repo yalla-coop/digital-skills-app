@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import SideBar from './SideBar';
 import Menu from './Menu';
 
-import { Layout, AntdContent } from './style';
+import { Layout, PageContent } from './style';
 
 const Page = ({ children, ...props }) => {
   return (
@@ -14,7 +14,7 @@ const Page = ({ children, ...props }) => {
       <Layout>
         <SideBar menu={<Menu />} />
         <Layout>
-          <AntdContent>{children}</AntdContent>
+          <PageContent>{children}</PageContent>
         </Layout>
       </Layout>
     </>

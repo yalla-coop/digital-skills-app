@@ -11,6 +11,8 @@ const VOLUNTEER = {
   SIGNUP: '/signup',
   WELCOME: '/welcome',
   DASHBOARD: '/dashboard',
+  ENTER_POSTCODE: '/postcode',
+  RESULTS: '/result',
 };
 
 const HQBased = '/hq';
@@ -28,6 +30,7 @@ const HQ = {
 const EXTERNAL = {
   TERMS_OF_USE: 'https://www.google.com/',
   PRIVACY_POLICY: 'https://www.google.com/',
+  TERMS_AND_CONDITIONS: 'https://www.google.com/',
 };
 
 export { GENERAL, VOLUNTEER, HQ, EXTERNAL };

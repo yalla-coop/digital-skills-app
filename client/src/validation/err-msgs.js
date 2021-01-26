@@ -7,4 +7,4 @@ export const SHORT_PASSWORD =
 export const SHOULD_AGREE_ON_TERMS =
   'You must agree to our terms and conditions';
 export const TOO_SHORT_MIN_5 = 'Too short - should be 5 characters minimum';
-export const INVALID_POSTCODE = 'Invalid postcode';
+export const INVALID_POSTCODE = 'Invalid Postcode';
