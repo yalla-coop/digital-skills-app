@@ -16,9 +16,12 @@ const VOLUNTEER = {
 const HQBased = '/hq';
 
 const HQ = {
+  HOME: HQBased,
   SIGNUP: `${HQBased}/signup`,
   WELCOME: `${HQBased}/welcome`,
   DASHBOARD: `${HQBased}/dashboard`,
+  MANAGE_SKILLS: `${HQBased}/manage-skills`,
+  MANAGE_VOLUNTEERS: `${HQBased}/manage-volunteers`,
 };
 
 const EXTERNAL = {

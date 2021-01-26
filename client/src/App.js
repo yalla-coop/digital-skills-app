@@ -41,7 +41,13 @@ function App() {
               <Route
                 exact
                 path={navRoutes.GENERAL.HOME}
-                Component={() => <Pages.Landing />}
+                Component={() => <Pages.VolunteerLanding />}
+                layout="withoutHeader"
+              />
+              <Route
+                exact
+                path={navRoutes.HQ.HOME}
+                Component={() => <Pages.HQLanding />}
                 layout="withoutHeader"
               />
               <Route
