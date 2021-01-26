@@ -2,16 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SideBar from './SideBar';
-import Menu from './Menu';
 import Header from './Header';
 
 import * as S from './style';
 
-const General = ({ children, headerIcon, goBack, ...props }) => {
+const General = ({
+  children,
+  headerIcon,
+  goBack,
+  selectedKey,
+  setSelectedKey,
+  ...props
+}) => {
   return (
     <>
       <S.Layout>
-        <SideBar menu={<Menu />} />
+        <SideBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
         <S.Layout>
           <Header headerIcon={headerIcon} goBack={goBack} />
           <S.Content>{children}</S.Content>

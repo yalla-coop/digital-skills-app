@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 
 import NavBar from './NavBar';
 import SideBar from './SideBar';
-import Menu from './Menu';
 
 import { Layout, PageContent } from './style';
 
-const Page = ({ children, ...props }) => {
+const Page = ({ children, selectedKey, setSelectedKey, ...props }) => {
   return (
     <>
-      <NavBar menu={<Menu />} />
+      <NavBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
       <Layout>
-        <SideBar menu={<Menu />} />
+        <SideBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
         <Layout>
           <PageContent>{children}</PageContent>
         </Layout>

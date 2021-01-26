@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import General from './General';
@@ -8,18 +8,44 @@ import WithBlocks from './WithBlocks';
 import Notification from './Notification';
 
 const Layout = ({ layout, ...props }) => {
+  const [selectedKey, setSelectedKey] = useState('0');
+
   switch (layout) {
     case 'withBlocks':
-      return <WithBlocks {...props} />;
+      return (
+        <WithBlocks
+          selectedKey={selectedKey}
+          setSelectedKey={setSelectedKey}
+          {...props}
+        />
+      );
     case 'notification':
       return <Notification {...props} />;
     case 'page':
-      return <Page {...props} />;
+      return (
+        <Page
+          selectedKey={selectedKey}
+          setSelectedKey={setSelectedKey}
+          {...props}
+        />
+      );
     case 'withoutHeader':
-      return <WithoutHeader {...props} />;
+      return (
+        <WithoutHeader
+          selectedKey={selectedKey}
+          setSelectedKey={setSelectedKey}
+          {...props}
+        />
+      );
     case 'general':
     default:
-      return <General {...props} />;
+      return (
+        <General
+          selectedKey={selectedKey}
+          setSelectedKey={setSelectedKey}
+          {...props}
+        />
+      );
   }
 };
 

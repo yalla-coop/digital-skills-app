@@ -4,16 +4,15 @@ import PropTypes from 'prop-types';
 import theme from '../../theme';
 
 import NavBar from './NavBar';
-import Menu from './Menu';
 
 import * as S from './style';
 
 import { Layout, AntdFooter, AntdContent, AntdSider } from './style';
 
-const WithBlocks = ({ children, ...props }) => {
+const WithBlocks = ({ children, selectedKey, setSelectedKey, ...props }) => {
   return (
     <>
-      <NavBar menu={<Menu />} />
+      <NavBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
       <Layout>
         <AntdSider
           breakpoint={'md'}

@@ -18,9 +18,9 @@ const Crown = ({ width, height, color, ...props }) => (
     <path
       d="M20.85 92.52H135.38"
       stroke={color || 'white'}
-      stroke-width="4"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
+      strokeWidth="4"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
     />
   </svg>
 );

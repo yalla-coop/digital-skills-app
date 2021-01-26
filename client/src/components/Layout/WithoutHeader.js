@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 
 import NavBar from './NavBar';
 import SideBar from './SideBar';
-import Menu from './Menu';
 
 import { Layout, AntdFooter, Content } from './style';
 
-const WithoutHeader = ({ children }) => {
+const WithoutHeader = ({ children, selectedKey, setSelectedKey }) => {
   return (
     <>
-      <NavBar menu={<Menu />} />
+      <NavBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
       <Layout>
-        <SideBar menu={<Menu />} />
+        <SideBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
         <Layout>
           <Content withoutHeader>{children}</Content>
           <AntdFooter>Footer</AntdFooter>

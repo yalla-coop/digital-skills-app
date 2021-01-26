@@ -26,6 +26,10 @@ import SkillComplete from './icons/SkillComplete';
 import ActivityComplete from './icons/ActivityComplete';
 import ThankYou from './icons/ThankYou';
 import Success from './icons/Success';
+import Logo from './icons/Logo';
+import Burger from './icons/Burger';
+import Search from './icons/Search';
+import Close from './icons/Close';
 import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
 
@@ -54,6 +58,10 @@ export const IconMap = {
   thankYou: ThankYou,
   success: Success,
   tick: Tick,
+  logo: Logo,
+  burger: Burger,
+  search: Search,
+  close: Close,
   scouts: Scouts,
   help: Help,
   clock: Clock,

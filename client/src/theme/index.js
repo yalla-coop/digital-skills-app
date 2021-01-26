@@ -35,6 +35,22 @@ const constants = {
     },
   },
   // side menu width
+  sideBar: {
+    width: 265,
+  },
+  navBar: {
+    drawer: {
+      headHeight: 110,
+      width: '100%',
+    },
+    divider: {
+      width: '55%',
+      height: '1px',
+      top: '56px',
+      bottom: '24px',
+    },
+    active: '10px',
+  },
   // header height
   headerHeight: { desktop: '300px', mobile: '180px' },
   blockWidth: '15.7%',

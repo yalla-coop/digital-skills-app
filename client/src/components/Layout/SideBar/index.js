@@ -1,17 +1,25 @@
 import React from 'react';
 import { Layout } from 'antd';
 import theme from '../../../theme';
+import Icon from '../../Icon';
+import * as S from './style';
+import Menu from '../../Menu';
 
-const SideBar = ({ menu, color }) => {
+const SideBar = ({ color, selectedKey, setSelectedKey }) => {
   return (
     <Layout.Sider
-      breakpoint={'md'}
+      breakpoint={'md'} // 768px from antd
       style={{ backgroundColor: color || theme.colors.blue }}
       collapsedWidth={0}
       trigger={null}
-      width={265}
+      width={theme.constants.sideBar.width}
     >
-      {menu}
+      <S.Container>
+        <S.LogoContainer>
+          <Icon icon="logo" color="white" />
+        </S.LogoContainer>
+        <Menu selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
+      </S.Container>
     </Layout.Sider>
   );
 };
