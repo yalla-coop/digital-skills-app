@@ -7,14 +7,14 @@ import Header from './Header';
 
 import * as S from './style';
 
-const General = ({ children, headerIcon, ...props }) => {
+const General = ({ children, headerIcon, goBack, ...props }) => {
   return (
     <>
       <S.Layout>
         <SideBar menu={<Menu />} />
         <S.Layout>
-          <Header headerIcon={headerIcon} />
-          <S.AntdContent>{children}</S.AntdContent>
+          <Header headerIcon={headerIcon} goBack={goBack} />
+          <S.Content>{children}</S.Content>
           <S.AntdFooter>Footer</S.AntdFooter>
         </S.Layout>
       </S.Layout>

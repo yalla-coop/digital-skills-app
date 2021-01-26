@@ -23,7 +23,7 @@ const style = css`
     margin: 0;
     padding: 0;
     font-family: 'Nunito Sans', sans-serif;
-    overflow-x: hidden;
+    word-wrap: break-word;
   }
 
   /* to override body margin from antd */

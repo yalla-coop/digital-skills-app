@@ -6,12 +6,12 @@ import Icon from '../Icon';
 
 import * as S from './style';
 
-function BackLink({ color, iconColor }) {
+function BackLink({ color, iconColor = 'teal', mb }) {
   const history = useHistory();
   const goBack = () => history.goBack();
 
   return (
-    <S.Wrapper onClick={goBack}>
+    <S.Wrapper onClick={goBack} mb={mb}>
       <Icon icon="leftRow" width={16} height={16} color={iconColor} />
       <T.Body16B ml="1" as="span" color={color}>
         Back

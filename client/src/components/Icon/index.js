@@ -26,6 +26,7 @@ import SkillComplete from './icons/SkillComplete';
 import ActivityComplete from './icons/ActivityComplete';
 import ThankYou from './icons/ThankYou';
 import Success from './icons/Success';
+import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
 
 export const IconMap = {
@@ -55,6 +56,7 @@ export const IconMap = {
   tick: Tick,
   scouts: Scouts,
   help: Help,
+  clock: Clock,
 };
 
 const Icon = (props) => {

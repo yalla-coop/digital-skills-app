@@ -24,12 +24,10 @@ export const Content = styled(AntdContent)`
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
   ${({ withoutHeader, theme }) =>
     withoutHeader &&
     `
       padding-top: 80px;
-
       ${theme.media.mobile} {
         padding-top: ${theme.spacings[5]};
       }
@@ -48,6 +46,20 @@ export const Header = styled(AntdHeader)`
     margin-bottom: ${({ theme }) => theme.spacings[5]};
     height: ${({ theme }) => theme.constants.headerHeight.mobile};
   }
+`;
+
+export const BackWrapper = styled.div`
+  padding-left: ${({ theme }) => theme.constants.general.paddingLeft};
+  ${({ theme }) => theme.media.mobile} {
+    position: absolute;
+    top: ${({ theme }) => theme.spacings[3]};
+    left: ${({ theme }) => theme.spacings[3]};
+    padding-left: 0;
+  }
+`;
+
+export const HeaderWrapper = styled.header`
+  position: relative;
 `;
 
 export const WithBlocksContentWrapper = styled.div`

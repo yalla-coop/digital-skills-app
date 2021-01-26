@@ -1,9 +1,9 @@
 import { ThemeProvider } from '@emotion/react';
 import { Global } from '@emotion/react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import * as Pages from './pages';
 import theme, { globalStyle } from './theme';
 import { Route } from './components';
+import * as Pages from './pages';
 import { navRoutes } from './constants';
 import { AuthProvider } from './context/auth';
 
@@ -43,6 +43,14 @@ function App() {
                 path={navRoutes.GENERAL.HOME}
                 Component={() => <Pages.Landing />}
                 layout="withoutHeader"
+              />
+              <Route
+                exact
+                path={navRoutes.GENERAL.ASSESSMENT}
+                Component={Pages.TestLanding}
+                layout="general"
+                headerIcon="darts"
+                goBack
               />
             </Switch>
           </Router>

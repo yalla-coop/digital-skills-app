@@ -3,6 +3,7 @@ const GENERAL = {
   LOGIN: '/login',
   UNAUTHORIZED: '/unauthorized',
   ASSESSMENT: '/digital-test',
+  DOING_TEST: `/digital-test/:step`,
   HELP_OTHERS: '/help-others',
 };
 

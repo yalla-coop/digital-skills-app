@@ -25,6 +25,7 @@ const constants = {
   // header height
   headerHeight: { desktop: '300px', mobile: '180px' },
   blockWidth: '15.7%',
+  general: { paddingLeft: '60px' },
   colouredBlockTopPaddingDesktop: spacings['9'],
   colouredBlockTopPaddingMobile: spacings['4'],
   // ...
