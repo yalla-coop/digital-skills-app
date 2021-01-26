@@ -1,4 +1,11 @@
-import { CTA, HelpOut, DoingGreat, Newsletter, Search } from './index';
+import {
+  CTA,
+  HelpOut,
+  DoingGreat,
+  Newsletter,
+  Search,
+  StatsCard,
+} from './index';
 import { Row, Col } from '../Grid';
 
 export default {
@@ -109,4 +116,23 @@ export const search = SearchExample.bind({});
 search.args = {
   color: 'teal',
   btnText: 'Search',
+};
+
+// StatsCard
+const StatsCardTemplate = (args) => (
+  <Row>
+    <Col w={[4, 6, 4]}>
+      <StatsCard {...args} />
+    </Col>
+  </Row>
+);
+
+export const statsCard = StatsCardTemplate.bind({});
+statsCard.args = {
+  loading: false,
+  title: 'volunteers',
+  color: 'purple',
+  txt: 'have completed assessments',
+  statNum: 12,
+  percentage: false,
 };

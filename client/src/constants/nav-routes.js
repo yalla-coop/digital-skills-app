@@ -20,6 +20,7 @@ const HQ = {
   SIGNUP: `${HQBased}/signup`,
   WELCOME: `${HQBased}/welcome`,
   DASHBOARD: `${HQBased}/dashboard`,
+  VOLUNTEERS: `${HQBased}/volunteers`,
   MANAGE_SKILLS: `${HQBased}/manage-skills`,
   MANAGE_VOLUNTEERS: `${HQBased}/manage-volunteers`,
 };

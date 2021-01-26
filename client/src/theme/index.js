@@ -15,7 +15,7 @@ const spacings = {
 
 const constants = {
   columns: { mobile: 4, tablet: 6, desktop: 12 },
-  gridGutter: { mobile: 8, tablet: 12, desktop: 12 },
+  gridGutter: { mobile: '8px', tablet: '12px', desktop: '16px' },
   layout: {
     withoutHeader: {
       padding: { desktop: '48px', mobile: '16px' },

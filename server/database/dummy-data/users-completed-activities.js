@@ -5,16 +5,19 @@ const createUserCompletedActivity = async (values) => {
     INSERT INTO users_completed_activities(
       "user",
       activity,
+      confidence_score,
       added_score
     ) VALUES (
       $1,
       $2,
-      $3
+      $3,
+      $4
       )
     RETURNING *`;
   const res = await query(sql, [
     values.userId,
     values.activityId,
+    values.confidenceScore,
     values.addedScore,
   ]);
   return res.rows[0];
@@ -34,6 +37,7 @@ const createUserCompletedActivities = async (data) => {
     {
       userId: JohnReese.id,
       activityId: microsoftActivity.id,
+      confidenceScore: 3,
       addedScore: 7.0,
     },
   ];

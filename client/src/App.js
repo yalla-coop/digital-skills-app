@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import theme, { globalStyle } from './theme';
 import { Route } from './components';
 import * as Pages from './pages';
-import { navRoutes } from './constants';
+import { navRoutes, roles } from './constants';
 import { AuthProvider } from './context/auth';
 
 import './App.css';
@@ -37,6 +37,17 @@ function App() {
                 Component={Pages.Login}
                 layout="withBlocks"
               />
+
+              {/* HQ routes */}
+              <Route
+                exact
+                path={navRoutes.HQ.VOLUNTEERS}
+                Component={Pages.HqVolunteersStats}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
+
               {/* General routes */}
               <Route
                 exact

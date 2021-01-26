@@ -10,7 +10,7 @@ CREATE TABLE "users" (
   "organisation" INTEGER REFERENCES organisations(id),
   "selected_path" learning_paths,
   "deleted" BOOLEAN DEFAULT false,
-  "assessment_score" REAL DEFAULT 0,
+  "assessment_score" REAL,
   "improvement_score" REAL DEFAULT 0,
   "created_at" TIMESTAMPTZ DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ DEFAULT NOW()
