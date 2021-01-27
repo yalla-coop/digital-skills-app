@@ -22,7 +22,7 @@ const Dropdown = ({
   selected,
   multi,
   matrix,
-  margins,
+  margins = {},
   big,
   outline,
 }) => {

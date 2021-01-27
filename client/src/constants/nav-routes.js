@@ -2,6 +2,7 @@ const GENERAL = {
   HOME: '/',
   LOGIN: '/login',
   UNAUTHORIZED: '/unauthorized',
+  SEARCH: '/search',
   LOGOUT: '/logout',
   SUPPORT_OTHERS: '/support-others',
   SKILLS: '/skills',
@@ -9,6 +10,8 @@ const GENERAL = {
   ASSESSMENT: '/digital-test',
   DOING_TEST: `/digital-test/:step`,
   HELP_OTHERS: '/help-others',
+  SKILL: '/skill/:id',
+  ACTIVITY: '/activity/:id',
 };
 
 const VOLUNTEER = {
@@ -37,6 +40,7 @@ const HQ = {
 const EXTERNAL = {
   TERMS_OF_USE: 'https://www.google.com/',
   PRIVACY_POLICY: 'https://www.google.com/',
+  HELP: '/help', // in search page
   TERMS_AND_CONDITIONS: 'https://www.google.com/',
 };
 

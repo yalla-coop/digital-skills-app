@@ -2,8 +2,8 @@ import * as Skill from '../use-cases';
 
 const getSkillById = async (req, res, next) => {
   try {
-    const organisation = await Skill.getSkillById();
-    res.json(organisation);
+    const skill = await Skill.getSkillById();
+    res.json(skill);
   } catch (error) {
     next(error);
   }

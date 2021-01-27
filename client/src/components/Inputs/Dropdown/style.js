@@ -16,7 +16,13 @@ export const Field = styled.div`
   // ANTD STYLING
     // STYLE OVERALL CONTAINER
     .ant-select {
-    border: ${({ theme }) => theme.borders.primary};
+    border-top: ${({ theme, outline }) =>
+      outline ? 'none' : theme.borders.primary};
+    border-right: ${({ theme, outline }) =>
+      outline ? 'none' : theme.borders.primary};
+    border-bottom: ${({ theme, outline }) => theme.borders.primary};
+    border-left: ${({ theme, outline }) =>
+      outline ? 'none' : theme.borders.primary};
     border-color: ${({ theme, open, color }) =>
       open ? theme.colors.teal : theme.colors[color] || theme.colors.gray};
     width: 100%;
@@ -40,13 +46,29 @@ export const Field = styled.div`
   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
     border: none;
     border-radius: 0;
-    padding: ${({ matrix }) => (matrix ? '0.25rem 1rem' : '1rem')};
+    padding: ${({ matrix, outline }) => {
+      if (outline) {
+        return '1rem 1rem 1rem 0';
+      } else if (matrix) {
+        return '0.25rem 1rem';
+      } else {
+        return '1rem';
+      }
+    }};
     padding-left: ${({ big }) => big && '0.25rem'};
   }
 
   .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
     height: 100%;
-    padding: ${({ matrix }) => (matrix ? '0.25rem 1rem' : '1rem')};
+    padding: ${({ matrix, outline }) => {
+      if (outline) {
+        return '1rem 1rem 1rem 0';
+      } else if (matrix) {
+        return '0.25rem 1rem';
+      } else {
+        return '1rem';
+      }
+    }};
     padding-left: ${({ big }) => big && '0.25rem'};
   }
 

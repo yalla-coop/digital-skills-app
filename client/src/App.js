@@ -51,6 +51,13 @@ function App() {
               {/* General routes */}
               <Route
                 exact
+                path={navRoutes.GENERAL.SEARCH}
+                Component={Pages.Search}
+                layout="withoutHeader"
+                withoutPaddings
+              />
+              <Route
+                exact
                 path={navRoutes.GENERAL.HOME}
                 Component={() => <Pages.VolunteerLanding />}
                 layout="withoutHeader"

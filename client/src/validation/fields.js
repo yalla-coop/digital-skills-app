@@ -1,6 +1,8 @@
 import { string, number, boolean, array } from 'yup';
 import * as errMsgs from './err-msgs';
 
+export const requiredText = string().required(errMsgs.DEFAULT_REQUIRED);
+
 export const fullName = string()
   .min(1, errMsgs.DEFAULT_REQUIRED)
   .max(20)

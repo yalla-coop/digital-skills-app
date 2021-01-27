@@ -7,6 +7,6 @@ const volunteer = createSchema({
   password: loginPassword,
 });
 
-const validate = (data, isPartial) => _validate(volunteer, data);
+const validate = (data) => _validate(volunteer, data);
 
 export default validate;

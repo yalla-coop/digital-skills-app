@@ -111,6 +111,8 @@ const createSkills = async () => {
       code: skillsCodes.CREATE_STRONG_PASSWORDS,
       number: 11,
       icon: 'defaultSkill',
+      description:
+        'this learns you how to setup secure password using a digital tool', // so we can find it in task: "password",  tool: 'a digital tool'
       // basics
     },
     {

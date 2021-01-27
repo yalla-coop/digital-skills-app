@@ -6,14 +6,25 @@ import SideBar from './SideBar';
 
 import { Layout, AntdFooter, Content } from './style';
 
-const WithoutHeader = ({ children, selectedKey, setSelectedKey }) => {
+const WithoutHeader = ({
+  children,
+  selectedKey,
+  setSelectedKey,
+  withoutPaddings,
+  withoutHeader = true,
+}) => {
   return (
     <>
       <NavBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
       <Layout>
         <SideBar selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
         <Layout>
-          <Content withoutHeader>{children}</Content>
+          {withoutPaddings ? (
+            children
+          ) : (
+            <Content withoutHeader={withoutHeader}>{children}</Content>
+          )}
+
           <AntdFooter>Footer</AntdFooter>
         </Layout>
       </Layout>

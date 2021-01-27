@@ -311,8 +311,7 @@ const createActivities = async (data) => {
       title: 'Microsoft Office Word',
       resourceLink:
         'https://makeitclick.learnmyway.com/directory/subjects/documents/how-to-write-and-format-text-in-microsoft-word',
-      description:
-        'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.',
+      description: 'some readable description.',
       difficulty: 4,
       resourceCreatedBy: 'GCF Global',
       completionTime: 53,
@@ -615,7 +614,7 @@ const createActivities = async (data) => {
       resourceLink:
         'https://edu.gcfglobal.org/en/googledocuments/getting-started-with-your-document/1/',
       description:
-        'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.',
+        'activity description to test search query, this should been returned when you search on "manage" OR "documents".',
       difficulty: 1,
       resourceCreatedBy: 'GCF Global',
       completionTime: 66,

@@ -28,7 +28,7 @@ const hq = createSchema({
   agreedOnTerms,
 });
 
-const validate = (data, isPartial) => {
+const validate = (data) => {
   if (data.role === VOLUNTEER) return _validate(volunteer, data);
   if (data.role === HQ) return _validate(hq, data);
 };

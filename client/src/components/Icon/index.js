@@ -32,6 +32,7 @@ import Search from './icons/Search';
 import Close from './icons/Close';
 import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
+import RightRow from './icons/RightRow';
 
 export const IconMap = {
   email: Email,
@@ -64,6 +65,7 @@ export const IconMap = {
   close: Close,
   scouts: Scouts,
   help: Help,
+  rightRow: RightRow,
   clock: Clock,
 };
 

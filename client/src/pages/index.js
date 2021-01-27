@@ -1,6 +1,8 @@
 import Example from './Example';
 import VolunteerSignup from './Signup/Volunteer';
 import Login from './Login';
+import Search from './Search';
+
 import HQSignup from './Signup/HQ';
 import HqVolunteersStats from './HqVolunteersStats';
 import HQLanding from './Landing/HQLanding';
@@ -18,4 +20,5 @@ export {
   VolunteerLanding,
   TestLanding,
   PostcodePage,
+  Search,
 };

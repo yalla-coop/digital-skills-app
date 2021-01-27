@@ -14,7 +14,7 @@ import config from './config';
 import * as constants from './constants';
 import { requireHTTPS } from './api/middlewares';
 
-const { PRODUCTION } = constants.envTypes;
+const { PRODUCTION, TEST } = constants.envTypes;
 
 // eslint-disable-next-line no-unused-vars
 const debug = Debug('server');
@@ -70,6 +70,10 @@ app.use((err, _, res, next) => {
     error = Boom.badImplementation(err.message);
   }
   const { statusCode, payload } = error.output;
+
+  if (config.common.env !== TEST) {
+    console.log(err);
+  }
 
   return res.status(statusCode).json({
     ...payload,

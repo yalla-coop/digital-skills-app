@@ -3,13 +3,20 @@ import setMargin from '../../../helpers/set-margin';
 import * as CS from '../style';
 
 export const Input = styled.input`
-  ${setMargin}
-  ${CS.placeholderStyle}
-  border: ${({ theme }) => theme.borders.primary};
+  ${setMargin};
+  ${CS.placeholderStyle};
+  border-top: ${({ theme, outline }) =>
+    outline ? 'none' : theme.borders.primary};
+  border-right: ${({ theme, outline }) =>
+    outline ? 'none' : theme.borders.primary};
+  border-left: ${({ theme, outline }) =>
+    outline ? 'none' : theme.borders.primary};
+  border-bottom: ${({ theme, outline }) => theme.borders.primary};
   border-color: ${({ theme, color }) =>
     color ? theme.colors[color] : theme.colors.gray};
   width: 100%;
-  padding: 1rem;
+  padding: ${({ theme, outline }) =>
+    `1rem 1rem 1rem ${outline ? '0' : '1rem'}`};
   color: ${({ theme, outline }) =>
     outline ? theme.colors.white : theme.colors.gray};
   font-size: 16px;

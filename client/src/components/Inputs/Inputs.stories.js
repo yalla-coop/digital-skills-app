@@ -44,6 +44,7 @@ basic.args = {
   placeholder: 'Type your name...',
   isOptional: false,
   type: 'text',
+  outline: false,
 };
 
 // DROPDOWN

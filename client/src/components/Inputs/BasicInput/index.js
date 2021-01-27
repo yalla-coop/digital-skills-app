@@ -15,7 +15,7 @@ const BasicInput = ({
   color,
   w,
   disabled,
-  margins,
+  margins = {},
   outline,
   big,
 }) => {

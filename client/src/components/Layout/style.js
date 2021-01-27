@@ -14,7 +14,11 @@ export const Layout = styled(AntdLayout)`
   min-height: 100vh;
 `;
 
-export const Content = styled(AntdContent)`
+const AntdContentComponent = ({ withoutHeader, ...props }) => (
+  <AntdContent {...props} />
+);
+
+export const Content = styled(AntdContentComponent)`
   padding-left: ${({ theme }) =>
     theme.constants.layout.withoutHeader.padding.desktop};
   padding-right: ${({ theme }) =>
@@ -28,10 +32,11 @@ export const Content = styled(AntdContent)`
     withoutHeader &&
     `
       padding-top: 80px;
+      
       ${theme.media.mobile} {
         padding-top: ${theme.spacings[5]};
       }
-    `}
+      `}
 `;
 
 export const Header = styled(AntdHeader)`

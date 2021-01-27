@@ -13,4 +13,26 @@ const getSkillById = async ({ id, options }) => {
   }
 };
 
-export { getSkillById };
+const SearchSkillsAndActivities = async ({ task, tool, options }) => {
+  try {
+    const { data } = await axios.get(`${SKILLS_BASE}/search`, {
+      params: { task, tool },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
+const getMostPopularTasks = async ({ options } = {}) => {
+  try {
+    const { data } = await axios.get(`${SKILLS_BASE}/popular`);
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
+export { getSkillById, SearchSkillsAndActivities, getMostPopularTasks };
