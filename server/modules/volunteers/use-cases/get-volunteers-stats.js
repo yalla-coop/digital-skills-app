@@ -7,15 +7,14 @@ const getVolunteersStats = async (user) => {
 
   const {
     volunteers,
-    volunteersCompletedAssessment: vca,
+    volunteersCompletedAssessment,
     volunteersUsedASkill: vus,
     volunteersCompletedASkill: vcs,
     volunteersFeelConfident: vfc,
   } = results;
 
   return {
-    ...results,
-    volunteersCompletedAssessmentPerc: getPerc(vca, volunteers),
+    volunteersCompletedAssessment,
     volunteersUsedASkillPerc: getPerc(vus, volunteers),
     volunteersCompletedASkillPerc: getPerc(vcs, volunteers),
     volunteersFeelConfidentPerc: getPerc(vfc, volunteers),

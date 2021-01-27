@@ -47,6 +47,14 @@ function App() {
                 allowedRoles={[roles.HQ]}
                 layout="withoutHeader"
               />
+              <Route
+                exact
+                path={navRoutes.HQ.SKILLS_PROGRESS}
+                Component={Pages.HqSkillsProgress}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
 
               {/* General routes */}
               <Route

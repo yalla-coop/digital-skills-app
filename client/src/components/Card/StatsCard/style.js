@@ -24,7 +24,7 @@ export const StatsNum = styled.div`
   font-size: 56.9px;
   letter-spacing: 0.2px;
   line-height: 112%;
-  width: 86px;
+  min-width: 86px;
   color: ${({ theme, color }) =>
     theme.colors[color] || color || theme.colors.black};
   ${({ theme }) => theme.media.mobile} {

@@ -9,6 +9,40 @@ const findSkillById = async (id) => {
   return res.rows[0];
 };
 
+const findHQSkillProgress = async (orgId) => {
+  const values = [orgId, skillStatuses.COMPLETED];
+
+  const sql = `
+  SELECT
+    COUNT(DISTINCT id) AS volunteers,
+    COUNT(DISTINCT id)
+      FILTER (WHERE status = $2) AS volunteers_completed_a_skill,
+    COUNT(DISTINCT id)
+      FILTER (WHERE user_activity_id IS NOT NULL) AS volunteers_completed_an_activity,
+    COUNT(DISTINCT user_skill_id) AS completed_skills,
+    COUNT(DISTINCT user_activity_id) AS completed_activities
+  FROM (
+    SELECT
+        u.id,
+        uca.activity,
+        uca.activity::TEXT || uca.user::TEXT AS user_activity_id,
+        us.status,
+        us.skill::TEXT || us.user::TEXT AS user_skill_id
+    FROM users AS u
+    JOIN volunteers_organisations AS vo
+      ON vo.volunteer = u.id
+    LEFT JOIN users_skills AS us
+      ON us."user" = u.id
+    LEFT JOIN users_completed_activities AS uca
+      ON uca."user" = u.id
+    WHERE vo.organisation = $1
+  ) AS stats
+  `;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
+
 const findSkillAndActivitiesForSearch = async ({ tool, task }) => {
   const tasksArray = task.split(' ');
 
@@ -69,6 +103,7 @@ const getPopularSkillsAndActivities = async () => {
 
 export {
   findSkillById,
+  findHQSkillProgress,
   findSkillAndActivitiesForSearch,
   getPopularSkillsAndActivities,
 };

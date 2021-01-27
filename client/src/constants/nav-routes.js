@@ -35,6 +35,7 @@ const HQ = {
   DIGITAL_TOOL: `${HQBased}/digital-tool`,
   PROGRESS: `${HQBased}/progress`,
   MANAGE_VOLUNTEERS: `${HQBased}/manage-volunteers`,
+  SKILLS_PROGRESS: `${HQBased}/skills-progress`,
 };
 
 const EXTERNAL = {

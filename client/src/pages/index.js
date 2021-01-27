@@ -8,6 +8,7 @@ import HqVolunteersStats from './HqVolunteersStats';
 import HQLanding from './Landing/HQLanding';
 import VolunteerLanding from './Landing/VolunteerLanding';
 import TestLanding from './TestLanding';
+import HqSkillsProgress from './HqSkillsProgress';
 import PostcodePage from './Postcode';
 
 export {
@@ -19,6 +20,7 @@ export {
   HQLanding,
   VolunteerLanding,
   TestLanding,
+  HqSkillsProgress,
   PostcodePage,
   Search,
 };
