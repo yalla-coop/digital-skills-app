@@ -12,6 +12,7 @@ export const Layout = styled(AntdLayout)`
   max-width: initial;
   padding: 0;
   min-height: 100vh;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const AntdContentComponent = ({ withoutHeader, ...props }) => (

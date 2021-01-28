@@ -20,6 +20,7 @@ const VOLUNTEER = {
   ENTER_POSTCODE: '/postcode',
   RESULTS: '/result',
   SETTINGS: '/settings',
+  SKILLS: '/skills',
 };
 
 const HQBase = '/hq';

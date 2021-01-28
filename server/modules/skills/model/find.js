@@ -108,9 +108,41 @@ const getPopularSkillsAndActivities = async () => {
   return res.rows;
 };
 
+const findVolunteerSkillsStats = async (id) => {
+  const sql = `
+    SELECT(
+      SELECT
+        COUNT(DISTINCT(sas.skill)) AS total_skills
+      FROM users_skill_areas AS usa
+      INNER JOIN skill_areas_skills as sas ON(usa.skill_area = sas.skill_area)
+      WHERE usa."user" = $1
+    ),
+    (
+      SELECT
+        COUNT(DISTINCT(us.skill)) AS newly_completed
+      FROM users_skills as us
+      WHERE us."user" = $1 AND us.status = $2
+    ),
+    (
+      SELECT
+        COUNT(DISTINCT(us.skill)) AS already_has_skills
+      FROM users_skills as us
+      WHERE us."user" = $1 AND us.status = $3
+    )
+  `;
+
+  const res = await query(sql, [
+    id,
+    skillStatuses.COMPLETED,
+    skillStatuses.ALREADY_HAS,
+  ]);
+  return res.rows[0];
+};
+
 export {
   findSkillById,
   findHQSkillProgress,
   findSkillAndActivitiesForSearch,
   getPopularSkillsAndActivities,
+  findVolunteerSkillsStats,
 };

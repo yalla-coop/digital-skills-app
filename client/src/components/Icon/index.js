@@ -34,6 +34,7 @@ import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
 import Eye from './icons/Eye';
 import RightRow from './icons/RightRow';
+import ArrowUp from './icons/ArrowUp';
 import Edit from './icons/Edit';
 
 export const IconMap = {
@@ -71,6 +72,7 @@ export const IconMap = {
   clock: Clock,
   edit: Edit,
   eye: Eye,
+  arrowUp: ArrowUp,
 };
 
 const Icon = (props) => {

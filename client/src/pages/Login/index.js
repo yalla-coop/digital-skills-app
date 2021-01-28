@@ -73,8 +73,8 @@ const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
       }
     } else {
       setUser(data);
-      if (data.id === userRoles.VOLUNTEER) {
-        history.push(navRoutes.VOLUNTEER.WELCOME);
+      if (data.role === userRoles.VOLUNTEER) {
+        history.push(navRoutes.VOLUNTEER.DASHBOARD);
       } else {
         history.push(navRoutes.HQ.DASHBOARD);
       }
@@ -99,33 +99,34 @@ const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
           Don’t have an account?{' '}
           <T.Link to={navRoutes.VOLUNTEER.SIGNUP}>Create one</T.Link>
         </T.Body16>
+        <form onSubmit={handleSubmit}>
+          <BasicInput
+            label="Email"
+            placeholder=""
+            margins={{ mt: '2', mb: '1' }}
+            type="email"
+            value={email}
+            handleChange={(e) => setState({ email: e.target.value })}
+            error={validationErrs.email}
+          />
+          <BasicInput
+            label="Password"
+            placeholder=""
+            margins={{ mt: '2', mb: '1' }}
+            type="password"
+            value={password}
+            handleChange={(e) => setState({ password: e.target.value })}
+            error={validationErrs.password}
+          />
 
-        <BasicInput
-          label="Email"
-          placeholder=""
-          margins={{ mt: '2', mb: '1' }}
-          type="email"
-          value={email}
-          handleChange={(e) => setState({ email: e.target.value })}
-          error={validationErrs.email}
-        />
-        <BasicInput
-          label="Password"
-          placeholder=""
-          margins={{ mt: '2', mb: '1' }}
-          type="password"
-          value={password}
-          handleChange={(e) => setState({ password: e.target.value })}
-          error={validationErrs.password}
-        />
+          <T.Body16 mt="5" color="red">
+            {httpError}
+          </T.Body16>
 
-        <T.Body16 mt="5" color="red">
-          {httpError}
-        </T.Body16>
-
-        <Button variant="primary" bgColor="teal" handleClick={handleSubmit}>
-          Log in
-        </Button>
+          <Button variant="primary" bgColor="teal" type="submit">
+            Log in
+          </Button>
+        </form>
       </S.Content>
     </S.Wrapper>
   );

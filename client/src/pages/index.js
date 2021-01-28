@@ -10,6 +10,7 @@ import VolunteerLanding from './Landing/VolunteerLanding';
 import TestLanding from './TestLanding';
 import HqSkillsProgress from './HqSkillsProgress';
 import PostcodePage from './Postcode';
+import VolunteerDashboard from './Dashboard/Volunteer';
 import HqIndividualSkill from './HqIndividualSkill';
 import SkillAreas from './SkillAreas';
 import IndividualSkillArea from './IndividualSkillArea';
@@ -29,6 +30,7 @@ export {
   TestLanding,
   HqSkillsProgress,
   PostcodePage,
+  VolunteerDashboard,
   HqDashboard,
   Search,
   HqIndividualSkill,

@@ -35,6 +35,16 @@ const SearchSkillsAndActivities = async ({ task, tool, options }) => {
   }
 };
 
+const getUserSkillsStats = async ({ options } = {}) => {
+  try {
+    const { data } = await axios.get(`${SKILLS_BASE}/stats`);
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
 const getMostPopularTasks = async ({ options } = {}) => {
   try {
     const { data } = await axios.get(`${SKILLS_BASE}/popular`);
@@ -49,5 +59,6 @@ export {
   getSkillById,
   SearchSkillsAndActivities,
   getMostPopularTasks,
+  getUserSkillsStats,
   getHqSkillsProgress,
 };

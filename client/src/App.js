@@ -92,6 +92,15 @@ function App() {
                 layout="withoutHeader"
               />
 
+              <Route
+                exact
+                path={navRoutes.HQ.SUCCESS_UPDATE_ACTIVITY}
+                Component={Pages.SuccessUpdateActivity}
+                layout="notification"
+                headerIcon="success"
+                goBack
+              />
+
               {/* General routes */}
               <Route
                 exact
@@ -126,6 +135,7 @@ function App() {
                 headerIcon="darts"
                 goBack
               />
+              {/* VOLUNTEERS ROUTES */}
               <Route
                 exact
                 path={navRoutes.GENERAL.HELP_OTHERS}
@@ -133,15 +143,13 @@ function App() {
                 layout="withoutHeader"
               />
 
-              {/* HQ routes */}
-
               <Route
                 exact
-                path={navRoutes.HQ.SUCCESS_UPDATE_ACTIVITY}
-                Component={Pages.SuccessUpdateActivity}
-                layout="notification"
-                headerIcon="success"
-                goBack
+                path={navRoutes.VOLUNTEER.DASHBOARD}
+                Component={Pages.VolunteerDashboard}
+                layout="withoutHeader"
+                isPrivate
+                allowedRoles={[roles.VOLUNTEER]}
               />
             </Switch>
           </Router>
