@@ -18,6 +18,7 @@ const BasicInput = ({
   margins = {},
   outline,
   big,
+  autoComplete,
   ...props
 }) => {
   const decideColor = () => {
@@ -65,6 +66,7 @@ const BasicInput = ({
         disabled={disabled}
         outline={outline}
         big={big}
+        autoComplete={autoComplete || 'on'}
         {...props}
       />
       {error && (

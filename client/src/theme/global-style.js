@@ -31,6 +31,13 @@ const style = css`
     margin: 0;
     padding: 0;
   }
+
+  /* to override elipsis on dropdown options from antd */
+  .ant-select-item-option-content {
+    white-space: normal;
+    height: auto;
+  }
+
   h1,
   h2,
   h3,

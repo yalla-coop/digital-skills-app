@@ -8,6 +8,10 @@ export const Field = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  div {
+    width: 100%;
+  }
 `;
 
 export const Option = styled.button`
@@ -21,4 +25,5 @@ export const Option = styled.button`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   padding: 1rem;
   outline: none;
+  height: 100%;
 `;

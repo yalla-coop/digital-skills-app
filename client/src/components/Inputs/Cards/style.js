@@ -12,6 +12,9 @@ export const Card = styled.button`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   outline: none;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Header = styled.header`
@@ -23,4 +26,5 @@ export const Inner = styled.div`
   background: ${({ theme }) => theme.colors.white};
   padding: 1rem 2rem 1rem 1.5rem;
   text-align: left;
+  height: 100%;
 `;

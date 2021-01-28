@@ -117,14 +117,14 @@ function App() {
               />
               <Route
                 exact
-                path={navRoutes.VOLUNTEER.ENTER_POSTCODE}
-                Component={() => <Pages.PostcodePage />}
-                layout="page"
+                path={navRoutes.HQ.HOME}
+                Component={() => <Pages.HQLanding />}
+                layout="withoutHeader"
               />
               <Route
                 exact
-                path={navRoutes.HQ.HOME}
-                Component={() => <Pages.HQLanding />}
+                path={navRoutes.GENERAL.ASSESSMENT_STEP}
+                Component={() => <Pages.Assessment />}
                 layout="withoutHeader"
               />
               <Route

@@ -1,6 +1,7 @@
 import Example from './Example';
 import VolunteerSignup from './Signup/Volunteer';
 import Login from './Login';
+import Assessment from './Assessment';
 import Search from './Search';
 
 import HQSignup from './Signup/HQ';
@@ -9,7 +10,6 @@ import HQLanding from './Landing/HQLanding';
 import VolunteerLanding from './Landing/VolunteerLanding';
 import TestLanding from './TestLanding';
 import HqSkillsProgress from './HqSkillsProgress';
-import PostcodePage from './Postcode';
 import VolunteerDashboard from './Dashboard/Volunteer';
 import HqIndividualSkill from './HqIndividualSkill';
 import SkillAreas from './SkillAreas';
@@ -23,13 +23,13 @@ export {
   VolunteerSignup,
   HQSignup,
   Login,
+  TestLanding,
+  Assessment,
   HqVolunteersStats,
   HQLanding,
   VolunteerLanding,
-  SuccessUpdateActivity,
-  TestLanding,
   HqSkillsProgress,
-  PostcodePage,
+  SuccessUpdateActivity,
   VolunteerDashboard,
   HqDashboard,
   Search,

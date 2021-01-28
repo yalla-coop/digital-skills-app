@@ -363,7 +363,7 @@ const createSkills = async () => {
       code: skillsCodes.ENSURE_ONLINE_MEETINGS_ARE_SECURELY,
       number: 43,
       icon: 'defaultSkill',
-      // basic, events, meetings , working together
+      // events, meetings , working together
     },
     {
       title: 'I can share my screen to present things',
@@ -474,7 +474,7 @@ const createSkills = async () => {
       code: skillsCodes.LOCATE_INFORMATION_USING_SEARCH_TOOL,
       number: 57,
       icon: 'defaultSkill',
-      // programme , events , meetings
+      // basic, programme , events , meetings
     },
     {
       title: 'I can use Online Scout Manager',

@@ -147,7 +147,6 @@ const createSkillAreasSkills = async (data) => {
     { skillId: skills[42].id, skillAreaId: meetingsAndTraining.id },
     { skillId: skills[42].id, skillAreaId: workingTogether.id },
 
-    { skillId: skills[43].id, skillAreaId: theBasics.id },
     { skillId: skills[43].id, skillAreaId: eventsPlanning.id },
     { skillId: skills[43].id, skillAreaId: meetingsAndTraining.id },
     { skillId: skills[43].id, skillAreaId: workingTogether.id },
@@ -191,6 +190,7 @@ const createSkillAreasSkills = async (data) => {
     { skillId: skills[56].id, skillAreaId: digitalFinance.id },
     { skillId: skills[56].id, skillAreaId: dataAndDocument.id },
 
+    { skillId: skills[57].id, skillAreaId: theBasics.id },
     { skillId: skills[57].id, skillAreaId: programmePlanning.id },
     { skillId: skills[57].id, skillAreaId: eventsPlanning.id },
     { skillId: skills[57].id, skillAreaId: meetingsAndTraining.id },

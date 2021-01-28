@@ -7,7 +7,7 @@ const GENERAL = {
   SKILLS: '/skills',
   SUPPORT: '/support',
   ASSESSMENT: '/digital-test',
-  DOING_TEST: `/digital-test/:step`,
+  ASSESSMENT_STEP: '/digital-test/:step',
   HELP_OTHERS: '/help-others',
   SKILL: '/skill/:id',
   ACTIVITY: '/activity/:id',

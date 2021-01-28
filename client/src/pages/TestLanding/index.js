@@ -30,7 +30,7 @@ const TestLanding = () => {
               10 minutes
             </T.BodyB>
           </S.ClockWrapper>
-          <Button to={R.GENERAL.DOING_TEST.replace(':step', 1)}>
+          <Button to={R.GENERAL.ASSESSMENT_STEP.replace(':step', 1)}>
             Let's go!
           </Button>
         </Col>

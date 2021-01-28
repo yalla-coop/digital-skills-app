@@ -48,8 +48,9 @@ const Dropdown = ({
         >
           {_options.map((opt) => (
             <AntdOption
-              key={`${groupLabel}_${opt.value}`}
+              key={`${groupLabel}_${opt.label}`}
               value={opt.value}
+              points={opt.points}
               style={{
                 fontSize: '1rem',
                 fontWeight: 'normal',
@@ -60,6 +61,8 @@ const Dropdown = ({
                 color: colors.black,
                 display: 'flex',
                 alignItems: 'center',
+                whiteSpace: 'normal',
+                border: '1px red solid !important',
               }}
             >
               {opt.label}
@@ -68,11 +71,12 @@ const Dropdown = ({
         </AntdOptGroup>
       ));
     }
-    return options.map(({ value: _value, label: _label }) => (
+    return options.map(({ value: _value, label: _label, points: _points }) => (
       <AntdOption
-        key={matrix ? `${label}_${_value}` : _value}
+        key={matrix ? `${label}_${_value}` : _label}
         value={_value}
         label={_label}
+        points={_points}
         style={{
           fontSize: '1rem',
           backgroundColor: isSelected(_value) ? colors.litestGray : 'white',
@@ -80,6 +84,9 @@ const Dropdown = ({
           color: colors.black,
           display: 'flex',
           alignItems: 'center',
+          whiteSpace: 'normal !important',
+          height: 'auto',
+          border: '1px red solid !important',
         }}
       >
         {_label}
@@ -97,7 +104,7 @@ const Dropdown = ({
       matrix={matrix}
       big={big}
       outline={outline}
-      mb={margins.mb || '3'}
+      mb={(margins && margins.mb) || '3'}
       {...margins}
     >
       {label && (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Skills } from './../../api-calls';
+import { Skills } from '../../api-calls';
 import { BackLink, Grid, Button } from '../../components';
 import { StatsCard } from '../../components/Card';
 import * as T from '../../components/Typography';

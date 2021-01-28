@@ -13,6 +13,17 @@ const getSkillById = async ({ id, options }) => {
   }
 };
 
+const getSkillsByAreas = async ({ areas, options }) => {
+  try {
+    const { data } = await axios.get(`${SKILLS_BASE}`, {
+      params: { areas },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
 const getHqSkillsProgress = async ({ options } = {}) => {
   try {
     const { data } = await axios.get(`${SKILLS_BASE}/progress`);
@@ -61,4 +72,5 @@ export {
   getMostPopularTasks,
   getUserSkillsStats,
   getHqSkillsProgress,
+  getSkillsByAreas,
 };

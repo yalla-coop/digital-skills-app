@@ -56,6 +56,7 @@ export const Field = styled.div`
       }
     }};
     padding-left: ${({ big }) => big && '0.25rem'};
+    overflow-x: hidden;
   }
 
   .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
@@ -117,8 +118,8 @@ export const Field = styled.div`
 `;
 
 export const Label = styled.label`
-  ${setMargin};
-  width: ${({ matrix }) => (matrix ? '50%' : '100%')};
+  ${setMargin}
+  width: ${({ matrix }) => (matrix ? '40%' : '100%')};
   display: flex;
   align-items: center;
 `;
@@ -128,5 +129,5 @@ export const menuStyle = styled`
 
 export const Answer = styled.div`
   flex-direction: column;
-  width: 100%;
+  width: ${({ matrix }) => (matrix ? '60%' : '100%')};
 `;

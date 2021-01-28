@@ -66,14 +66,19 @@ const Slider = ({
         value={selected.key}
       />
       {showAnswer && (
-        <div style={{ postion: 'relative' }}>
+        <div
+          style={{
+            position: 'relative',
+            height: '50px',
+          }}
+        >
           <T.Body16
             color="gray"
             style={{
               left: decideTextPosition().left,
               right: decideTextPosition().right,
               position: 'absolute',
-              top: 55,
+              top: 0,
               width: `30%`,
               textAlign: decideTextPosition().align,
             }}

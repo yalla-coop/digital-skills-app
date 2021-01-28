@@ -1,21 +1,30 @@
 import Dropdown from '../Dropdown';
+import * as CS from '../style';
 
-const Matrix = ({ rows, handleChange, selected, errors = {}, disabled }) => {
+const Matrix = ({
+  rows,
+  options,
+  handleChange,
+  selected,
+  errors = {},
+  disabled,
+  ...props
+}) => {
   return (
-    <>
-      {rows.map(({ label, value, options }) => (
+    <CS.Field {...props}>
+      {rows.map((row) => (
         <Dropdown
-          handleChange={(e) => handleChange(e, value)}
-          selected={selected[value] || undefined}
+          handleChange={(e, obj) => handleChange(e, obj, row)}
+          selected={selected[row.value] || undefined}
           options={options}
-          label={label}
+          label={row.label}
           matrix
-          key={label}
-          error={errors[value]}
+          key={row.label}
+          error={errors[row.value]}
           disabled={disabled}
         />
       ))}
-    </>
+    </CS.Field>
   );
 };
 

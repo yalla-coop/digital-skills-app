@@ -73,7 +73,7 @@ dropdown.args = {
   error: '',
   helper: '',
   options: [
-    { label: 'Option 1', value: 'Option 1' },
+    { label: 'Option 1 Super Long with Lots of Info', value: 'Option 1' },
     { label: 'Option 2', value: 'Option 2' },
   ],
   multi: false,
@@ -136,7 +136,7 @@ const MatrixExample = (args) => {
   const [selected, setSelected] = useState({});
 
   const handleChange = (selectedOption, row) => {
-    setSelected({ ...selected, [row]: selectedOption });
+    setSelected({ ...selected, [row.value]: selectedOption });
   };
 
   return (
@@ -149,7 +149,7 @@ const MatrixExample = (args) => {
 };
 
 const dummyOptions = [
-  { label: 'Option 1', value: 'Option 1' },
+  { label: 'Option 1 Super Long with Lots of Info', value: 'Option 1' },
   { label: 'Option 2', value: 'Option 2' },
   { label: 'Option 3', value: 'Option 3' },
 ];
@@ -173,6 +173,7 @@ matrix.args = {
       options: dummyOptions,
     },
   ],
+  options: dummyOptions,
   disabled: false,
   errors: {},
 };

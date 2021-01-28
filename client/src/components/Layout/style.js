@@ -24,10 +24,11 @@ export const Content = styled(AntdContentComponent)`
     theme.constants.layout.withoutHeader.padding.desktop};
   padding-right: ${({ theme }) =>
     theme.constants.layout.withoutHeader.padding.desktop};
+  max-width: 1200px;
 
   ${({ theme }) => theme.media.mobile} {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   ${({ withoutHeader, theme }) =>
     withoutHeader &&

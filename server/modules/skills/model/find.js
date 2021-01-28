@@ -16,6 +16,42 @@ const findSkillById = async (id) => {
   return res.rows[0];
 };
 
+const findSkillsByAreas = async (areas) => {
+  const sql = `
+  SELECT 
+  s.id, 
+  s.title, 
+  s.code, 
+  a.code AS area_code, 
+  ARRAY(
+    SELECT a2.code 
+    FROM skill_areas a2 
+    INNER JOIN skill_areas_skills sas2 ON (a2.id = sas2.skill_area) 
+    WHERE s.id = sas2.skill AND a2.code = ANY ($1)
+    ) AS user_skill_areas,
+  ARRAY(
+    SELECT a2.code 
+    FROM skill_areas a2 
+    INNER JOIN skill_areas_skills sas2 ON (a2.id = sas2.skill_area) 
+    WHERE s.id = sas2.skill
+    ) AS skill_areas 
+  FROM skills s 
+  INNER JOIN skill_areas_skills sas ON (s.id = sas.skill) 
+  INNER JOIN skill_areas a ON (a.id = sas.skill_area) 
+  WHERE a.code = ANY ($1)`;
+
+  const values = [areas];
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
+const findSkills = async () => {
+  const sql = ``;
+  const res = await query(sql);
+  return res.rows;
+};
+
 const findHQSkillProgress = async (orgId) => {
   const values = [orgId, skillStatuses.COMPLETED];
 
@@ -144,5 +180,7 @@ export {
   findHQSkillProgress,
   findSkillAndActivitiesForSearch,
   getPopularSkillsAndActivities,
+  findSkillsByAreas,
+  findSkills,
   findVolunteerSkillsStats,
 };

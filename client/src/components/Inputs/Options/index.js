@@ -1,6 +1,8 @@
 import * as T from '../../Typography';
 import * as S from './style';
 
+import { Row, Col } from '../../Grid';
+
 const Options = ({
   options,
   multi,
@@ -8,7 +10,7 @@ const Options = ({
   handleChange,
   error,
   disabled,
-  w,
+  w = '100%',
   selected = [],
 }) => {
   const decideColor = () => {
@@ -18,7 +20,8 @@ const Options = ({
   };
 
   const isSelected = (option) =>
-    selected.filter((item) => item.value === option.value).length > 0;
+    selected &&
+    selected.filter((item) => item.label === option.label).length > 0;
 
   const selectOption = (option) => {
     const alreadySelected = isSelected(option);
@@ -33,21 +36,25 @@ const Options = ({
 
   return (
     <S.Field w={w} disabled={disabled} mb="3">
-      {options.map((option) => (
-        <S.Option
-          selected={isSelected(option)}
-          color={decideColor()}
-          onClick={() => selectOption(option)}
-          disabled={disabled}
-          key={option.label}
-        >
-          <T.Body16 m="0" color={isSelected(option) ? 'white' : 'black'}>
-            {option.label}
-          </T.Body16>
-        </S.Option>
-      ))}
+      <Row style={{ alignItems: 'stretch' }}>
+        {options.map((option, i) => (
+          <Col w={[4, 6, 4]} mb="4" key={i}>
+            <S.Option
+              selected={isSelected(option)}
+              color={decideColor()}
+              onClick={() => selectOption(option)}
+              disabled={disabled}
+              key={i}
+            >
+              <T.Body16 m="0" color={isSelected(option) ? 'white' : 'black'}>
+                {option.label}
+              </T.Body16>
+            </S.Option>
+          </Col>
+        ))}
+      </Row>
       {error && (
-        <T.Body16 color="error" m="0" mt="1">
+        <T.Body16 color="error" m="0" mt="1" ml="3">
           {error}
         </T.Body16>
       )}
