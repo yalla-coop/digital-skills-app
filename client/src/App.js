@@ -90,6 +90,17 @@ function App() {
                 headerIcon="darts"
                 goBack
               />
+
+              {/* HQ routes */}
+
+              <Route
+                exact
+                path={navRoutes.HQ.SUCCESS_UPDATE_ACTIVITY}
+                Component={Pages.SuccessUpdateActivity}
+                layout="notification"
+                headerIcon="success"
+                goBack
+              />
             </Switch>
           </Router>
         </AuthProvider>

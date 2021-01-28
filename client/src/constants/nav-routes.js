@@ -31,6 +31,7 @@ const HQ = {
   WELCOME: `${HQBased}/welcome`,
   DASHBOARD: `${HQBased}/dashboard`,
   VOLUNTEERS: `${HQBased}/volunteers`,
+  SUCCESS_UPDATE_ACTIVITY: `${HQBased}/Success-update-activity`,
   MANAGE_SKILLS: `${HQBased}/manage-skills`,
   DIGITAL_TOOL: `${HQBased}/digital-tool`,
   PROGRESS: `${HQBased}/progress`,

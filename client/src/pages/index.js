@@ -10,6 +10,7 @@ import VolunteerLanding from './Landing/VolunteerLanding';
 import TestLanding from './TestLanding';
 import HqSkillsProgress from './HqSkillsProgress';
 import PostcodePage from './Postcode';
+import SuccessUpdateActivity from './SuccessUpdateActivity';
 
 export {
   Example,
@@ -19,6 +20,7 @@ export {
   HqVolunteersStats,
   HQLanding,
   VolunteerLanding,
+  SuccessUpdateActivity,
   TestLanding,
   HqSkillsProgress,
   PostcodePage,

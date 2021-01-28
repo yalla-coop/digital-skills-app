@@ -32,6 +32,7 @@ import Search from './icons/Search';
 import Close from './icons/Close';
 import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
+import Eye from './icons/Eye';
 import RightRow from './icons/RightRow';
 
 export const IconMap = {
@@ -67,6 +68,7 @@ export const IconMap = {
   help: Help,
   rightRow: RightRow,
   clock: Clock,
+  eye: Eye,
 };
 
 const Icon = (props) => {
