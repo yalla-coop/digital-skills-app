@@ -34,6 +34,7 @@ import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
 import Eye from './icons/Eye';
 import RightRow from './icons/RightRow';
+import Edit from './icons/Edit';
 
 export const IconMap = {
   email: Email,
@@ -68,6 +69,7 @@ export const IconMap = {
   help: Help,
   rightRow: RightRow,
   clock: Clock,
+  edit: Edit,
   eye: Eye,
 };
 

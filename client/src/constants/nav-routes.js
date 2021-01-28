@@ -22,23 +22,25 @@ const VOLUNTEER = {
   SETTINGS: '/settings',
 };
 
-const HQBased = '/hq';
+const HQBase = '/hq';
 
 const HQ = {
-  HOME: HQBased,
-  SIGNUP: `${HQBased}/signup`,
-  WELCOME: `${HQBased}/welcome`,
-  DASHBOARD: `${HQBased}/dashboard`,
-  VOLUNTEERS: `${HQBased}/volunteers`,
-  SUCCESS_UPDATE_ACTIVITY: `${HQBased}/Success-update-activity`,
-  MANAGE_SKILLS: `${HQBased}/manage-skills`,
-  INDIVIDUAL_SKILL_AREA: `${HQBased}/manage-skills/:id`,
-  INDIVIDUAL_SKILL: `${HQBased}/skills/:id`,
-  DIGITAL_TOOL: `${HQBased}/digital-tool`,
-  PROGRESS: `${HQBased}/progress`,
-  MANAGE_VOLUNTEERS: `${HQBased}/manage-volunteers`,
-  SKILLS_PROGRESS: `${HQBased}/skills-progress`,
-  ADD_NEW_ACTIVITY: `${HQBased}/new-activity`,
+  HOME: HQBase,
+  SIGNUP: `${HQBase}/signup`,
+  WELCOME: `${HQBase}/welcome`,
+  MANAGE_SKILLS: `${HQBase}/manage-skills`,
+  DIGITAL_TOOL: `${HQBase}/digital-tool`,
+  PROGRESS: `${HQBase}/progress`,
+  MANAGE_VOLUNTEERS: `${HQBase}/manage-volunteers`,
+  SKILLS_PROGRESS: `${HQBase}/skills-progress`,
+  INDIVIDUAL_SKILL: `${HQBase}/skills/:id`,
+  EDIT_ACTIVITY: `${HQBase}/activities/:id/edit`,
+  ADD_ACTIVITY: `${HQBase}/activities/new`,
+  SUCCESS_UPDATE_ACTIVITY: `${HQBase}/Success-update-activity`,
+  VOLUNTEERS: `${HQBase}/volunteers`,
+  DASHBOARD: `${HQBase}/dashboard`,
+  INDIVIDUAL_SKILL_AREA: `${HQBase}/manage-skills/:id`,
+  ADD_NEW_ACTIVITY: `${HQBase}/new-activity`,
 };
 
 const EXTERNAL = {

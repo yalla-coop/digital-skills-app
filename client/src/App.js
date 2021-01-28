@@ -83,6 +83,14 @@ function App() {
                 allowedRoles={[roles.HQ]}
                 layout="withoutHeader"
               />
+              <Route
+                exact
+                path={navRoutes.HQ.INDIVIDUAL_SKILL}
+                Component={Pages.HqIndividualSkill}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
 
               {/* General routes */}
               <Route

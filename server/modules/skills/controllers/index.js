@@ -13,6 +13,6 @@ const { HQ } = userRoles;
 router.get('/progress', authenticate(), authorize([HQ]), getHQSkillProgress);
 router.get('/popular', getSkillsAndActivitiesPopular);
 router.get('/search', getSkillsAndActivitiesSearch);
-router.get('/:id', getSkillById);
+router.get('/:id', authenticate(), authorize([HQ]), getSkillById);
 
 export default router;

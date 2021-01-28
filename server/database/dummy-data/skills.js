@@ -33,6 +33,8 @@ const createSkills = async () => {
       code: skillsCodes.TURN_ON_DEVICE,
       number: 1,
       icon: 'defaultSkill',
+      description:
+        'Keeping a good organisation of files is a must when using digital technology well. You may not think about files that often, but without organised folders, later finding files becomes very difficult!',
       // basics
     },
     {

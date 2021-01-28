@@ -13,4 +13,16 @@ const getActivityById = async ({ id, options }) => {
   }
 };
 
-export { getActivityById };
+const getActivitiesBySkillId = async ({ id, options }) => {
+  try {
+    const { data } = await axios.get(`${ACTIVITIES_BASE}`, {
+      params: { skillId: id },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
+export { getActivityById, getActivitiesBySkillId };

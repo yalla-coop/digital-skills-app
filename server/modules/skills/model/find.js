@@ -3,7 +3,14 @@ import { skillStatuses } from '../../../constants';
 
 const findSkillById = async (id) => {
   const values = [id];
-  const sql = ``;
+  const sql = `
+    SELECT
+      id,
+      title,
+      description
+    FROM skills
+    WHERE id = $1
+  `;
 
   const res = await query(sql, values);
   return res.rows[0];
