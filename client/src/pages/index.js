@@ -12,6 +12,7 @@ import HqSkillsProgress from './HqSkillsProgress';
 import PostcodePage from './Postcode';
 import HqDashboard from './HqDashboard';
 import SuccessUpdateActivity from './SuccessUpdateActivity';
+import HelpOthers from './HelpOthers';
 
 export {
   Example,
@@ -27,4 +28,5 @@ export {
   PostcodePage,
   HqDashboard,
   Search,
+  HelpOthers,
 };

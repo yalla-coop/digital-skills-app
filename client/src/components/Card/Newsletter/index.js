@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import * as CS from '../style';
 import * as T from '../../Typography';
+import * as S from './style';
 import Button from '../../Button';
 import { BasicInput } from '../../Inputs';
 
-const Newsletter = ({ color = 'medPurple' }) => {
+const Newsletter = ({
+  color = 'medPurple',
+  hideInput,
+  btnText,
+  customFunc,
+  extLink,
+}) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
@@ -24,18 +31,26 @@ const Newsletter = ({ color = 'medPurple' }) => {
         Interested in receiving resources and tips on how to support others in
         the community?
       </T.BodyR>
-      <BasicInput
-        label="Email"
-        placeholder=""
-        value={value}
-        handleChange={handleChange}
-        color="white"
-        outline
-        margins={{ mb: '4' }}
-      />
-      <Button bgColor={color} handleClick={handleSubmit}>
-        Subscribe
-      </Button>
+      {!hideInput && (
+        <BasicInput
+          label="Email"
+          placeholder=""
+          value={value}
+          handleChange={handleChange}
+          color="white"
+          outline
+          margins={{ mb: '4' }}
+        />
+      )}
+      {extLink ? (
+        <S.BtnLink href={extLink} target="_blank" size="large" bgColor="none">
+          <S.Label>{btnText}</S.Label>
+        </S.BtnLink>
+      ) : (
+        <Button bgColor={color} handleClick={customFunc || handleSubmit}>
+          {btnText || 'Subscribe'}
+        </Button>
+      )}
     </CS.Wrapper>
   );
 };

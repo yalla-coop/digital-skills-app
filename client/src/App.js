@@ -99,6 +99,12 @@ function App() {
                 headerIcon="darts"
                 goBack
               />
+              <Route
+                exact
+                path={navRoutes.GENERAL.SUPPORT_OTHERS}
+                Component={Pages.HelpOthers}
+                layout="withoutHeader"
+              />
 
               {/* HQ routes */}
 
