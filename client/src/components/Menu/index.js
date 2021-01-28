@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NAV_ROUTES } from '../../constants/nav-routes';
+import { useAuth } from '../../context/auth';
 import * as S from './style';
 
-const Menu = ({ closeDrawer, user, selectedKey, setSelectedKey }) => {
+const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
   const { volunteer, HQUser } = NAV_ROUTES;
-
+  const { user } = useAuth();
   const [navRoutes, setNavRoutes] = useState({
     routes: volunteer.LOGGED_OUT,
     authRoutes: volunteer.LOGGED_OUT_AUTH,
@@ -13,25 +14,23 @@ const Menu = ({ closeDrawer, user, selectedKey, setSelectedKey }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (user && user.type === 'volunteer' && user.login === true) {
+    const isHQ = history.location.pathname.includes('/hq');
+    if (user.role === 'VOLUNTEER') {
       setNavRoutes({
         routes: volunteer.LOGGED_IN,
         authRoutes: volunteer.LOGGED_IN_AUTH,
       });
-    }
-    if (user && user.type === 'volunteer' && user.login === false) {
+    } else if (user.role === 'HQ') {
+      setNavRoutes({
+        routes: HQUser.LOGGED_IN,
+        authRoutes: HQUser.LOGGED_IN_AUTH,
+      });
+    } else if (!isHQ) {
       setNavRoutes({
         routes: volunteer.LOGGED_OUT,
         authRoutes: volunteer.LOGGED_OUT_AUTH,
       });
-    }
-    if (user && user.type === 'HQUser' && user.login === true) {
-      setNavRoutes({
-        routes: HQUser.LOGGED_OUT_AUTH,
-        authRoutes: HQUser.LOGGED_IN_AUTH,
-      });
-    }
-    if (user && user.type === 'HQUser' && user.login === false) {
+    } else if (isHQ) {
       setNavRoutes({
         routes: HQUser.LOGGED_OUT,
         authRoutes: HQUser.LOGGED_OUT_AUTH,

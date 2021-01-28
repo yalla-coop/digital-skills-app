@@ -13,14 +13,14 @@ const Clock = ({ width, height, color, ...props }) => (
       rx="14.88"
       ry="14.934"
       stroke={color || 'black'}
-      stroke-width="2"
+      strokeWidth="2"
     />
     <path
       d="M16.35 7.153v9.668h9.099"
       stroke={color || 'black'}
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

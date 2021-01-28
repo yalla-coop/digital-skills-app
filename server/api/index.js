@@ -5,6 +5,7 @@ import {
   users,
   checkIns,
   skills,
+  skillAreas,
   activities,
   organisations,
   volunteers,
@@ -15,6 +16,7 @@ const router = Router();
 router.use('/users', users.controllers);
 router.use('/check-ins', checkIns.controllers);
 router.use('/skills', skills.controllers);
+router.use('/skill-areas', skillAreas.controllers);
 router.use('/activities', activities.controllers);
 router.use('/organisations', organisations.controllers);
 router.use('/volunteers', volunteers.controllers);

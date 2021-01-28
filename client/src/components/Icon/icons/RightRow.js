@@ -10,8 +10,8 @@ const RightRow = ({ width, height, color, ...props }) => (
     <path
       d="M4.99998 12.4043L9.94472 7.45378C9.97204 7.42644 9.97204 7.38216 9.94472 7.35488L4.99998 2.4043"
       stroke={color || '#00A794'}
-      stroke-width="2"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeLinecap="round"
     />
   </svg>
 );

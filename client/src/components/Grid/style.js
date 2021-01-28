@@ -30,7 +30,6 @@ export const Col = styled('div')`
   position: relative;
   width: 100%;
   min-height: 1;
-  height: 100%;
   margin-top: ${({ mt, theme }) => theme.spacings[mt] || '0'};
   margin-bottom: ${({ mb, theme }) => theme.spacings[mb] || '0'};
 

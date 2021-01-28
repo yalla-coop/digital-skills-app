@@ -47,6 +47,25 @@ function App() {
                 allowedRoles={[roles.HQ]}
                 layout="withoutHeader"
               />
+
+              <Route
+                exact
+                path={navRoutes.HQ.MANAGE_SKILLS}
+                Component={Pages.SkillAreas}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
+
+              <Route
+                exact
+                path={navRoutes.HQ.INDIVIDUAL_SKILL_AREA}
+                Component={Pages.IndividualSkillArea}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
+
               <Route
                 exact
                 path={navRoutes.HQ.DASHBOARD}

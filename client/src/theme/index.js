@@ -91,9 +91,14 @@ export const colors = {
   gray1: '#cccccc',
   blackDark: '#000',
 };
-
+const cardShadow = [
+  '0px 4px 4px rgba(0, 0, 0, 0.03)',
+  '0px 1px 8px rgba(0, 0, 0, 0.05)',
+  '0px 3px 3px rgba(0, 0, 0, 0.03)',
+];
 const shadows = {
-  card: `drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.03)) drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05)) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.03))`,
+  card: `drop-shadow(${cardShadow[0]}) drop-shadow(${cardShadow[1]}) drop-shadow(${cardShadow[2]})`,
+  light: `${cardShadow[0]}, ${cardShadow[1]}, ${cardShadow[2]}`,
 };
 
 export const screensWidth = {

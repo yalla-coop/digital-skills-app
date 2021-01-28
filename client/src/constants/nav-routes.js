@@ -33,10 +33,13 @@ const HQ = {
   VOLUNTEERS: `${HQBased}/volunteers`,
   SUCCESS_UPDATE_ACTIVITY: `${HQBased}/Success-update-activity`,
   MANAGE_SKILLS: `${HQBased}/manage-skills`,
+  INDIVIDUAL_SKILL_AREA: `${HQBased}/manage-skills/:id`,
+  INDIVIDUAL_SKILL: `${HQBased}/skills/:id`,
   DIGITAL_TOOL: `${HQBased}/digital-tool`,
   PROGRESS: `${HQBased}/progress`,
   MANAGE_VOLUNTEERS: `${HQBased}/manage-volunteers`,
   SKILLS_PROGRESS: `${HQBased}/skills-progress`,
+  ADD_NEW_ACTIVITY: `${HQBased}/new-activity`,
 };
 
 const EXTERNAL = {
@@ -70,7 +73,7 @@ const VOLUNTEER_LOGGED_IN_AUTH = [
 const HQ_USER_LOGGED_IN = [
   { title: 'Home', to: HQ.DASHBOARD },
   { title: 'My volunteers', to: HQ.VOLUNTEERS },
-  { title: 'Progress', to: HQ.PROGRESS },
+  { title: 'Progress', to: HQ.SKILLS_PROGRESS },
   { title: 'Manage skills', to: HQ.MANAGE_SKILLS },
   { title: 'View digital tool', to: HQ.DIGITAL_TOOL },
 ];

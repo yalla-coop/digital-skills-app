@@ -11,19 +11,19 @@ const Burger = ({ width, height, color, ...props }) => (
       d="M1 1.95118H21"
       stroke={color || '#1E1E1E'}
       strokeWidth="2"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M1 9.42408H21"
       stroke={color || '#1E1E1E'}
       strokeWidth="2"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M1 16.8967H21"
       stroke={color || '#1E1E1E'}
       strokeWidth="2"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
   </svg>
 );
