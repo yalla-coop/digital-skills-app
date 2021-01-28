@@ -76,7 +76,7 @@ const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
       if (data.id === userRoles.VOLUNTEER) {
         history.push(navRoutes.VOLUNTEER.WELCOME);
       } else {
-        history.push(navRoutes.VOLUNTEER.WELCOME);
+        history.push(navRoutes.HQ.DASHBOARD);
       }
     }
   };

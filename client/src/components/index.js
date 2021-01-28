@@ -4,5 +4,6 @@ import Header from './Header';
 import Layout from './Layout';
 import Route from './Route';
 import BackLink from './BackLink';
+import Loading from './Loading';
 
-export { Button, Grid, Header, Layout, Route, BackLink };
+export { Button, Grid, Header, Layout, Route, BackLink, Loading };

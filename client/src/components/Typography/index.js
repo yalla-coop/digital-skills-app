@@ -114,6 +114,14 @@ export const Body16 = styled.p`
   font-size: 16px;
   line-height: 22px;
 `;
+export const BodySM = styled.p`
+  ${setMargin};
+  ${commonStyle};
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.9px;
+  line-height: 21.31px;
+`;
 export const BodyLB = styled.p`
   ${setMargin};
   ${commonStyle};

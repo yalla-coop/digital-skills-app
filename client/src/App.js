@@ -49,6 +49,15 @@ function App() {
               />
               <Route
                 exact
+                path={navRoutes.HQ.DASHBOARD}
+                Component={Pages.HqDashboard}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="withoutHeader"
+              />
+
+              <Route
+                exact
                 path={navRoutes.HQ.SKILLS_PROGRESS}
                 Component={Pages.HqSkillsProgress}
                 isPrivate
