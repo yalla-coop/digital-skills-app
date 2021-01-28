@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import setMargin from '../../../helpers/set-margin';
 
 export const Field = styled.div`
-  ${setMargin}
+  ${setMargin};
   width: ${({ w }) => w || '100%'};
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 
@@ -117,7 +117,7 @@ export const Field = styled.div`
 `;
 
 export const Label = styled.label`
-  ${setMargin}
+  ${setMargin};
   width: ${({ matrix }) => (matrix ? '50%' : '100%')};
   display: flex;
   align-items: center;

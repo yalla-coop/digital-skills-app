@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import setMargin from '../../../helpers/set-margin';
 
 export const Field = styled.div`
-  ${setMargin}
+  ${setMargin};
   width: ${({ w }) => w || '100%'};
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 

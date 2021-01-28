@@ -41,3 +41,9 @@ export const arrayOfIds = array()
   .min(1)
   .required(errMsgs.DEFAULT_REQUIRED)
   .typeError(errMsgs.DEFAULT_REQUIRED);
+
+export const requiredField = string().required(errMsgs.DEFAULT_REQUIRED);
+
+export const optionalFiled = string()
+  .typeError(errMsgs.DEFAULT_REQUIRED)
+  .nullable();

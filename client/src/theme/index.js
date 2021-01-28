@@ -54,6 +54,13 @@ const constants = {
     },
     active: '10px',
   },
+  skillModal: {
+    width: {
+      desktop: 450,
+      mobile: '100%',
+    },
+    contentWidth: '375px',
+  },
   // header height
   headerHeight: { desktop: '300px', mobile: '180px' },
   blockWidth: '15.7%',

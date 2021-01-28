@@ -6,6 +6,7 @@ import Checkbox from './Checkbox';
 import Radio from './Radio';
 import Options from './Options';
 import Cards from './Cards';
+import Textarea from './Textarea';
 
 export {
   BasicInput,
@@ -16,4 +17,5 @@ export {
   Radio,
   Options,
   Cards,
+  Textarea,
 };

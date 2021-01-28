@@ -30,13 +30,13 @@ export const placeholderStyle = ({ theme, big, outline }) => `
 `;
 
 export const Field = styled.div`
-  ${setMargin}
+  ${setMargin};
   width: ${({ w }) => w || '100%'};
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 `;
 
 export const Label = styled.label`
-  ${setMargin}
+  ${setMargin};
   width: 100%;
   display: flex;
   flex-wrap: wrap;

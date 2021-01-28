@@ -2,9 +2,9 @@ import * as T from '../../Typography';
 import * as CS from '../style';
 import * as S from './style';
 
-const BasicInput = ({
-  type = 'text',
-  name = 'input',
+const Textarea = ({
+  type = 'textarea',
+  name = 'textarea',
   placeholder = 'Type here...',
   label,
   error,
@@ -15,10 +15,11 @@ const BasicInput = ({
   color,
   w,
   disabled,
-  margins = {},
+  margins,
   outline,
   big,
-  ...props
+  rows = '5',
+  cols,
 }) => {
   const decideColor = () => {
     if (error) return 'error';
@@ -55,7 +56,7 @@ const BasicInput = ({
           )}
         </CS.Label>
       )}
-      <S.Input
+      <S.Textarea
         type={type}
         name={name}
         value={value}
@@ -65,7 +66,8 @@ const BasicInput = ({
         disabled={disabled}
         outline={outline}
         big={big}
-        {...props}
+        rows={rows}
+        cols={cols}
       />
       {error && (
         <T.Body16 color="error" m="0" mt="1">
@@ -76,4 +78,4 @@ const BasicInput = ({
   );
 };
 
-export default BasicInput;
+export default Textarea;
