@@ -43,6 +43,7 @@ const EXTERNAL = {
   PRIVACY_POLICY: 'https://www.google.com/',
   HELP: '/help', // in search page
   TERMS_AND_CONDITIONS: 'https://www.google.com/',
+  COOKIES: 'https://www.google.com/',
 };
 
 const VOLUNTEER_LOGGED_OUT = [

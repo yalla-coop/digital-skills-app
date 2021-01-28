@@ -5,9 +5,11 @@ import theme from '../../theme';
 
 import NavBar from './NavBar';
 
+import Footer from '../../components/Footer';
+
 import * as S from './style';
 
-import { Layout, AntdFooter, AntdContent, AntdSider } from './style';
+import { Layout, AntdContent, AntdSider } from './style';
 
 const WithBlocks = ({ children, selectedKey, setSelectedKey, ...props }) => {
   return (
@@ -25,7 +27,7 @@ const WithBlocks = ({ children, selectedKey, setSelectedKey, ...props }) => {
           <AntdContent>
             <S.WithBlocksContentWrapper>{children}</S.WithBlocksContentWrapper>
           </AntdContent>
-          <AntdFooter>Footer</AntdFooter>
+          <Footer />
         </Layout>
         <AntdSider
           breakpoint={'md'}

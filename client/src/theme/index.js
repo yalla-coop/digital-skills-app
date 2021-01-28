@@ -33,6 +33,9 @@ const constants = {
         bottom: '24px',
       },
     },
+    footer: {
+      height: '110px',
+    },
   },
   // side menu width
   sideBar: {

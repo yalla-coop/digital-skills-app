@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import NavBar from './NavBar';
 import SideBar from './SideBar';
+import Footer from '../../components/Footer';
 
-import { Layout, AntdFooter, Content } from './style';
+import { Layout, Content } from './style';
 
 const WithoutHeader = ({
   children,
@@ -25,7 +26,7 @@ const WithoutHeader = ({
             <Content withoutHeader={withoutHeader}>{children}</Content>
           )}
 
-          <AntdFooter>Footer</AntdFooter>
+          <Footer />
         </Layout>
       </Layout>
     </>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SideBar from './SideBar';
 import Header from './Header';
+import Footer from '../../components/Footer';
 
 import * as S from './style';
 
@@ -21,7 +22,7 @@ const General = ({
         <S.Layout>
           <Header headerIcon={headerIcon} goBack={goBack} />
           <S.Content>{children}</S.Content>
-          <S.AntdFooter>Footer</S.AntdFooter>
+          <Footer />
         </S.Layout>
       </S.Layout>
     </>
