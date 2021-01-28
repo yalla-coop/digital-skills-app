@@ -101,7 +101,12 @@ const Search = () => {
                     </Typography.Text>
                   </T.Link>
                   <div style={{ width: '15px' }}>
-                    <Icon icon="rightRow" color="red" width="15" height="15" />
+                    <Icon
+                      icon="rightRow"
+                      color="black"
+                      width="15"
+                      height="15"
+                    />
                   </div>
                 </S.ResultContent>
               </S.Result>

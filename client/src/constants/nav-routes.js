@@ -4,7 +4,6 @@ const GENERAL = {
   UNAUTHORIZED: '/unauthorized',
   SEARCH: '/search',
   LOGOUT: '/logout',
-  SUPPORT_OTHERS: '/support-others',
   SKILLS: '/skills',
   SUPPORT: '/support',
   ASSESSMENT: '/digital-test',
@@ -54,7 +53,7 @@ const VOLUNTEER_LOGGED_OUT = [
   { title: 'Home', to: GENERAL.HOME },
   { title: 'Test your digital skills', to: GENERAL.SKILLS },
   { title: 'Get help with a task', to: GENERAL.SUPPORT },
-  { title: 'Support others', to: GENERAL.SUPPORT_OTHERS },
+  { title: 'Support others', to: GENERAL.HELP_OTHERS },
 ];
 
 const VOLUNTEER_LOGGED_OUT_AUTH = [{ title: 'Log in', to: GENERAL.LOGIN }];
@@ -62,7 +61,7 @@ const VOLUNTEER_LOGGED_OUT_AUTH = [{ title: 'Log in', to: GENERAL.LOGIN }];
 const VOLUNTEER_LOGGED_IN = [
   { title: 'My dashboard', to: VOLUNTEER.DASHBOARD },
   { title: 'Get help with a task', to: GENERAL.SUPPORT },
-  { title: 'Support others', to: GENERAL.SUPPORT_OTHERS },
+  { title: 'Support others', to: GENERAL.HELP_OTHERS },
 ];
 
 const VOLUNTEER_LOGGED_IN_AUTH = [

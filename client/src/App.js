@@ -118,6 +118,12 @@ function App() {
                 headerIcon="darts"
                 goBack
               />
+              <Route
+                exact
+                path={navRoutes.GENERAL.HELP_OTHERS}
+                Component={Pages.HelpOthers}
+                layout="withoutHeader"
+              />
 
               {/* HQ routes */}
 

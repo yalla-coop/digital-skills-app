@@ -8,7 +8,7 @@ import Menu from '../../Menu';
 const SideBar = ({ color, selectedKey, setSelectedKey }) => {
   return (
     <Layout.Sider
-      breakpoint={'md'} // 768px from antd
+      breakpoint={'lg'} // 768px from antd
       style={{ backgroundColor: color || theme.colors.blue }}
       collapsedWidth={0}
       trigger={null}
