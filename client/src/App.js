@@ -151,6 +151,12 @@ function App() {
                 isPrivate
                 allowedRoles={[roles.VOLUNTEER]}
               />
+              <Route
+                exact
+                path={navRoutes.VOLUNTEER.RECOMMENDED_SKILLS}
+                Component={Pages.RecommendedSkills}
+                layout="withoutHeader"
+              />
             </Switch>
           </Router>
         </AuthProvider>

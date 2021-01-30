@@ -124,6 +124,10 @@ export const borders = {
   emphasis: `5px solid`,
 };
 
+export const borderRadius = {
+  card: '8px',
+};
+
 const theme = {
   name: 'default', // for storybook
   colors,
@@ -134,6 +138,7 @@ const theme = {
   breakpoints,
   constants,
   borders,
+  borderRadius,
 };
 
 export { globalStyle };

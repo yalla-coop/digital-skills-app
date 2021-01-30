@@ -16,6 +16,7 @@ import SkillAreas from './SkillAreas';
 import IndividualSkillArea from './IndividualSkillArea';
 import HqDashboard from './HqDashboard';
 import SuccessUpdateActivity from './SuccessUpdateActivity';
+import RecommendedSkills from './RecommendedSkills';
 import HelpOthers from './HelpOthers';
 
 export {
@@ -37,4 +38,5 @@ export {
   HelpOthers,
   SkillAreas,
   IndividualSkillArea,
+  RecommendedSkills,
 };

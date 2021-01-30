@@ -34,6 +34,7 @@ import Clock from './icons/Clock';
 import Scouts from './icons/Scouts';
 import Eye from './icons/Eye';
 import RightRow from './icons/RightRow';
+import Trophy from './icons/Trophy';
 import ArrowUp from './icons/ArrowUp';
 import Edit from './icons/Edit';
 
@@ -70,6 +71,7 @@ export const IconMap = {
   help: Help,
   rightRow: RightRow,
   clock: Clock,
+  trophy: Trophy,
   edit: Edit,
   eye: Eye,
   arrowUp: ArrowUp,

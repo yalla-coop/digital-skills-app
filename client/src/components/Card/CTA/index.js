@@ -3,7 +3,16 @@ import * as T from '../../Typography';
 import Button from '../../Button';
 import Icon from '../../Icon';
 
-const CTA = ({ title, text, path, pathLabel, color = 'blue', icon, align }) => {
+const CTA = ({
+  title,
+  text,
+  path,
+  pathLabel,
+  color = 'blue',
+  icon,
+  align,
+  handleClick,
+}) => {
   const createTextArr = text.split('. ');
   return (
     <CS.Wrapper color={color}>
@@ -33,8 +42,8 @@ const CTA = ({ title, text, path, pathLabel, color = 'blue', icon, align }) => {
             </T.BodyR>
           ))}
       </CS.Content>
-      {path && (
-        <Button bgColor={color} to={path}>
+      {(path || handleClick) && (
+        <Button bgColor={color} to={path} handleClick={handleClick}>
           {pathLabel || 'Click here'}
         </Button>
       )}
