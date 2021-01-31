@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import { Row, Col } from '../../components/Grid';
@@ -7,10 +7,20 @@ import * as T from '../../components/Typography';
 import { RecommendSkill, CTA } from '../../components/Card';
 import theme from '../../theme';
 import * as S from './style';
-import dummyData from './dummyData';
 import { decideColor } from '../../helpers';
+import { Skills } from '../../api-calls';
+
+// import * as AntdIcon from '@ant-design/icons';
+// const Icon = ({ type, ...rest }) => {
+//   const Component = AntdIcon[type];
+//   return <Component {...rest} />;
+//   <div className="icons-list">
+//   <Icon type="StepForwardOutlined" color="red" />
+// </div>
+// };
 
 const RecommendedSkills = () => {
+  const [skills, setSkills] = useState([]);
   const [exploreMore, setExploreMore] = useState(false);
   const [loadedSkills, setLoadedSkills] = useState(3);
 
@@ -18,6 +28,16 @@ const RecommendedSkills = () => {
     query: `(max-width: ${theme.breakpoints.mobile})`,
   });
 
+  useEffect(() => {
+    const getSkills = async () => {
+      const { data, error } = await Skills.getSkills({ type: 'recommended' });
+      if (!error) {
+        setSkills(data);
+      }
+    };
+
+    getSkills();
+  }, []);
   const handleLoadMore = () =>
     setLoadedSkills((_loadedSkills) => _loadedSkills + 3);
 
@@ -45,24 +65,24 @@ const RecommendedSkills = () => {
           </T.BodyR>
         </Col>
       </Row>
-      <Row>
-        {dummyData.slice(0, 3).map((skill, index) => (
-          <Col w={[4, 4, 4]} key={skill.id}>
+      <Row ai="stretch">
+        {skills.slice(0, 3).map((skill, index) => (
+          <Col w={[4, 6, 4]} key={skill.id}>
             <RecommendSkill
               title={skill.title}
               icon={skill.icon}
               color={decideColor(index)}
-              totalActivities={skill.totalActivities}
-              completedActivities={skill.completedActivities}
-              level={skill.level}
+              totalActivities={skill.activities.totalActivities}
+              completedActivities={skill.activities.completedActivities}
+              level={skill.activities.difficulty}
               id={skill.id}
             />
           </Col>
         ))}
       </Row>
       {!exploreMore && (
-        <Row mt="6">
-          <Col w={[4, 4, 4]}>
+        <Row mt="6" ai="stretch">
+          <Col w={[4, 6, 4]}>
             <CTA
               title="All Skills"
               text="Click on the button below to see all the skills we think will be beneficial"
@@ -95,9 +115,9 @@ const RecommendedSkills = () => {
               </T.BodyR>
             </Col>
           </Row>
-          <Row>
-            {dummyData.slice(3, loadedSkills).map((skill, index) => (
-              <Col w={[4, 4, 4]} key={skill.id}>
+          <Row ai="stretch">
+            {skills.slice(3, loadedSkills).map((skill, index) => (
+              <Col w={[4, 6, 4]} key={skill.id}>
                 <RecommendSkill
                   title={skill.title}
                   icon={skill.icon}
@@ -109,8 +129,8 @@ const RecommendedSkills = () => {
               </Col>
             ))}
           </Row>
-          {dummyData.length > loadedSkills && (
-            <Row jc="center" mt="7" mtM="4">
+          {skills.length > loadedSkills && (
+            <Row jc="center" mt="6" mtM="4">
               <Col w={[4, 4, 4]}>
                 <S.LoadMoreButton
                   variant="outlined"

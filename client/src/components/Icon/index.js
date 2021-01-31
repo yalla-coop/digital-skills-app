@@ -39,6 +39,7 @@ import ArrowUp from './icons/ArrowUp';
 import Edit from './icons/Edit';
 import ArrowDown from './icons/ArrowDown';
 import CupWithFlash from './icons/CupWithFlash';
+import DefaultSkill from './icons/DefaultSkill';
 
 export const IconMap = {
   email: Email,
@@ -79,6 +80,7 @@ export const IconMap = {
   cupWithFlash: CupWithFlash,
   eye: Eye,
   arrowUp: ArrowUp,
+  defaultSkill: DefaultSkill,
 };
 
 const Icon = (props) => {

@@ -18,7 +18,7 @@ router.get('/stats', authenticate(), getSkillsStats);
 router.get('/progress', authenticate(), authorize([HQ]), getHQSkillProgress);
 router.get('/popular', getSkillsAndActivitiesPopular);
 router.get('/search', getSkillsAndActivitiesSearch);
-router.get('/', getSkills);
+router.get('/', authenticate(true), getSkills);
 router.get('/:id', authenticate(true), getSkillById);
 
 export default router;

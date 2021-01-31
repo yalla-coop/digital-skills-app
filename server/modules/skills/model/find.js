@@ -209,6 +209,37 @@ const findVolunteerSkillsStats = async (id) => {
   return res.rows[0];
 };
 
+const findRecommendedSkillsForVolunteer = async ({ userId }) => {
+  const values = [userId];
+  const sql = `
+    SELECT
+      s.id,
+      s.title,
+      s.description,
+      s.icon,
+      (
+        SELECT
+        jsonb_build_object(
+          'total_activities', COUNT(a.id),
+          'completed_activities', COUNT(uca.id),
+          'difficulty', AVG(a.difficulty)
+        ) AS activities
+      FROM activities_skills AS a_s
+      INNER JOIN activities AS a ON(a_s.activity = a.id)
+      LEFT JOIN users_completed_activities AS uca ON(uca.activity = a.id AND uca.user = $1)
+      WHERE a_s.skill = s.id
+      )
+    FROM users_skill_areas AS usa
+    INNER JOIN skill_areas_skills AS sas ON(usa.skill_area = sas.skill_area)
+    INNER JOIN skills AS s ON(s.id = sas.skill)
+    LEFT JOIN users_skills AS us ON(us.skill = sas.skill)
+    WHERE usa.user = $1 AND us.id IS NULL 
+  `;
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
 export {
   findSkillById,
   findHQSkillProgress,
@@ -218,5 +249,6 @@ export {
   findSkillsByAreas,
   findSkills,
   findVolunteerSkillsStats,
+  findRecommendedSkillsForVolunteer,
   findSkillsByCodes,
 };

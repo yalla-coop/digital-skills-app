@@ -1,14 +1,12 @@
 import * as Skill from '../use-cases';
 
 const getSkills = async (req, res, next) => {
-  const { areas } = req.query;
+  const { areas, type } = req.query;
+  const { user: { id, role } = {} } = req;
   try {
-    const skills = await Skill.getSkills({ type: 'areas', areas });
+    const skills = await Skill.getSkills({ type, areas, userId: id, role });
 
-    const sortedSkills = skills.sort(
-      (a, b) => b.userSkillAreas.length - a.userSkillAreas.length,
-    );
-    res.json(sortedSkills);
+    res.json(skills);
   } catch (error) {
     next(error);
   }

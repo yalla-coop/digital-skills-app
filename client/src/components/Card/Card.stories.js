@@ -5,6 +5,7 @@ import {
   Newsletter,
   Search,
   StatsCard,
+  RecommendSkill,
   ActivityCard,
 } from './index';
 import { Row, Col } from '../Grid';
@@ -138,7 +139,15 @@ statsCard.args = {
   percentage: false,
 };
 
-// ActivityCard
+// StatsCard
+const RecommendSkillTemplate = (args) => (
+  <Row>
+    <Col w={[4, 6, 4]}>
+      <RecommendSkill {...args} />
+    </Col>
+  </Row>
+);
+
 const ActivityCardTemplate = (args) => (
   <Row>
     <Col w={[4, 6, 4]}>
@@ -155,4 +164,15 @@ activityCard.args = {
   difficulty: 4,
   isCompleted: false,
   color: 'teal',
+};
+
+export const recommendSkill = RecommendSkillTemplate.bind({});
+recommendSkill.args = {
+  title: 'Skill title can be anything cool Skill title can be anything cool',
+  icon: 'defaultIcon',
+  color: 'teal',
+  totalActivities: 8,
+  completedActivities: 2,
+  level: 2,
+  id: 1,
 };

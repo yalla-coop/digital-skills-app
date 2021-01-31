@@ -264,8 +264,9 @@ const Assessment = () => {
   const getSkills = async () => {
     const skillCodes = formState.skillAreas.map((area) => area.value);
 
-    const { data, error } = await Skills.getSkillsByAreas({
+    const { data, error } = await Skills.getSkills({
       areas: [skillAreasCodes.BASICS, ...skillCodes],
+      type: 'areas',
     });
 
     if (error) {
