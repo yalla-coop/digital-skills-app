@@ -9,6 +9,7 @@ import { userRoles } from '../../../constants';
 import getSkillsAndActivitiesSearch from './get-skills-and-activities-search';
 import getSkillsAndActivitiesPopular from './get-skills-and-activities-popular';
 import getSkillsStats from './get-skills-stats';
+import updateSkill from './update-skill';
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.get('/popular', getSkillsAndActivitiesPopular);
 router.get('/search', getSkillsAndActivitiesSearch);
 router.get('/', authenticate(true), getSkills);
 router.get('/:id', authenticate(true), getSkillById);
+router.patch('/:id', authenticate(), authorize([HQ]), updateSkill);
 
 export default router;

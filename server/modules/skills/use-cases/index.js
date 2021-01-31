@@ -4,6 +4,7 @@ import getHQSkillProgress from './get-hq-skill-progress';
 import getSkillsAndActivitiesSearch from './get-skills-and-activities-search';
 import getSkillsAndActivitiesPopular from './get-skills-and-activities-popular';
 import getSkillsStats from './get-skills-stats';
+import updateSkill from './update-skill';
 
 export {
   getSkillById,
@@ -12,4 +13,5 @@ export {
   getSkillsAndActivitiesPopular,
   getSkills,
   getSkillsStats,
+  updateSkill,
 };

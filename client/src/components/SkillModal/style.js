@@ -11,6 +11,8 @@ export const Drawer = styled(AntDrawer)`
   }
 
   .ant-drawer-body {
+    background-color: ${({ theme }) => theme.colors.white};
+
     display: flex;
     align-items: center;
     overflow-y: auto;

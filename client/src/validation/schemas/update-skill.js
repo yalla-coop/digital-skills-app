@@ -1,13 +1,13 @@
 import { fields, createSchema, validate as _validate } from '..';
 
-const { requiredField, optionalFiled } = fields;
+const { skillTitle, skillDescription, skillTask } = fields;
 
 const updateSkill = createSchema({
-  title: requiredField,
-  description: requiredField,
-  task1: optionalFiled,
-  task2: optionalFiled,
-  task3: optionalFiled,
+  title: skillTitle,
+  description: skillDescription,
+  task1: skillTask,
+  task2: skillTask,
+  task3: skillTask,
 });
 
 const validate = (data) => _validate(updateSkill, data);

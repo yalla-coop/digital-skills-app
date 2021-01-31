@@ -7,18 +7,21 @@ import Icon from '../Icon';
 import { Checkbox, BasicInput as Input, Textarea } from '../Inputs';
 import Button from '../Button';
 import theme from '../../theme';
-import validate from '../../validation/schemas/updateSkill';
+import validate from '../../validation/schemas/update-skill';
+import { Skills } from '../../api-calls';
 
-const SkillModal = () => {
+const SkillModal = ({ id, title, description, tasks = [], onUpdate }) => {
   const [visible, setVisible] = useState(false);
   const [state, setState] = useState({
+    id,
     hideSkill: false,
-    title: '',
-    description: '',
-    task1: '',
-    task2: '',
-    task3: '',
+    title: title || '',
+    description: description || '',
+    task1: tasks?.[0] || '',
+    task2: tasks?.[1] || '',
+    task3: tasks?.[2] || '',
   });
+  const [loading, setLoading] = useState(false);
 
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.mobile})`,
@@ -33,11 +36,32 @@ const SkillModal = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const editSkill = async () => {
+    setLoading(true);
+    const { error } = await Skills.editSkill({
+      id,
+      form: {
+        title: state.title,
+        description: state.description,
+        tasks: [state.task1, state.task2, state.task3],
+      },
+    });
+    setLoading(false);
+    if (error) {
+      setErrors({ http: error.message });
+    } else {
+      onUpdate(state);
+      setTimeout(() => {
+        setVisible(false);
+      }, 500);
+    }
+  };
+
+  const handleSubmit = async () => {
     try {
       validate(state);
       setErrors({});
-      // send the data to the backend
+      await editSkill();
 
       return true;
     } catch (error) {
@@ -144,10 +168,11 @@ const SkillModal = () => {
             handleChange={(e) => handleChange('task3', e.target.value)}
             disabled={!state.task2 || state.hideSkill}
             error={errors.task3}
+            mb="6"
           />
-
+          <T.Body16B color="red">{errors.http}</T.Body16B>
           {/* submit */}
-          <Button mt="6" handleClick={handleSubmit}>
+          <Button handleClick={handleSubmit} loading={loading}>
             Submit
           </Button>
         </S.ContentWrapper>

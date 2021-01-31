@@ -5,5 +5,6 @@ import Layout from './Layout';
 import Route from './Route';
 import BackLink from './BackLink';
 import Loading from './Loading';
+import SkillModal from './SkillModal';
 
-export { Button, Grid, Header, Layout, Route, BackLink, Loading };
+export { Button, Grid, Header, Layout, Route, BackLink, Loading, SkillModal };

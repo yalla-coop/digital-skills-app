@@ -47,3 +47,13 @@ export const requiredField = string().required(errMsgs.DEFAULT_REQUIRED);
 export const optionalFiled = string()
   .typeError(errMsgs.DEFAULT_REQUIRED)
   .nullable();
+
+export const skillTitle = string()
+  .required(errMsgs.DEFAULT_REQUIRED)
+  .max(200, errMsgs.TOO_LONG_MAX_200);
+
+export const skillDescription = string()
+  .required(errMsgs.DEFAULT_REQUIRED)
+  .max(300, errMsgs.TOO_LONG_MAX_300);
+
+export const skillTask = string().nullable().max(50, errMsgs.TOO_LONG_MAX_50);

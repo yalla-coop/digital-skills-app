@@ -8,6 +8,7 @@ import * as T from '../../components/Typography';
 import * as S from './style';
 import { Skills, Activities } from './../../api-calls';
 import { navRoutes } from './../../constants';
+import { SkillModal } from './../../components';
 
 const { Row, Col } = Grid;
 
@@ -51,14 +52,15 @@ function HqIndividualSkill() {
           </T.BodyR>
         </Col>
         <Col w={[4, 4, 4]}>
-          <Button
-            variant="primary"
-            bgColor="teal"
-            onClick={() => console.log('show edit form')}
-            ml={4}
-          >
-            Edit skill
-          </Button>
+          {!skill.loading && (
+            <SkillModal
+              id={skill.id}
+              title={skill.title}
+              description={skill.description}
+              tasks={skill.tasks}
+              onUpdate={setSkill}
+            />
+          )}
         </Col>
       </Row>
       <Row mt="5">
@@ -101,7 +103,7 @@ function HqIndividualSkill() {
         )}
       </Row>
       <Row>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Button
             variant="primary"
             color="blue"
