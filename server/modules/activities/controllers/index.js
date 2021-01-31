@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import { authenticate, authorize } from '../../../api/middlewares';
-import { userRoles } from '../../../constants';
+import { authenticate } from '../../../api/middlewares';
 
 import getActivityById from './get-activities-by-id';
 import getActivities from './get-activities';
@@ -8,6 +7,6 @@ import getActivities from './get-activities';
 const router = Router();
 
 router.get('/:id', getActivityById);
-router.get('/', authenticate(), authorize([userRoles.HQ]), getActivities);
+router.get('/', authenticate(true), getActivities);
 
 export default router;

@@ -37,6 +37,8 @@ import RightRow from './icons/RightRow';
 import Trophy from './icons/Trophy';
 import ArrowUp from './icons/ArrowUp';
 import Edit from './icons/Edit';
+import ArrowDown from './icons/ArrowDown';
+import CupWithFlash from './icons/CupWithFlash';
 
 export const IconMap = {
   email: Email,
@@ -73,6 +75,8 @@ export const IconMap = {
   clock: Clock,
   trophy: Trophy,
   edit: Edit,
+  arrowDown: ArrowDown,
+  cupWithFlash: CupWithFlash,
   eye: Eye,
   arrowUp: ArrowUp,
 };

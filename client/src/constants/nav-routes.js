@@ -20,6 +20,8 @@ const VOLUNTEER = {
   ENTER_POSTCODE: '/postcode',
   RESULTS: '/result',
   SETTINGS: '/settings',
+  INDIVIDUAL_SKILL: `/skills/:id`,
+  INDIVIDUAL_ACTIVITY: `/activities/:id`,
   RECOMMENDED_SKILLS: '/recommended-skills',
   SKILLS: '/skills',
 };
@@ -30,6 +32,8 @@ const HQ = {
   HOME: HQBase,
   SIGNUP: `${HQBase}/signup`,
   WELCOME: `${HQBase}/welcome`,
+  DASHBOARD: `${HQBase}/dashboard`,
+  VOLUNTEERS: `${HQBase}/volunteers`,
   MANAGE_SKILLS: `${HQBase}/manage-skills`,
   DIGITAL_TOOL: `${HQBase}/digital-tool`,
   PROGRESS: `${HQBase}/progress`,
@@ -39,8 +43,6 @@ const HQ = {
   EDIT_ACTIVITY: `${HQBase}/activities/:id/edit`,
   ADD_ACTIVITY: `${HQBase}/activities/new`,
   SUCCESS_UPDATE_ACTIVITY: `${HQBase}/Success-update-activity`,
-  VOLUNTEERS: `${HQBase}/volunteers`,
-  DASHBOARD: `${HQBase}/dashboard`,
   INDIVIDUAL_SKILL_AREA: `${HQBase}/manage-skills/:id`,
   ADD_NEW_ACTIVITY: `${HQBase}/new-activity`,
 };

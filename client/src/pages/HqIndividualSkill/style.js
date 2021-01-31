@@ -18,6 +18,5 @@ export const ActivityCard = styled(Link)`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   box-shadow: ${({ theme }) => theme.shadows.light};
 `;

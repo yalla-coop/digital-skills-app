@@ -6,6 +6,7 @@ import Search from './Search';
 import StatsCard from './StatsCard';
 import RecommendSkill from './RecommendSkill';
 import SkillCard from './SkillCard';
+import ActivityCard from './ActivityCard';
 
 export {
   CTA,
@@ -14,6 +15,7 @@ export {
   Newsletter,
   Search,
   StatsCard,
-  RecommendSkill,
   SkillCard,
+  ActivityCard,
+  RecommendSkill,
 };

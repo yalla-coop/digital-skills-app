@@ -1,13 +1,16 @@
 import * as Activity from '../model';
 import { userRoles } from '../../../constants';
 
-const getActivitiesBySkillId = ({ id, role }) => {
+const getActivitiesBySkillId = ({ id, userId, role }) => {
   switch (role) {
     case userRoles.HQ:
       return Activity.findActivitiesBySkillId(id);
 
+    case userRoles.VOLUNTEER:
+      return Activity.findActivitiesBySkillIdForVolunteer({ id, userId });
+
     default:
-      break;
+      return Activity.findActivitiesBySkillIdForPublic(id);
   }
 };
 

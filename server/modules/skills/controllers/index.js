@@ -11,6 +11,7 @@ import getSkillsAndActivitiesPopular from './get-skills-and-activities-popular';
 import getSkillsStats from './get-skills-stats';
 
 const router = Router();
+
 const { HQ } = userRoles;
 
 router.get('/stats', authenticate(), getSkillsStats);
@@ -18,6 +19,6 @@ router.get('/progress', authenticate(), authorize([HQ]), getHQSkillProgress);
 router.get('/popular', getSkillsAndActivitiesPopular);
 router.get('/search', getSkillsAndActivitiesSearch);
 router.get('/', getSkills);
-router.get('/:id', authenticate(), authorize([HQ]), getSkillById);
+router.get('/:id', authenticate(true), getSkillById);
 
 export default router;

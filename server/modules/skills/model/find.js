@@ -8,7 +8,31 @@ const findSkillById = async (id) => {
       id,
       title,
       description
+
     FROM skills
+    WHERE id = $1
+  `;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
+
+const findSkillByIdForVolunteerAndPublic = async (id) => {
+  const values = [id];
+  const sql = `
+    SELECT
+      id,
+      title,
+      description,
+      tasks,
+      ARRAY(
+        SELECT
+          title
+        FROM skill_areas_skills as sas
+        INNER JOIN skill_areas AS sa ON(sa.id = sas.skill_area)
+        WHERE sas.skill = $1
+      ) AS skill_areas
+    FROM skills AS s
     WHERE id = $1
   `;
 
@@ -180,6 +204,7 @@ export {
   findHQSkillProgress,
   findSkillAndActivitiesForSearch,
   getPopularSkillsAndActivities,
+  findSkillByIdForVolunteerAndPublic,
   findSkillsByAreas,
   findSkills,
   findVolunteerSkillsStats,

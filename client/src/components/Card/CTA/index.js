@@ -13,7 +13,11 @@ const CTA = ({
   align,
   handleClick,
 }) => {
-  const createTextArr = text.split('. ');
+  // text can be passed as array
+  let createTextArr = text;
+  if (typeof text === 'string') {
+    createTextArr = text.split('. ');
+  }
   return (
     <CS.Wrapper color={color}>
       <T.H5

@@ -5,6 +5,7 @@ import {
   Newsletter,
   Search,
   StatsCard,
+  ActivityCard,
 } from './index';
 import { Row, Col } from '../Grid';
 
@@ -135,4 +136,23 @@ statsCard.args = {
   txt: 'have completed assessments',
   statNum: 12,
   percentage: false,
+};
+
+// ActivityCard
+const ActivityCardTemplate = (args) => (
+  <Row>
+    <Col w={[4, 6, 4]}>
+      <ActivityCard {...args} />
+    </Col>
+  </Row>
+);
+
+export const activityCard = ActivityCardTemplate.bind({});
+activityCard.args = {
+  to: '/',
+  title: 'Using the correct tone of voice and language on social media',
+  completionTime: 5,
+  difficulty: 4,
+  isCompleted: false,
+  color: 'teal',
 };

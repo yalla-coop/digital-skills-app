@@ -91,6 +91,14 @@ function App() {
                 allowedRoles={[roles.HQ]}
                 layout="withoutHeader"
               />
+              {/* VOLUNTEER ROUTES */}
+              <Route
+                exact
+                path={navRoutes.VOLUNTEER.INDIVIDUAL_SKILL}
+                Component={Pages.VolunteerIndividualSkill}
+                layout="withoutHeader"
+                goBack
+              />
 
               <Route
                 exact

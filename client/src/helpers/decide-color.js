@@ -1,7 +1,7 @@
 const colors = ['teal', 'blue', 'purple', 'navy', 'pink'];
 
 /**
- * @author Fade
+ * @author Fadi
  */
 const decideColor = (n) => {
   if (n < colors.length) {
