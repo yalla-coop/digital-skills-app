@@ -40,14 +40,36 @@ const createUserCompletedActivities = async (data) => {
       confidenceScore: 3,
       addedScore: 7.0,
     },
+    {
+      userId: JohnReese.id,
+      activityId: '20',
+      confidenceScore: 2,
+      addedScore: 7.0,
+    },
+    {
+      userId: JohnReese.id,
+      activityId: '60',
+      confidenceScore: 1,
+      addedScore: 7.0,
+    },
   ];
 
   const JohnReeseCompletedMicrosoftWord = await createUserCompletedActivity(
     completedActivities[0],
   );
 
+  const JohnCompletedAnother = await createUserCompletedActivity(
+    completedActivities[1],
+  );
+
+  const JohnCompletedOneMore = await createUserCompletedActivity(
+    completedActivities[2],
+  );
+
   return {
     JohnReeseCompletedMicrosoftWord,
+    JohnCompletedAnother,
+    JohnCompletedOneMore,
   };
 };
 

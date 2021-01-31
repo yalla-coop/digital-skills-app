@@ -39,4 +39,43 @@ const createUser = async (
   return res.rows[0];
 };
 
-export { createUser };
+const createUserSkillArea = async ({ userId, skillAreaId }, client) => {
+  const sql = `
+    INSERT INTO users_skill_areas
+    (
+      "user",
+      "skill_area"
+    ) VALUES (
+      $1,
+      $2
+    )
+    RETURNING *
+  `;
+  const res = await query(sql, [userId, skillAreaId], client);
+  return res.rows[0];
+};
+
+const createUserSkill = async (values, client) => {
+  const sql = `
+    INSERT INTO users_skills
+    (
+      "user",
+      "skill",
+      "status",
+      "added_score"
+    ) VALUES (
+      $1,
+      $2,
+      $3,
+      $4
+      )
+    RETURNING *`;
+  const res = await query(
+    sql,
+    [values.userId, values.skillId, values.status, values.addedScore],
+    client,
+  );
+  return res.rows[0];
+};
+
+export { createUser, createUserSkillArea, createUserSkill };

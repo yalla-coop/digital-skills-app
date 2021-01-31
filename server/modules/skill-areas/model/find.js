@@ -53,4 +53,36 @@ const findSkillAreaById = async (id) => {
   return res.rows[0];
 };
 
-export { findHQSkillAreas, findSkillAreaById };
+const findSkillAreas = async () => {
+  const values = [];
+
+  const sql = `
+    SELECT
+      id,
+      title,
+      code
+    FROM skill_areas 
+  `;
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
+const findSkillAreaByCode = async (code) => {
+  const sql = `
+    SELECT
+      *
+    FROM skill_areas
+    WHERE code = $1 
+  `;
+
+  const res = await query(sql, [code]);
+  return res.rows;
+};
+
+export {
+  findHQSkillAreas,
+  findSkillAreaById,
+  findSkillAreas,
+  findSkillAreaByCode,
+};

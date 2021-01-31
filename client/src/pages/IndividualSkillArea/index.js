@@ -18,7 +18,6 @@ const IndividualSkillArea = () => {
   // eslint-disable-next-line no-unused-vars
   const [err, setErr] = useState('');
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     let mounted = true;
     async function getHqSkillsProgress() {

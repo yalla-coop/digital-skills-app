@@ -5,10 +5,13 @@ import ProgressBar from '../../components/ProgressBar';
 import { getPerc, tidyPostcode, findPostcode } from '../../helpers';
 
 import { navRoutes } from '../../constants';
-import { skillAreasCodes as SAC } from '../../constants/data-types';
-import { questionsForSkills } from './Questions/data';
+import {
+  skillAreasCodes as SAC,
+  learningPaths,
+} from '../../constants/data-types';
+import { questionsForSkills, decideSkillAreaLabel } from './Questions/data';
 
-import { Skills } from '../../api-calls';
+import { Skills, SkillAreas } from '../../api-calls';
 
 import { skillAreasCodes } from '../../constants/data-types';
 import { INVALID_POSTCODE } from '../../validation/err-msgs';
@@ -40,6 +43,7 @@ const Assessment = () => {
   const [currentQ, setCurrentQ] = useState(null);
   const [outUK, setOutUK] = useState(false);
   const [allBasicSkills, setAllBasicSkills] = useState([]);
+  const [allSkillAreas, setAllSkillAreas] = useState([]);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -65,6 +69,24 @@ const Assessment = () => {
     setFormState({ ...formState, postcode: value });
   };
 
+  const storeAssessmentIntoStorage = (cleanPostcode) => {
+    localStorage.setItem(
+      'assessment',
+      JSON.stringify({ ...formState, postcode: cleanPostcode })
+    );
+  };
+
+  const clearAssessmentFromStorage = () => {
+    localStorage.removeItem('assessment');
+  };
+
+  const getAssessmentFromStorage = () => {
+    const assessment = JSON.parse(localStorage.getItem('assessment'));
+    if (assessment) {
+      setFormState(assessment);
+    }
+  };
+
   const handleSubmit = () => {
     setLoading(true);
     const { postcode } = formState;
@@ -72,9 +94,10 @@ const Assessment = () => {
     const checkPostcode = outUK ? cleanPostcode : findPostcode(cleanPostcode);
 
     if (checkPostcode) {
+      storeAssessmentIntoStorage(cleanPostcode);
       history.push({
-        pathname: navRoutes.VOLUNTEER.RESULTS,
-        state: formState,
+        pathname: navRoutes.VOLUNTEER.DASHBOARD,
+        state: { assessment: { ...formState, postcode: cleanPostcode } },
       });
     } else {
       setErrors({ postcode: INVALID_POSTCODE });
@@ -120,7 +143,7 @@ const Assessment = () => {
     }
 
     // FIRST ASK BASIC Qs
-    if (numStep < 5 || (flow === 'basics' && numStep < 10)) {
+    if (numStep < 5 || (flow === learningPaths.BASIC && numStep < 10)) {
       const nextSkill = getNextSkill(SAC.BASICS);
       const nextQuestion =
         questionsForSkills[nextSkill.code] &&
@@ -128,13 +151,13 @@ const Assessment = () => {
       return setCurrentQ(nextQuestion);
     }
 
-    if (flow === 'improveSkills') {
+    if (flow === learningPaths.IMPROVE) {
       // check if user needs more basic qs
       const basicLacking = skillsUserDoesntHave.find((skill) =>
         allBasicSkills.includes(skill)
       );
       if (basicLacking && basicLacking.length > 0) {
-        setFormState({ ...formState, flow: 'basics' });
+        setFormState({ ...formState, flow: learningPaths.BASIC });
         const nextSkill = getNextSkill(SAC.BASICS);
         const nextQuestion =
           questionsForSkills[nextSkill.code] &&
@@ -256,7 +279,15 @@ const Assessment = () => {
       )
       .map(({ code }) => code);
 
-    setFormState({ ...formState, possibleSkills: data });
+    // reset in case user has stored assessment and is re-doing it and remove assessment from storage
+    clearAssessmentFromStorage();
+    setFormState({
+      ...formState,
+      possibleSkills: data,
+      skillsUserHas: [],
+      skillsUserDoesntHave: [],
+      questionsAsked: [],
+    });
     setAllBasicSkills(allBasicSkills);
     history.push(
       navRoutes.GENERAL.ASSESSMENT_STEP.replace(':step', Number(step) + 1)
@@ -298,6 +329,29 @@ const Assessment = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
+  useEffect(() => {
+    getAssessmentFromStorage();
+
+    const getSkillAreas = async () => {
+      const { data, error } = await SkillAreas.getSkillAreas();
+      if (error) {
+        return setErrors({
+          skillAreas: 'Sorry, was not able to get tasks from server.',
+        });
+      }
+      const updatedAreas = data
+        .filter((area) => area.code !== skillAreasCodes.BASICS)
+        .map((area) => ({
+          ...area,
+          label: decideSkillAreaLabel(area.code, area.title),
+          value: area.title,
+        }));
+      setAllSkillAreas(updatedAreas);
+    };
+
+    getSkillAreas();
+  }, []);
+
   const {
     totalQs,
     flow,
@@ -329,6 +383,7 @@ const Assessment = () => {
           decideSkillAreas={decideSkillAreas}
           selected={skillAreas}
           nextQ={nextQ}
+          allSkillAreas={allSkillAreas}
           error={errors.skillAreas}
         />
         <PostcodeQ

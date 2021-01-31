@@ -5,6 +5,16 @@ const SKILL_AREAS_BASE = '/skill-areas';
 
 const getHqSkillAreas = async ({ options } = {}) => {
   try {
+    const { data } = await axios.get(`${SKILL_AREAS_BASE}/hq`);
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
+const getSkillAreas = async ({ options } = {}) => {
+  try {
     const { data } = await axios.get(`${SKILL_AREAS_BASE}`);
     return { data };
   } catch (error) {
@@ -23,4 +33,4 @@ const getHqSkillAreaById = async ({ id, options }) => {
   }
 };
 
-export { getHqSkillAreas, getHqSkillAreaById };
+export { getHqSkillAreas, getHqSkillAreaById, getSkillAreas };

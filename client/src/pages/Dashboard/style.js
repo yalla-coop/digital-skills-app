@@ -41,4 +41,5 @@ export const SkillNumbersWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: ${({ theme }) => theme.spacings[3]};
 `;

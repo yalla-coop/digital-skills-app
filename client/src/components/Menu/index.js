@@ -6,11 +6,12 @@ import * as S from './style';
 
 const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
   const { volunteer, HQUser } = NAV_ROUTES;
-  const { user } = useAuth();
+  const { user, logout: logoutApi } = useAuth();
   const [navRoutes, setNavRoutes] = useState({
     routes: volunteer.LOGGED_OUT,
     authRoutes: volunteer.LOGGED_OUT_AUTH,
   });
+  const [loggingOut, setLoggingOut] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -37,13 +38,21 @@ const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loggingOut, user]);
 
-  const handleClick = (event, to) => {
+  const handleClick = (event, to, logout) => {
     if (typeof closeDrawer === 'function') {
       closeDrawer();
     }
     setSelectedKey(event.key);
+    if (logout) {
+      try {
+        logoutApi();
+        setLoggingOut(true);
+      } catch (err) {
+        console.error(err);
+      }
+    }
     if (to) {
       history.push(to);
     }
@@ -51,19 +60,19 @@ const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
 
   const styledTopics = [];
   const styledAuthTopics = [];
-  navRoutes.routes.forEach(({ title, to }, index) =>
+  navRoutes.routes.forEach(({ title, to, logout }, index) =>
     styledTopics.push(
-      <S.Item key={index} onClick={(e) => handleClick(e, to)}>
+      <S.Item key={index} onClick={(e) => handleClick(e, to, logout)}>
         {title}
       </S.Item>
     )
   );
 
-  navRoutes.authRoutes.forEach(({ title, to }, index) =>
+  navRoutes.authRoutes.forEach(({ title, to, logout }, index) =>
     styledAuthTopics.push(
       <S.Item
         key={navRoutes.routes.length + index}
-        onClick={(e) => handleClick(e, to)}
+        onClick={(e) => handleClick(e, to, logout)}
       >
         {title}
       </S.Item>

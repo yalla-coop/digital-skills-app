@@ -8,15 +8,15 @@ const {
   password,
   fullName,
   agreedOnTerms,
-  postcode,
   arrayOfIds,
+  requiredText,
 } = fields;
 
 const volunteer = createSchema({
   email,
   fullName,
   password,
-  postcode,
+  postcode: requiredText,
   organisationsIds: arrayOfIds,
   agreedOnTerms,
 });

@@ -94,11 +94,13 @@ const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
   return (
     <S.Wrapper>
       <S.Content>
-        <T.H3 mb="1">Log in</T.H3>
-        <T.Body16 mb="5">
+        <T.H3 mb="3">Log in</T.H3>
+        {/* ADD IN WHEN THERE ARE OTHER REASONS TO HAVE ACCOUNT
+        OTHER THAN DOING THE DIGITAL TEST */}
+        {/* <T.Body16 mb="5">
           Don’t have an account?{' '}
           <T.Link to={navRoutes.VOLUNTEER.SIGNUP}>Create one</T.Link>
-        </T.Body16>
+        </T.Body16> */}
         <form onSubmit={handleSubmit}>
           <BasicInput
             label="Email"

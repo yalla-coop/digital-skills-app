@@ -46,6 +46,7 @@ const login = async (form, { options } = {}) => {
 const logout = async ({ options } = {}) => {
   try {
     await axios.post(`${USERS_BASE}/logout`);
+    return {};
   } catch (error) {
     const err = handleError(error, options);
     return { error: err };

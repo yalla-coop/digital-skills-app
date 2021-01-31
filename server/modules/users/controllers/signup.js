@@ -13,6 +13,8 @@ const signup = async (req, res, next) => {
       organisations,
       selectedPath,
       assessmentScore,
+      skillsUserHas,
+      skillAreas,
     } = req.body;
 
     let user;
@@ -27,6 +29,8 @@ const signup = async (req, res, next) => {
         organisations,
         selectedPath,
         assessmentScore,
+        skillsUserHas,
+        skillAreas,
       });
     } else if (role === userRoles.HQ) {
       user = await User.hqSignup({

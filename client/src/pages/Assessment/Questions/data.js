@@ -1,6 +1,7 @@
 import {
   skillAreasCodes,
   skillsCodes as SC,
+  learningPaths,
 } from '../../../constants/data-types';
 
 export const flowQ = {
@@ -13,7 +14,7 @@ export const flowQ = {
       helper:
         'e.g. creating a strong password, how to use search engines, writing and editing content',
       color: 'teal',
-      value: 'basics',
+      value: learningPaths.BASIC,
     },
     {
       title: 'I want to improve my skills',
@@ -21,7 +22,7 @@ export const flowQ = {
         'Build on your existing skills to really make the most of digital for your volunteering tasks',
       helper: 'e.g. running a webinar, understanding GDPR, using SEO',
       color: 'purple',
-      value: 'improveSkills',
+      value: learningPaths.IMPROVE,
     },
   ],
 };
@@ -56,6 +57,27 @@ export const skillAreaQ = {
       value: skillAreasCodes.WORKING_TOGETHER,
     },
   ],
+};
+
+export const decideSkillAreaLabel = (code, title) => {
+  switch (code) {
+    case skillAreasCodes.PLANNING_PROGRAMME_DIGITALLY:
+      return 'I plan programmes and activites';
+    case skillAreasCodes.PLANNING_EVENTS_AND_ACTIVITIES:
+      return 'I run activities and events';
+    case skillAreasCodes.DIGITAL_FINANCES:
+      return 'I look after the money and funding';
+    case skillAreasCodes.DIGITAL_MEETINGS_AND_TRAINING:
+      return 'I plan and run meetings and training';
+    case skillAreasCodes.DATA_AND_DOCUMENTS:
+      return 'I look after data';
+    case skillAreasCodes.GETTING_THE_WORD_OUT:
+      return 'I promote and share what we do';
+    case skillAreasCodes.WORKING_TOGETHER:
+      return 'I work together and colloborate with others';
+    default:
+      return title;
+  }
 };
 
 export const questions = {

@@ -7,7 +7,13 @@ import { breakpoints } from '../../../theme';
 
 import { skillAreaQ } from './data';
 
-const SkillAreaQ = ({ decideSkillAreas, selected, error, nextQ }) => {
+const SkillAreaQ = ({
+  decideSkillAreas,
+  selected,
+  error,
+  nextQ,
+  allSkillAreas,
+}) => {
   const isMobile = useMediaQuery({
     query: `(max-width: ${breakpoints.mobile})`,
   });
@@ -22,7 +28,7 @@ const SkillAreaQ = ({ decideSkillAreas, selected, error, nextQ }) => {
       <Options
         selected={selected}
         handleChange={decideSkillAreas}
-        options={skillAreaQ.options}
+        options={allSkillAreas}
         error={error}
         multi
       />

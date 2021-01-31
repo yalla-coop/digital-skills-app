@@ -13,6 +13,7 @@ import { Organisations, Users } from './../../api-calls';
 import validate from '../../validation/schemas/signup';
 import { roles, navRoutes } from '../../constants';
 import { useAuth } from '../../context/auth';
+import { getAssessmentFromStorage } from '../../helpers/assessmentStorage';
 
 const initialState = {
   fullName: '',
@@ -21,6 +22,9 @@ const initialState = {
   organisationsOptions: [],
   organisationsIds: [],
   agreedOnTerms: false,
+  postcode: '',
+  skillsUserHas: [],
+  skillAreas: [],
   httpError: '',
   validationErrs: {},
   submitAttempt: false,
@@ -37,10 +41,6 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
   const history = useHistory();
   const { setUser } = useAuth();
 
-  const postcode = 'M1 1AE';
-  const selectedPath = 'BASIC';
-  const assessmentScore = 20;
-
   const {
     fullName,
     email,
@@ -51,6 +51,11 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
     validationErrs,
     httpError,
     submitAttempt,
+    postcode,
+    skillsUserHas,
+    skillAreas,
+    selectedPath,
+    assessmentScore,
   } = state;
 
   const orgsIdsRef = useRef(organisationsIds);
@@ -60,6 +65,33 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
   }
 
   useEffect(() => {
+    const assessment = getAssessmentFromStorage();
+
+    if (assessment) {
+      const {
+        flow,
+        postcode,
+        skillAreas,
+        skillsUserHas,
+        skillsUserDoesntHave,
+        possibleSkills,
+      } = assessment;
+      const hasNum = skillsUserHas.length;
+
+      const hasntNum = skillsUserDoesntHave.length;
+      const totalNum = possibleSkills.length + hasNum + hasntNum;
+
+      const perc = Math.floor((hasNum / totalNum) * 100);
+
+      setState({
+        postcode,
+        selectedPath: flow,
+        skillAreas,
+        skillsUserHas,
+        assessmentScore: perc,
+      });
+    }
+
     const getOrganisations = async () => {
       const { data, error } = await Organisations.getOrganisations();
 
@@ -83,11 +115,18 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
       validateForm();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fullName, email, password, agreedOnTerms, postcode, orgsIdsRef.current]);
+  }, [
+    fullName,
+    email,
+    password,
+    agreedOnTerms,
+    postcode,
+    orgsIdsRef.current,
+    skillsUserHas,
+    skillAreas,
+  ]);
 
   const validateForm = () => {
-    // TODO ASK: do we need to tidy post code up?
-
     try {
       validate({
         role: roles.VOLUNTEER,
@@ -118,6 +157,8 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
       organisations: organisationsIds,
       selectedPath,
       assessmentScore,
+      skillsUserHas,
+      skillAreas,
     });
 
     if (error) {
@@ -128,7 +169,7 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
       }
     } else {
       setUser(data);
-      history.push(navRoutes.VOLUNTEER.WELCOME);
+      history.push(navRoutes.VOLUNTEER.SKILLS);
     }
   };
 
@@ -145,11 +186,19 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
   return (
     <S.Wrapper>
       <S.Content>
-        <T.H3 mb="1">Sign up</T.H3>
-        <T.Body16 mb="5">
+        <T.H3 mb="4">Sign up</T.H3>
+        {/* ADD IN WHEN THERE ARE OTHER REASONS TO HAVE ACCOUNT
+        OTHER THAN DOING THE DIGITAL TEST */}
+
+        {/* <T.Body16 mb="5">
           Already have an account?{' '}
           <T.Link to={navRoutes.GENERAL.LOGIN}>Log in</T.Link>
-        </T.Body16>
+        </T.Body16> */}
+        <T.BodyR color="gray" mb="5">
+          Create a free account to save your results, access activities in your
+          own tailor made digital course and track how your digital score and
+          skills improve!
+        </T.BodyR>
 
         <BasicInput
           label="Name"
@@ -189,6 +238,7 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
         />
 
         <Checkbox
+          mt="5"
           checked={agreedOnTerms}
           label={
             <T.BodyR>

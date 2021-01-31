@@ -12,9 +12,17 @@ const Checkbox = ({
   disabled,
   defaultChecked,
   w,
+  ...props
 }) => {
   return (
-    <S.Field w={w} disabled={disabled} mb="3" color={color} error={error}>
+    <S.Field
+      w={w}
+      disabled={disabled}
+      mb="3"
+      color={color}
+      error={error}
+      {...props}
+    >
       <AntdCheckbox
         onChange={(e) => handleChange(e.target.checked)}
         checked={checked}

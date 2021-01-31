@@ -76,6 +76,16 @@ const findSkills = async () => {
   return res.rows;
 };
 
+const findSkillsByCodes = async (codes) => {
+  const sql = `
+  SELECT s.id FROM skills s WHERE s.code = ANY ($1)`;
+
+  const values = [codes];
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
 const findHQSkillProgress = async (orgId) => {
   const values = [orgId, skillStatuses.COMPLETED];
 
@@ -208,4 +218,5 @@ export {
   findSkillsByAreas,
   findSkills,
   findVolunteerSkillsStats,
+  findSkillsByCodes,
 };

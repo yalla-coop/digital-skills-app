@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Row, Col } from '../../components/Grid';
 import * as T from '../../components/Typography';
 import * as S from './style';
@@ -7,6 +8,25 @@ import Icon from '../../components/Icon';
 import Button from '../../components/Button';
 
 const TestLanding = () => {
+  const [assessmentExists, setAssessmentExists] = useState(false);
+  const history = useHistory();
+
+  const getAssessmentFromStorage = () => {
+    const assessment = JSON.parse(localStorage.getItem('assessment'));
+    if (assessment) {
+      setAssessmentExists(true);
+    }
+  };
+
+  const handleReset = () => {
+    localStorage.removeItem('assessment');
+    history.push(R.GENERAL.ASSESSMENT_STEP.replace(':step', 1));
+  };
+
+  useEffect(() => {
+    getAssessmentFromStorage();
+  }, []);
+
   return (
     <article>
       <Row mb="5">
@@ -19,7 +39,7 @@ const TestLanding = () => {
           </T.BodyR>
         </Col>
       </Row>
-      <Row mb="5">
+      <Row mb={assessmentExists ? '3' : '5'}>
         <Col w={[4, 4, 4]}>
           <T.BodyB m="0" mb="2" color="gray">
             This will take
@@ -30,11 +50,33 @@ const TestLanding = () => {
               10 minutes
             </T.BodyB>
           </S.ClockWrapper>
-          <Button to={R.GENERAL.ASSESSMENT_STEP.replace(':step', 1)}>
-            Let's go!
-          </Button>
+          {!assessmentExists && (
+            <Button to={R.GENERAL.ASSESSMENT_STEP.replace(':step', 1)}>
+              Let's go!
+            </Button>
+          )}
         </Col>
       </Row>
+      {assessmentExists && (
+        <>
+          <Row mb="5">
+            <Col w={[4, 8, 10]}>
+              <T.BodyB color="black">
+                It looks like you've already completed a digital skills test.
+                Would you like to return to your resuts?
+              </T.BodyB>
+            </Col>
+          </Row>
+          <Row>
+            <Col w={[4, 6, 4]}>
+              <Button to={R.VOLUNTEER.DASHBOARD}>Go to my results</Button>
+            </Col>
+            <Col w={[4, 6, 4]}>
+              <Button handleClick={handleReset}>Start quiz again</Button>
+            </Col>
+          </Row>
+        </>
+      )}
     </article>
   );
 };

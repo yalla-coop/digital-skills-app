@@ -57,8 +57,8 @@ const EXTERNAL = {
 
 const VOLUNTEER_LOGGED_OUT = [
   { title: 'Home', to: GENERAL.HOME },
-  { title: 'Test your digital skills', to: GENERAL.SKILLS },
-  { title: 'Get help with a task', to: GENERAL.SUPPORT },
+  { title: 'Test your digital skills', to: GENERAL.ASSESSMENT },
+  { title: 'Get help with a task', to: GENERAL.SEARCH },
   { title: 'Support others', to: GENERAL.HELP_OTHERS },
 ];
 
@@ -66,12 +66,12 @@ const VOLUNTEER_LOGGED_OUT_AUTH = [{ title: 'Log in', to: GENERAL.LOGIN }];
 
 const VOLUNTEER_LOGGED_IN = [
   { title: 'My dashboard', to: VOLUNTEER.DASHBOARD },
-  { title: 'Get help with a task', to: GENERAL.SUPPORT },
+  { title: 'Get help with a task', to: GENERAL.SEARCH },
   { title: 'Support others', to: GENERAL.HELP_OTHERS },
 ];
 
 const VOLUNTEER_LOGGED_IN_AUTH = [
-  { title: 'Log out', to: GENERAL.LOGOUT },
+  { title: 'Log out', to: GENERAL.HOME, logout: true },
   { title: 'My account', to: VOLUNTEER.SETTINGS },
 ];
 
@@ -83,7 +83,9 @@ const HQ_USER_LOGGED_IN = [
   { title: 'View digital tool', to: HQ.DIGITAL_TOOL },
 ];
 
-const HQ_USER_LOGGED_IN_AUTH = [{ title: 'Log out', to: GENERAL.LOGOUT }];
+const HQ_USER_LOGGED_IN_AUTH = [
+  { title: 'Log out', to: GENERAL.LOGOUT, logout: true },
+];
 
 const HQ_USER_LOGGED_OUT = [{ title: 'Home', to: GENERAL.HOME }];
 

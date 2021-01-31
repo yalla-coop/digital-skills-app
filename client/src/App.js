@@ -156,8 +156,6 @@ function App() {
                 path={navRoutes.VOLUNTEER.DASHBOARD}
                 Component={Pages.VolunteerDashboard}
                 layout="withoutHeader"
-                isPrivate
-                allowedRoles={[roles.VOLUNTEER]}
               />
               <Route
                 exact

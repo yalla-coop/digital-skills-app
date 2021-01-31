@@ -33,6 +33,7 @@ export const Field = styled.div`
 
   .ant-checkbox {
     font-size: 24px;
+    top: 0;
   }
 
   .ant-checkbox-inner::after {

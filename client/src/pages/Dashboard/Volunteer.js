@@ -10,6 +10,7 @@ import CircleDiagram from '../../components/CircleDiagram';
 import Icon from '../../components/Icon';
 import { useAuth } from '../../context/auth';
 import { Skills } from '../../api-calls';
+import { getAssessmentFromStorage } from '../../helpers/assessmentStorage';
 
 const VolunteerDashboard = () => {
   const [skills, setSkills] = useState({
@@ -19,6 +20,11 @@ const VolunteerDashboard = () => {
   });
   const [isScoreOpen, setIsScoreOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+  const [score, setScore] = useState({
+    assessmentScore: 0,
+    improvementScore: 0,
+  });
+  const [loaded, setLoaded] = useState(false);
   const {
     user: { id, fullName, assessmentScore, improvementScore },
   } = useAuth();
@@ -27,7 +33,7 @@ const VolunteerDashboard = () => {
     query: `(max-width: ${breakpoints.mobile})`,
   });
 
-  const firstName = fullName.split(' ')[0];
+  const firstName = fullName && fullName.split(' ')[0];
 
   useEffect(() => {
     const getUserSkillsStats = async () => {
@@ -36,10 +42,38 @@ const VolunteerDashboard = () => {
         setSkills(data);
       }
     };
+    const assessment = getAssessmentFromStorage();
 
-    getUserSkillsStats();
+    const determineTempScore = () => {
+      const {
+        possibleSkills,
+        skillsUserHas,
+        skillsUserDoesntHave,
+      } = assessment;
+      const hasNum = skillsUserHas.length;
+      const hasntNum = skillsUserDoesntHave.length;
+      const totalNum = possibleSkills.length + hasNum + hasntNum;
+
+      const perc = Math.floor((hasNum / totalNum) * 100);
+
+      setSkills({
+        alreadyHasSkills: String(hasNum),
+        newlyCompleted: '0',
+        totalSkills: String(totalNum),
+      });
+      setScore({ assessmentScore: perc, improvementScore: 0 });
+    };
+    if (assessment) {
+      determineTempScore();
+    } else if (id) {
+      getUserSkillsStats();
+      setScore({ assessmentScore, improvementScore });
+    }
+    setLoaded(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!loaded) return <div>Loading</div>;
   return (
     <S.Wrapper>
       <Row>
@@ -51,9 +85,9 @@ const VolunteerDashboard = () => {
         {!id && (
           <Col w={[4, 8, 8]}>
             <T.BodyR color="gray">
-              Check out your personalised digital skill score! You can continue
-              to improve it by taking a look at your very own course at the
-              bottom of this page: it's been chosen just for you{' '}
+              Check out your personalised digital skill score! Continue to
+              improve it by looking at your very own course of recommending
+              activities in the <b>Start your training</b> section.{' '}
             </T.BodyR>
           </Col>
         )}
@@ -67,8 +101,10 @@ const VolunteerDashboard = () => {
             </T.H5>
             <S.ProgressWrapper>
               <CircleDiagram
-                currentScore={Math.round(improvementScore + assessmentScore)}
-                progressScore={improvementScore}
+                currentScore={Math.round(
+                  score.improvementScore + score.assessmentScore
+                )}
+                progressScore={score.improvementScore}
                 totalScore={100}
               />
             </S.ProgressWrapper>
@@ -116,7 +152,7 @@ const VolunteerDashboard = () => {
                 <T.BodyB color="gray">out of {skills.totalSkills}</T.BodyB>
               </S.SkillNumbersWrapper>
             </div>
-            {skills.newlyCompleted ? (
+            {skills.newlyCompleted > 0 ? (
               <T.BodyB mx="4" mb="4" color="gray">
                 <Icon
                   icon="arrowUp"
@@ -165,7 +201,7 @@ const VolunteerDashboard = () => {
                 ? 'Click the button below to take the next step'
                 : 'Now it’s time to start skilling up and becoming a digital pro! Click get started to save your results and see recommended skills'
             }
-            title="Become a champion"
+            title={id ? 'Continue your training' : 'Start your training'}
           />
         </Col>
       </Row>
