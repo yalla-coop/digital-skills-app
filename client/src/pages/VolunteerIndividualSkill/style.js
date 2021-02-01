@@ -11,6 +11,19 @@ export const Wrapper = styled.div`
     font-size: 18px;
     font-weight: 900;
     line-height: 26px;
+    width: 100%;
+    margin-right: ${({ theme: { spacings } }) => spacings[2]};
+    svg {
+      padding: 0;
+      width: 24px;
+      color: ${({ theme: { colors } }) => colors.black};
+      transition: 0.2s;
+      transform: translate(10px, 8px);
+    }
+  }
+
+  .ant-collapse > .ant-collapse-item-active > .ant-collapse-header > svg {
+    transform: translate(10px, 8px) rotate(-180deg) !important;
   }
 `;
 
