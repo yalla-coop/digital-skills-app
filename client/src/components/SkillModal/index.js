@@ -10,13 +10,14 @@ import theme from '../../theme';
 import validate from '../../validation/schemas/update-skill';
 import { Skills } from '../../api-calls';
 
-const SkillModal = ({ id, title, description, tasks = [], onUpdate }) => {
+const SkillModal = ({ id, title, description, icon, tasks = [], onUpdate }) => {
   const [visible, setVisible] = useState(false);
   const [state, setState] = useState({
     id,
     hideSkill: false,
     title: title || '',
     description: description || '',
+    icon: icon || '',
     task1: tasks?.[0] || '',
     task2: tasks?.[1] || '',
     task3: tasks?.[2] || '',
@@ -43,6 +44,7 @@ const SkillModal = ({ id, title, description, tasks = [], onUpdate }) => {
       form: {
         title: state.title,
         description: state.description,
+        icon: state.icon,
         tasks: [state.task1, state.task2, state.task3],
       },
     });
@@ -139,6 +141,17 @@ const SkillModal = ({ id, title, description, tasks = [], onUpdate }) => {
             label="How can this skill help in the real world?"
             placeholder="description..."
             error={errors.description}
+            disabled={state.hideSkill}
+          />
+
+          {/* icon */}
+          <Input
+            name="icon"
+            value={state.icon}
+            handleChange={(e) => handleChange('icon', e.target.value)}
+            label="Icon"
+            placeholder="icon..."
+            error={errors.icon}
             disabled={state.hideSkill}
           />
 

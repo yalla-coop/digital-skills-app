@@ -6,6 +6,7 @@ import * as S from './style';
 import theme from '../../../theme';
 import { useHistory } from 'react-router-dom';
 import { GENERAL } from '../../../constants/nav-routes';
+import * as AntdIcon from '@ant-design/icons';
 
 const RecommendSkill = ({
   title,
@@ -21,10 +22,16 @@ const RecommendSkill = ({
     history.push(GENERAL.SKILL.replace(':id', id));
   };
 
+  const Component = AntdIcon[icon];
+
   return (
     <S.Container onClick={handleClick}>
       <S.IconContainer color={color}>
-        <Icon icon={icon} width="120px" height="120px" color="white" />
+        {icon === 'defaultSkill' || !Component ? (
+          <Icon icon={icon} width="120" height="120" color="white" />
+        ) : (
+          <Component style={{ fontSize: 120, color: 'white' }} />
+        )}
       </S.IconContainer>
       <T.BodyB mt="3" ml="4" mr="4" style={{ fontWeight: 900 }}>
         {title}

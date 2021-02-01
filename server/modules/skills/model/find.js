@@ -8,7 +8,8 @@ const findSkillById = async (id) => {
       id,
       title,
       description,
-      tasks
+      tasks,
+      icon
     FROM skills
     WHERE id = $1
   `;

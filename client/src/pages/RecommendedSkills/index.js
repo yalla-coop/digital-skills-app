@@ -10,15 +10,6 @@ import * as S from './style';
 import { decideColor } from '../../helpers';
 import { Skills } from '../../api-calls';
 
-// import * as AntdIcon from '@ant-design/icons';
-// const Icon = ({ type, ...rest }) => {
-//   const Component = AntdIcon[type];
-//   return <Component {...rest} />;
-//   <div className="icons-list">
-//   <Icon type="StepForwardOutlined" color="red" />
-// </div>
-// };
-
 const RecommendedSkills = () => {
   const [skills, setSkills] = useState([]);
   const [exploreMore, setExploreMore] = useState(false);

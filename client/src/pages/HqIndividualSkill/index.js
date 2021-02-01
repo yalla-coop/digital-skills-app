@@ -17,6 +17,8 @@ function HqIndividualSkill() {
   const [skill, setSkill] = useState({
     title: '',
     description: '',
+    tasks: [],
+    icon: '',
     loading: true,
   });
   const [activities, setActivities] = useState({ data: [], loading: true });
@@ -58,6 +60,7 @@ function HqIndividualSkill() {
               title={skill.title}
               description={skill.description}
               tasks={skill.tasks}
+              icon={skill.icon}
               onUpdate={setSkill}
             />
           )}

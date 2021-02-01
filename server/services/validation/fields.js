@@ -42,3 +42,5 @@ export const skillDescription = string()
   .max(300, errMsgs.TOO_LONG_MAX_300);
 
 export const skillTask = string().nullable().max(50, errMsgs.TOO_LONG_MAX_50);
+
+export const requiredField = string().required(errMsgs.DEFAULT_REQUIRED);
