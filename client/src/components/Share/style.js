@@ -5,14 +5,11 @@ export const Container = styled('div')`
   width: 100%;
   height: 70px;
   background: ${({ theme }) => `${theme.colors.gray}`};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const Type = styled('span')`
-  position: absolute;
-  margin-top 10px;
-`;
+export const Type = styled('span')``;
 
-export const Icons = styled('span')`
-  margin-top: 15px;
-  float: right;
-`;
+export const Icons = styled('span')``;

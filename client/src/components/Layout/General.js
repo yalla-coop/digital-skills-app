@@ -22,7 +22,7 @@ const General = ({
         <S.Layout>
           <Header headerIcon={headerIcon} goBack={goBack} />
           <S.Content>{children}</S.Content>
-          <Footer />
+          <Footer showShare={props.showShare} />
         </S.Layout>
       </S.Layout>
     </>

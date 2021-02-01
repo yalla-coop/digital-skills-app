@@ -13,6 +13,7 @@ const Form = ({
   setSelectedKey,
   withoutPaddings,
   withoutHeader = true,
+  ...props
 }) => {
   return (
     <>
@@ -27,7 +28,7 @@ const Form = ({
           )}
 
           <FooterContainer>
-            <Footer />
+            <Footer showShare={props.showShare} />
           </FooterContainer>
         </Layout>
       </Layout>

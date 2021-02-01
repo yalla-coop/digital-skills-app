@@ -14,6 +14,9 @@ import * as T from '../../components/Typography';
 const Share = ({ text = 'Share this page', facebook, email, whatsapp }) => {
   return (
     <Container>
+      <Type>
+        <T.Body16B color={'white'}>{text}</T.Body16B>
+      </Type>
       <Icons>
         <FacebookShareButton url={window.location} hidden={!facebook}>
           <FacebookIcon bgStyle={{ fill: 'none' }} size={45} />
@@ -25,9 +28,6 @@ const Share = ({ text = 'Share this page', facebook, email, whatsapp }) => {
           <EmailIcon bgStyle={{ fill: 'none' }} size={45} />
         </EmailShareButton>
       </Icons>
-      <Type>
-        <T.Body16B color={'white'}>{text}</T.Body16B>
-      </Type>
     </Container>
   );
 };

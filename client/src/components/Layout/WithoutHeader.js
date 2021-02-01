@@ -13,6 +13,7 @@ const WithoutHeader = ({
   setSelectedKey,
   withoutPaddings,
   withoutHeader = true,
+  ...props
 }) => {
   return (
     <>
@@ -26,7 +27,7 @@ const WithoutHeader = ({
             <Content withoutHeader={withoutHeader}>{children}</Content>
           )}
 
-          <Footer />
+          <Footer showShare={props.showShare} />
         </Layout>
       </Layout>
     </>

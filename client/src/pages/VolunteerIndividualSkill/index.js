@@ -142,9 +142,11 @@ function VolunteerIndividualSkill() {
           <T.H3 mt="6" mb="4">
             Activities
           </T.H3>
-          <T.BodyR color="gray" mb="5">
-            Complete the activities below to master this skill!
-          </T.BodyR>
+          {!!activities?.data?.length && (
+            <T.BodyR color="gray" mb="5">
+              Complete the activities below to master this skill!
+            </T.BodyR>
+          )}
         </Col>
       </Row>
       <Row>
@@ -161,19 +163,30 @@ function VolunteerIndividualSkill() {
             </Col>
           </>
         )}
-        {activities.data
-          .filter(({ status }) => status !== 'completed')
-          .map(({ id, title, completionTime, difficulty }, i) => (
-            <Col w={[4, 6, 4]} key={`not completed ${id}`}>
-              <ActivityCard
-                title={title}
-                to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(':id', id)}
-                completionTime={completionTime}
-                difficulty={difficulty}
-                color={decideColor(i)}
-              />
-            </Col>
-          ))}
+        {activities?.data?.length ? (
+          activities.data
+            .filter(({ status }) => status !== 'completed')
+            .map(({ id, title, completionTime, difficulty }, i) => (
+              <Col w={[4, 6, 4]} key={`not completed ${id}`}>
+                <ActivityCard
+                  title={title}
+                  to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(
+                    ':id',
+                    id
+                  )}
+                  completionTime={completionTime}
+                  difficulty={difficulty}
+                  color={decideColor(i)}
+                />
+              </Col>
+            ))
+        ) : (
+          <Col w={[4, 12, 12]}>
+            <T.Body16 color="gray" ml="2">
+              No Activities
+            </T.Body16>
+          </Col>
+        )}
       </Row>
       <Row mt="5">
         {activities.data

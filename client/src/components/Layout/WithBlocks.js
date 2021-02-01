@@ -27,7 +27,7 @@ const WithBlocks = ({ children, selectedKey, setSelectedKey, ...props }) => {
           <AntdContent>
             <S.WithBlocksContentWrapper>{children}</S.WithBlocksContentWrapper>
           </AntdContent>
-          <Footer />
+          <Footer showShare={props.showShare} />
         </Layout>
         <AntdSider
           breakpoint={'md'}

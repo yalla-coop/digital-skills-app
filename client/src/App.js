@@ -98,6 +98,7 @@ function App() {
                 Component={Pages.VolunteerIndividualSkill}
                 layout="withoutHeader"
                 goBack
+                showShare
               />
 
               <Route
