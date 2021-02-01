@@ -19,6 +19,7 @@ import HqDashboard from './HqDashboard';
 import SuccessUpdateActivity from './SuccessUpdateActivity';
 import RecommendedSkills from './RecommendedSkills';
 import HelpOthers from './HelpOthers';
+import UpdateActivity from './UpdateActivity';
 
 export {
   Example,
@@ -41,4 +42,5 @@ export {
   SkillAreas,
   IndividualSkillArea,
   RecommendedSkills,
+  UpdateActivity,
 };

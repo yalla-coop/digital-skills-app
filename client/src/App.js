@@ -102,11 +102,38 @@ function App() {
 
               <Route
                 exact
-                path={navRoutes.HQ.SUCCESS_UPDATE_ACTIVITY}
+                path={navRoutes.HQ.SUCCESS_EDIT_ACTIVITY}
                 Component={Pages.SuccessUpdateActivity}
                 layout="notification"
                 headerIcon="success"
                 goBack
+              />
+
+              <Route
+                exact
+                path={navRoutes.HQ.SUCCESS_ADD_ACTIVITY}
+                Component={Pages.SuccessUpdateActivity}
+                layout="notification"
+                headerIcon="success"
+                goBack
+              />
+
+              <Route
+                exact
+                path={navRoutes.HQ.ADD_ACTIVITY}
+                Component={Pages.UpdateActivity}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="form"
+              />
+
+              <Route
+                exact
+                path={navRoutes.HQ.EDIT_ACTIVITY}
+                Component={Pages.UpdateActivity}
+                isPrivate
+                allowedRoles={[roles.HQ]}
+                layout="form"
               />
 
               {/* General routes */}

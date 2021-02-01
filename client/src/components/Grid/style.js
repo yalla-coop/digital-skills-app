@@ -19,6 +19,10 @@ export const Row = styled.div`
   }
   ${({ theme }) => theme.media.mobile} {
     justify-content: ${({ jcM, jcT, jc }) => jcM || jcT || jc || 'flex-start'};
+    margin-top: ${({ mt, mtM, theme }) =>
+      theme.spacings[mtM] || theme.spacings[mt] || '0'};
+    margin-bottom: ${({ mb, mbM, theme }) =>
+      theme.spacings[mbM] || theme.spacings[mb] || '0'};
   }
 `;
 

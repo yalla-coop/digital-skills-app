@@ -6,6 +6,7 @@ import WithoutHeader from './WithoutHeader';
 import Page from './Page';
 import WithBlocks from './WithBlocks';
 import Notification from './Notification';
+import Form from './Form';
 
 const Layout = ({ layout, ...props }) => {
   const [selectedKey, setSelectedKey] = useState('0');
@@ -32,6 +33,14 @@ const Layout = ({ layout, ...props }) => {
     case 'withoutHeader':
       return (
         <WithoutHeader
+          selectedKey={selectedKey}
+          setSelectedKey={setSelectedKey}
+          {...props}
+        />
+      );
+    case 'form':
+      return (
+        <Form
           selectedKey={selectedKey}
           setSelectedKey={setSelectedKey}
           {...props}

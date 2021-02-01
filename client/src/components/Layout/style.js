@@ -109,3 +109,10 @@ export const PageContent = styled(AntdContent)`
     }) => `${mobile.top} ${mobile.right} ${mobile.bottom} ${mobile.left}`};
   }
 `;
+
+export const FooterContainer = styled.div`
+  display: block;
+  ${({ theme }) => theme.media.mobile} {
+    display: none;
+  }
+`;

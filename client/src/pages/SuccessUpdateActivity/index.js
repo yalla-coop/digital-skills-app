@@ -7,8 +7,10 @@ import Button from '../../components/Button';
 import ViewActivityLink from '../../components/ViewActivityLink';
 
 // type is add or edit
-const SuccessUpdateActivity = ({ activityId, type = 'edit' }) => {
+const SuccessUpdateActivity = () => {
   const history = useHistory();
+  const [, , successWord, id] = history.location.pathname.split('/');
+  const [, type] = successWord.split('-');
   const handleClick = () => {
     return history.push(R.HQ.MANAGE_SKILLS);
   };
@@ -46,8 +48,10 @@ const SuccessUpdateActivity = ({ activityId, type = 'edit' }) => {
           Success!
         </T.H3>
         {type === 'edit' ? EditContent : AddContent}
-        <ViewActivityLink activityId={activityId} />
-        <Button handleClick={() => history.goBack()}>Go back</Button>
+        <ViewActivityLink activityId={id} />
+        <Button handleClick={() => history.push(R.HQ.DASHBOARD)}>
+          Go back
+        </Button>
       </S.Container>
     </S.Wrapper>
   );
