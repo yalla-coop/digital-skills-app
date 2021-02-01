@@ -7,6 +7,7 @@ export const Container = styled('div')`
     padding: ${({ theme }) => `${theme.spacings[3]} ${theme.spacings[5]}`};
   }
   width: 100%;
+  padding-top: ${({ theme }) => theme.constants.layout.footer.paddingTop};
   min-height: ${({ theme }) => theme.constants.layout.footer.height};
   a {
     display: block;

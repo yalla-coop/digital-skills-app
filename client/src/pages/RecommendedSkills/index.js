@@ -122,9 +122,10 @@ const RecommendedSkills = () => {
                   title={skill.title}
                   icon={skill.icon}
                   color={decideColor(index + 3)}
-                  totalActivities={skill.totalActivities}
-                  completedActivities={skill.completedActivities}
-                  level={skill.level}
+                  totalActivities={skill.activities.totalActivities}
+                  completedActivities={skill.activities.completedActivities}
+                  level={skill.activities.difficulty}
+                  id={skill.id}
                 />
               </Col>
             ))}

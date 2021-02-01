@@ -26,7 +26,7 @@ const RecommendSkill = ({
       <S.IconContainer color={color}>
         <Icon icon={icon} width="120px" height="120px" color="white" />
       </S.IconContainer>
-      <T.BodyB mt="3" ml="4" style={{ fontWeight: 900 }}>
+      <T.BodyB mt="3" ml="4" mr="4" style={{ fontWeight: 900 }}>
         {title}
       </T.BodyB>
       <S.Content>
@@ -39,8 +39,8 @@ const RecommendSkill = ({
             color="blue"
           />
           <T.Body16B ml="2">
-            {completedActivities} of {totalActivities} activities{' '}
-            <S.Span>completed</S.Span>
+            {Math.round(completedActivities)} of {Math.round(totalActivities)}{' '}
+            activities <S.Span>completed</S.Span>
           </T.Body16B>
         </S.Div>
         <S.Div>
@@ -52,7 +52,7 @@ const RecommendSkill = ({
             style={{ marginTop: theme.spacings[1] }}
           />
           <T.Body16B ml="2">
-            Difficulty <S.Span>Level {level}</S.Span>
+            Difficulty <S.Span>Level {Math.round(level)}</S.Span>
           </T.Body16B>
         </S.Div>
       </S.Content>

@@ -88,10 +88,10 @@ const HQ_USER_LOGGED_IN = [
 ];
 
 const HQ_USER_LOGGED_IN_AUTH = [
-  { title: 'Log out', to: GENERAL.LOGOUT, logout: true },
+  { title: 'Log out', to: HQ.HOME, logout: true },
 ];
 
-const HQ_USER_LOGGED_OUT = [{ title: 'Home', to: GENERAL.HOME }];
+const HQ_USER_LOGGED_OUT = [{ title: 'Home', to: HQ.HOME }];
 
 const HQ_USER_LOGGED_OUT_AUTH = [{ title: 'Log in', to: GENERAL.LOGIN }];
 

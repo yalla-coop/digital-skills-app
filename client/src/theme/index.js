@@ -35,6 +35,7 @@ const constants = {
     },
     footer: {
       height: '110px',
+      paddingTop: '100px',
     },
   },
   // side menu width

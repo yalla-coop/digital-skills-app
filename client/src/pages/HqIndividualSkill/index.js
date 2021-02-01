@@ -88,7 +88,7 @@ function HqIndividualSkill() {
               ))
             ) : (
               <Col w={[4, 12, 12]}>
-                <T.Body16 color="gray" mt="-1rem">
+                <T.Body16 color="gray" ml="2">
                   No Activities
                 </T.Body16>
               </Col>
