@@ -1,9 +1,9 @@
 import { fields, createSchema, validate as _validate } from '..';
 
-const { requiredText } = fields;
+const { requiredText, taskSearchInput } = fields;
 
 const schema = createSchema({
-  task: requiredText,
+  task: taskSearchInput,
   tool: requiredText,
 });
 

@@ -135,11 +135,11 @@ const findSkillAndActivitiesForSearch = async ({ tool, task }) => {
     FROM(
       SELECT id, title, description, 'skill' AS type, document
       FROM skills AS s
-      WHERE s.document @@ (plainto_tsquery($1) && (${tasksQueryText})) -- use && to exact match the tool
+      WHERE s.document @@ (plainto_tsquery($1) && (${tasksQueryText}))
       UNION
       SELECT id, title, description, 'activity' AS type, document
       FROM activities AS a
-      WHERE a.document @@ (plainto_tsquery($1) && (${tasksQueryText})) -- use && to exact match the tool
+      WHERE a.document @@ (plainto_tsquery($1) && (${tasksQueryText}))
     ) AS t
     ORDER BY ts_rank(
       document,

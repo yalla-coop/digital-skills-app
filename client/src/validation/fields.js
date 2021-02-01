@@ -1,5 +1,6 @@
 import { string, number, boolean, array } from 'yup';
 import * as errMsgs from './err-msgs';
+import { dropdownData } from '../constants';
 
 export const requiredText = string().required(errMsgs.DEFAULT_REQUIRED);
 
@@ -57,3 +58,9 @@ export const skillDescription = string()
   .max(300, errMsgs.TOO_LONG_MAX_300);
 
 export const skillTask = string().nullable().max(50, errMsgs.TOO_LONG_MAX_50);
+
+export const taskSearchInput = string().when('tool', (tool, schema) =>
+  tool === dropdownData.A_DIGITAL_TOOL
+    ? schema.required(errMsgs.DEFAULT_REQUIRED)
+    : schema.nullable()
+);

@@ -58,10 +58,19 @@ const Search = ({
 
     if (!isValid) return;
 
-    const { data, error } = await Skills.SearchSkillsAndActivities({
-      task: search.task,
-      tool: search.tool,
-    });
+    let searchForm;
+    if (search.tool === dropdownData.A_DIGITAL_TOOL) {
+      searchForm = {
+        task: search.task,
+        tool: '',
+      };
+    } else {
+      searchForm = {
+        task: search.task,
+        tool: search.tool,
+      };
+    }
+    const { data, error } = await Skills.SearchSkillsAndActivities(searchForm);
 
     if (!error) {
       if (setResults) {
