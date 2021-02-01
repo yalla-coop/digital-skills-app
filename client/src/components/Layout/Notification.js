@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import * as S from './style';
 import Header from './Header';
 
-const Notification = ({ children, headerIcon, ...props }) => {
+const Notification = ({ children, headerIcon, hideHeader, ...props }) => {
   return (
     <>
       <S.Layout>
-        <Header headerIcon={headerIcon} />
+        {!hideHeader && <Header headerIcon={headerIcon} />}
         <S.AntdContent>{children}</S.AntdContent>
       </S.Layout>
     </>

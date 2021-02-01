@@ -11,6 +11,7 @@ const GENERAL = {
   HELP_OTHERS: '/help-others',
   SKILL: '/skill/:id',
   ACTIVITY: '/activity/:id',
+  ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success',
 };
 
 const VOLUNTEER = {
@@ -24,6 +25,8 @@ const VOLUNTEER = {
   INDIVIDUAL_ACTIVITY: `/activities/:id`,
   RECOMMENDED_SKILLS: '/recommended-skills',
   SKILLS: '/skills',
+  UPDATE: '/update',
+  PROGRESS: `${GENERAL.ACTIVITY_COMPLETED}/2`,
 };
 
 const HQBase = '/hq';

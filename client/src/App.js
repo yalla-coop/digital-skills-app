@@ -170,6 +170,15 @@ function App() {
                 headerIcon="darts"
                 goBack
               />
+
+              <Route
+                exact
+                path={navRoutes.GENERAL.ACTIVITY_COMPLETED}
+                Component={Pages.ActivityCompleted}
+                layout="notification"
+                hideHeader
+              />
+
               {/* VOLUNTEERS ROUTES */}
               <Route
                 exact
@@ -189,6 +198,14 @@ function App() {
                 path={navRoutes.VOLUNTEER.RECOMMENDED_SKILLS}
                 Component={Pages.RecommendedSkills}
                 layout="withoutHeader"
+              />
+
+              <Route
+                exact
+                path={navRoutes.VOLUNTEER.PROGRESS}
+                Component={Pages.TrainingProgress}
+                layout="notification"
+                hideHeader
               />
             </Switch>
           </Router>

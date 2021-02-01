@@ -37,6 +37,8 @@ import RightRow from './icons/RightRow';
 import Trophy from './icons/Trophy';
 import ArrowUp from './icons/ArrowUp';
 import Edit from './icons/Edit';
+import CircleStar from './icons/CircleStar';
+import CircleCrown from './icons/CircleCrown';
 import ArrowDown from './icons/ArrowDown';
 import CupWithFlash from './icons/CupWithFlash';
 import DefaultSkill from './icons/DefaultSkill';
@@ -80,6 +82,8 @@ export const IconMap = {
   cupWithFlash: CupWithFlash,
   eye: Eye,
   arrowUp: ArrowUp,
+  circleStar: CircleStar,
+  circleCrown: CircleCrown,
   defaultSkill: DefaultSkill,
 };
 

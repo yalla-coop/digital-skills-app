@@ -25,4 +25,59 @@ const getActivitiesBySkillId = async ({ id, options }) => {
   }
 };
 
-export { getActivityById, getActivitiesBySkillId };
+const getCompletedActivitiesById = async ({ skillId, activityId }) => {
+  try {
+    const { data } = await axios.get(`${ACTIVITIES_BASE}/completed`, {
+      params: { skillId, activityId },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error);
+    return { error: err };
+  }
+};
+
+const getRelatedActivities = async ({ skillId, activityId }) => {
+  try {
+    const { data } = await axios.get(`${ACTIVITIES_BASE}/related`, {
+      params: { skillId, activityId },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error);
+    return { error: err };
+  }
+};
+
+const getRelatedActivitiesByUser = async ({ skillId, activityId }) => {
+  try {
+    const { data } = await axios.get(`${ACTIVITIES_BASE}/my-related`, {
+      params: { skillId, activityId },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error);
+    return { error: err };
+  }
+};
+
+const getUserActivityProgress = async ({ activityId }) => {
+  try {
+    const { data } = await axios.get(`${ACTIVITIES_BASE}/progress`, {
+      params: { activityId },
+    });
+    return { data };
+  } catch (error) {
+    const err = handleError(error);
+    return { error: err };
+  }
+};
+
+export {
+  getActivityById,
+  getActivitiesBySkillId,
+  getCompletedActivitiesById,
+  getRelatedActivities,
+  getRelatedActivitiesByUser,
+  getUserActivityProgress,
+};

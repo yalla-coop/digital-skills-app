@@ -209,6 +209,14 @@ const findVolunteerSkillsStats = async (id) => {
   return res.rows[0];
 };
 
+const findSkillsByActivity = async (activityId) => {
+  const sql = `
+  SELECT * FROM activities_skills a_s INNER JOIN skills s ON (a_s.skill = s.id) WHERE a_s.activity = $1;
+  `;
+
+  const res = await query(sql, [activityId]);
+  return res.rows;
+};
 const findRecommendedSkillsForVolunteer = async ({ userId }) => {
   const values = [userId];
   const sql = `
@@ -249,6 +257,7 @@ export {
   findSkillsByAreas,
   findSkills,
   findVolunteerSkillsStats,
+  findSkillsByActivity,
   findRecommendedSkillsForVolunteer,
   findSkillsByCodes,
 };
