@@ -1,12 +1,12 @@
 DROP TABLE IF EXISTS "users" CASCADE;
 
 CREATE TABLE "users" (
-	"id" SERIAL PRIMARY KEY,
-  "full_name" VARCHAR NOT NULL,
-  "email" VARCHAR NOT NULL,
+  "id" SERIAL PRIMARY KEY,
+  "full_name" VARCHAR,
+  "email" VARCHAR,
   "postcode" VARCHAR,
   "role" users_roles NOT NULL,
-  "password" VARCHAR NOT NULL,
+  "password" VARCHAR,
   "organisation" INTEGER REFERENCES organisations(id),
   "selected_path" learning_paths,
   "deleted" BOOLEAN DEFAULT false,

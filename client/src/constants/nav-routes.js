@@ -11,6 +11,9 @@ const GENERAL = {
   HELP_OTHERS: '/help-others',
   SKILL: '/skill/:id',
   ACTIVITY: '/activity/:id',
+  SETTINGS: '/settings',
+  DELETE_ACCOUNT_CONFIRM: '/settings/delete-account-confirm',
+  DELETE_ACCOUNT_SUCCESS: '/delete-account-success',
   ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success',
 };
 
@@ -20,7 +23,6 @@ const VOLUNTEER = {
   DASHBOARD: '/dashboard',
   ENTER_POSTCODE: '/postcode',
   RESULTS: '/result',
-  SETTINGS: '/settings',
   INDIVIDUAL_SKILL: `/skills/:id`,
   INDIVIDUAL_ACTIVITY: `/activities/:id`,
   RECOMMENDED_SKILLS: '/recommended-skills',
@@ -75,8 +77,8 @@ const VOLUNTEER_LOGGED_IN = [
 ];
 
 const VOLUNTEER_LOGGED_IN_AUTH = [
+  { title: 'My account', to: GENERAL.SETTINGS },
   { title: 'Log out', to: GENERAL.HOME, logout: true },
-  { title: 'My account', to: VOLUNTEER.SETTINGS },
 ];
 
 const HQ_USER_LOGGED_IN = [
@@ -88,6 +90,7 @@ const HQ_USER_LOGGED_IN = [
 ];
 
 const HQ_USER_LOGGED_IN_AUTH = [
+  { title: 'My account', to: GENERAL.SETTINGS },
   { title: 'Log out', to: HQ.HOME, logout: true },
 ];
 

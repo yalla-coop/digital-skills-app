@@ -19,6 +19,8 @@ import HqDashboard from './HqDashboard';
 import SuccessUpdateActivity from './SuccessUpdateActivity';
 import RecommendedSkills from './RecommendedSkills';
 import HelpOthers from './HelpOthers';
+import MyAccount from './MyAccount';
+import DeleteAccount from './MyAccount/DeleteAccount';
 import ActivityCompleted from './ActivityCompleted';
 import TrainingProgress from './ActivityCompleted/TrainingProgress';
 import UpdateActivity from './UpdateActivity';
@@ -43,6 +45,8 @@ export {
   HelpOthers,
   SkillAreas,
   IndividualSkillArea,
+  MyAccount,
+  DeleteAccount,
   ActivityCompleted,
   TrainingProgress,
   RecommendedSkills,

@@ -150,6 +150,7 @@ function App() {
                 Component={() => <Pages.VolunteerLanding />}
                 layout="withoutHeader"
               />
+
               <Route
                 exact
                 path={navRoutes.HQ.HOME}
@@ -186,7 +187,6 @@ function App() {
                 Component={Pages.HelpOthers}
                 layout="withoutHeader"
               />
-
               <Route
                 exact
                 path={navRoutes.VOLUNTEER.DASHBOARD}
@@ -198,6 +198,30 @@ function App() {
                 path={navRoutes.VOLUNTEER.RECOMMENDED_SKILLS}
                 Component={Pages.RecommendedSkills}
                 layout="withoutHeader"
+              />
+              {/* SETTINGS */}
+              <Route
+                exact
+                path={navRoutes.GENERAL.SETTINGS}
+                Component={() => <Pages.MyAccount />}
+                layout="withoutHeader"
+                isPrivate
+                allowedRoles={[roles.VOLUNTEER, roles.HQ]}
+              />
+              {/* DELETE ACCOUNT */}
+              <Route
+                exact
+                path={navRoutes.GENERAL.DELETE_ACCOUNT_CONFIRM}
+                Component={() => <Pages.DeleteAccount type="deleteConfirm" />}
+                layout="withoutHeader"
+                isPrivate
+                allowedRoles={[roles.VOLUNTEER, roles.HQ]}
+              />
+              <Route
+                exact
+                path={navRoutes.GENERAL.DELETE_ACCOUNT_SUCCESS}
+                Component={() => <Pages.DeleteAccount type="deleteSuccess" />}
+                layout="withBlocks"
               />
 
               <Route
