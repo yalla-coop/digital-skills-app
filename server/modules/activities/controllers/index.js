@@ -8,6 +8,7 @@ import getCompletedActivitiesById from './get-completed-activities-by-id';
 import getRelatedActivities from './get-related-activities';
 import getRelatedActivitiesByUser from './get-related-activities-by-user';
 import getUserActivityProgress from './get-user-activity-progress';
+import createCompletedActivity from './create-completed-activity';
 
 const router = Router();
 
@@ -32,5 +33,12 @@ router.get(
 router.get('/related', getRelatedActivities);
 router.get('/:id', getActivityById);
 router.get('/', authenticate(true), getActivities);
+
+router.post(
+  '/:id/complete',
+  authenticate(),
+  authorize([userRoles.VOLUNTEER]),
+  createCompletedActivity,
+);
 
 export default router;

@@ -11,7 +11,7 @@ const getUserActivityProgress = async ({ activityId, userId }) => {
   });
 
   return {
-    addedScore: completedActivityScore.addedScore,
+    addedScore: completedActivityScore && completedActivityScore.addedScore,
     completedActivities: completedActivities.length,
   };
 };

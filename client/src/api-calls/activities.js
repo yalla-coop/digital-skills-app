@@ -73,6 +73,18 @@ const getUserActivityProgress = async ({ activityId }) => {
   }
 };
 
+const completeActivity = async ({ activityId, options }) => {
+  try {
+    const { data } = await axios.post(
+      `${ACTIVITIES_BASE}/${activityId}/complete`
+    );
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
 export {
   getActivityById,
   getActivitiesBySkillId,
@@ -80,4 +92,5 @@ export {
   getRelatedActivities,
   getRelatedActivitiesByUser,
   getUserActivityProgress,
+  completeActivity,
 };

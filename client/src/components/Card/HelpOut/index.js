@@ -31,7 +31,7 @@ const HelpOut = ({ title, text, path, pathLabel, color = 'purple', icon }) => {
               m="0"
               mb="3"
               style={{ maxWidth: icon && '60%' }}
-              key={i}
+              key={sentence}
             >
               {sentence}.
             </T.BodyR>

@@ -5,6 +5,7 @@ import * as T from '../../Typography';
 
 import { Typography } from 'antd';
 import LevelIndicator from '../../LevelIndicator';
+import Icon from '../../Icon';
 
 function ActivityCard({
   to,
@@ -26,12 +27,16 @@ function ActivityCard({
         <T.BodyB color={color}>{completionTime} minutes</T.BodyB>
       </S.ActivityCardTextDiv>
       <S.ActivityCardColouredDiv color={color}>
-        <LevelIndicator
-          level={difficulty}
-          size="large"
-          color="white"
-          bgColor="white"
-        />
+        {isCompleted ? (
+          <Icon icon="cupWithFlash" strokeColor="white" />
+        ) : (
+          <LevelIndicator
+            level={difficulty}
+            size="large"
+            color="white"
+            bgColor="white"
+          />
+        )}
         <T.Body16B color="white" mt="1">
           {isCompleted ? 'Completed' : <>Level&nbsp;{difficulty}</>}
         </T.Body16B>

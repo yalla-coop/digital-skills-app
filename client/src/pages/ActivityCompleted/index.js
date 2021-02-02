@@ -17,7 +17,7 @@ import { navRoutes } from '../../constants';
 import { decideColor } from '../../helpers';
 
 const ActivityCompleted = () => {
-  const [progress, setProgress] = useState([]);
+  const [progress, setProgress] = useState([{}]);
   const [relatedActivities, setRelatedActivities] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [err, setErr] = useState('');
@@ -39,11 +39,10 @@ const ActivityCompleted = () => {
 
       if (error) {
         setErr(error.message);
-        setLoaded(true);
-      } else {
+      } else if (data.length) {
         setProgress(data);
-        setLoaded(true);
       }
+      setLoaded(true);
     };
 
     const getRelatedActivities = async () => {
@@ -68,22 +67,32 @@ const ActivityCompleted = () => {
     }
   }, [skillId, activityId, id]);
 
-  const activitiesLeft = ({ totalActivities, completedActivities }) =>
-    Number(totalActivities) - Number(completedActivities);
+  const activitiesLeft =
+    progress[0] &&
+    Number(progress[0]?.totalActivities) -
+      Number(progress[0]?.completedActivities);
 
   const decideHeader = () => {
-    if (!id) return 'circleCrown';
-    if (activitiesLeft(progress[0]) > 0) return 'circleStar';
-    return 'cup';
+    if (!id)
+      return <Icon width={150} height={150} icon="circleCrown" color="white" />;
+    if (activitiesLeft > 0)
+      return <Icon width={150} height={150} icon="circleStar" color="white" />;
+    return (
+      <Icon
+        width={150}
+        height={150}
+        icon="cup"
+        strokeColor="white"
+        color="transparent"
+      />
+    );
   };
 
   if (!loaded) return <div>Loading</div>;
 
   return (
     <S.Wrapper>
-      <S.Header>
-        <Icon width={150} height={150} icon={decideHeader()} color="white" />
-      </S.Header>
+      <S.Header>{decideHeader()}</S.Header>
       {err && (
         <Row jc="center" mt="4" mb="4">
           <Col w={[4, 8, 10]}>
@@ -101,9 +110,15 @@ const ActivityCompleted = () => {
           {id ? (
             <>
               <T.BodyR color="black" mb="6">
-                <b>Amazing job!</b> You're only{' '}
-                <b>{progress[0] && activitiesLeft(progress[0])}</b> activities
-                away from completing this skill!
+                <b>Amazing job!</b>{' '}
+                {activitiesLeft ? (
+                  <>
+                    You're only <b>{activitiesLeft}</b> activities away from
+                    completing this skill!
+                  </>
+                ) : (
+                  <>You've completed this skill</>
+                )}
               </T.BodyR>
             </>
           ) : (
@@ -137,7 +152,7 @@ const ActivityCompleted = () => {
             </Row>
           </S.Banner>
           <S.Activities>
-            <Row mt={isMobile ? '6' : '7'} mb="4">
+            <Row mt="6" mtM="5" mb="4">
               <Col w={[4, 8, 8]}>
                 <T.H4 color="black">Related activities</T.H4>
               </Col>
@@ -149,10 +164,10 @@ const ActivityCompleted = () => {
                   <Col w={[4, 6, 4]} key={i}>
                     <ActivityCard
                       title={title}
-                      to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(
-                        ':id',
-                        activity
-                      )}
+                      to={navRoutes.GENERAL.SKILL_ACTIVITY.replace(
+                        ':skillId',
+                        skillId
+                      ).replace(':activityId', activity)}
                       completionTime={completionTime}
                       difficulty={difficulty}
                       color={decideColor(i)}
@@ -162,7 +177,7 @@ const ActivityCompleted = () => {
             </Row>
             <Row>
               <Col w={[4, 6, 4]}>
-                <Button to={navRoutes.GENERAL.SKILLS}>Return home</Button>
+                <Button to={navRoutes.GENERAL.HOME}>Return home</Button>
               </Col>
             </Row>
           </S.Activities>

@@ -12,6 +12,7 @@ import TestLanding from './TestLanding';
 import HqSkillsProgress from './HqSkillsProgress';
 import HqIndividualSkill from './HqIndividualSkill';
 import VolunteerIndividualSkill from './VolunteerIndividualSkill';
+import VolunteerIndividualActivity from './VolunteerIndividualActivity';
 import VolunteerDashboard from './Dashboard/Volunteer';
 import SkillAreas from './SkillAreas';
 import IndividualSkillArea from './IndividualSkillArea';
@@ -42,6 +43,7 @@ export {
   Search,
   HqIndividualSkill,
   VolunteerIndividualSkill,
+  VolunteerIndividualActivity,
   HelpOthers,
   SkillAreas,
   IndividualSkillArea,

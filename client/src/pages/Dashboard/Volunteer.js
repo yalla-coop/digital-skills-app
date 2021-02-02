@@ -25,6 +25,7 @@ const VolunteerDashboard = () => {
     improvementScore: 0,
   });
   const [loaded, setLoaded] = useState(false);
+  const [doneAssessment, setDoneAssessment] = useState(false);
   const {
     user: { id, fullName, assessmentScore, improvementScore },
   } = useAuth();
@@ -55,6 +56,7 @@ const VolunteerDashboard = () => {
 
       const perc = Math.floor((relevantSkillsNum / totalNum) * 100);
 
+      setDoneAssessment(true);
       setSkills({
         alreadyHasSkills: String(hasNum),
         newlyCompleted: '0',
@@ -71,6 +73,13 @@ const VolunteerDashboard = () => {
     setLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const startTrainingUrl = () => {
+    if (doneAssessment) {
+      return navRoutes.VOLUNTEER.SIGNUP;
+    }
+    return navRoutes.GENERAL.ASSESSMENT;
+  };
 
   if (!loaded) return <div>Loading</div>;
   return (
@@ -100,9 +109,7 @@ const VolunteerDashboard = () => {
             </T.H5>
             <S.ProgressWrapper>
               <CircleDiagram
-                currentScore={Math.round(
-                  score.improvementScore + score.assessmentScore
-                )}
+                currentScore={Math.round(score.assessmentScore)}
                 progressScore={score.improvementScore}
                 totalScore={100}
               />
@@ -194,9 +201,7 @@ const VolunteerDashboard = () => {
               strokeColor: 'white',
             }}
             path={
-              id
-                ? navRoutes.VOLUNTEER.RECOMMENDED_SKILLS
-                : navRoutes.VOLUNTEER.SIGNUP
+              id ? navRoutes.VOLUNTEER.RECOMMENDED_SKILLS : startTrainingUrl()
             }
             pathLabel="Let's do this!"
             text={

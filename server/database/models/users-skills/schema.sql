@@ -10,6 +10,9 @@ CREATE TABLE "users_skills" (
   "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE UNIQUE INDEX
+unique_users_skills ON users_skills ("user", skill);
+
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON "users_skills"
 FOR EACH ROW

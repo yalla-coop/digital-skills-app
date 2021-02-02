@@ -19,7 +19,7 @@ function VolunteerIndividualSkill() {
   const {
     user: { assessmentScore },
   } = useAuth();
-  const { id } = useParams();
+  const { id: skillId } = useParams();
   const [skill, setSkill] = useState({
     title: '',
     description: '',
@@ -36,7 +36,7 @@ function VolunteerIndividualSkill() {
 
   useEffect(() => {
     const getData = async () => {
-      const { data, error } = await Skills.getSkillById({ id });
+      const { data, error } = await Skills.getSkillById({ id: skillId });
 
       if (!error) {
         setSkill({ ...data, loading: false });
@@ -44,7 +44,9 @@ function VolunteerIndividualSkill() {
     };
 
     const getActivities = async () => {
-      const { data, error } = await Activities.getActivitiesBySkillId({ id });
+      const { data, error } = await Activities.getActivitiesBySkillId({
+        id: skillId,
+      });
 
       if (!error) {
         const completedActivities = data.filter(
@@ -60,7 +62,7 @@ function VolunteerIndividualSkill() {
 
     getData();
     getActivities();
-  }, [id]);
+  }, [skillId]);
 
   return (
     <S.Wrapper>
@@ -174,10 +176,10 @@ function VolunteerIndividualSkill() {
               <Col w={[4, 6, 4]} key={`not completed ${id}`}>
                 <ActivityCard
                   title={title}
-                  to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(
-                    ':id',
-                    id
-                  )}
+                  to={navRoutes.GENERAL.SKILL_ACTIVITY.replace(
+                    ':skillId',
+                    skillId
+                  ).replace(':activityId', id)}
                   completionTime={completionTime}
                   difficulty={difficulty}
                   color={decideColor(i)}
@@ -199,7 +201,10 @@ function VolunteerIndividualSkill() {
             <Col w={[4, 6, 4]} key={`completed ${id}`}>
               <ActivityCard
                 title={title}
-                to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(':id', id)}
+                to={navRoutes.GENERAL.SKILL_ACTIVITY.replace(
+                  ':skillId',
+                  skillId
+                ).replace(':activityId', id)}
                 completionTime={completionTime}
                 isCompleted
                 color={decideColor(i)}

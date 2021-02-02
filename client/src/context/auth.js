@@ -47,18 +47,19 @@ const AuthProvider = (props) => {
     setUser(data);
   };
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      const { data } = await Users.getLoggedInUserInfo();
-      if (data) {
-        _setUser(data);
-      } else {
-        clearUserInfoIntoStorage();
-        setUser(initialUserState);
-      }
-    };
+  const getUserInfo = async () => {
+    const { data } = await Users.getLoggedInUserInfo();
+    if (data) {
+      _setUser(data);
+    } else {
+      clearUserInfoIntoStorage();
+      setUser(initialUserState);
+    }
+  };
 
+  useEffect(() => {
     getUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const logout = async () => {
@@ -70,6 +71,7 @@ const AuthProvider = (props) => {
 
   const value = {
     user,
+    getUserInfo,
     setUser: _setUser,
     logout,
   };

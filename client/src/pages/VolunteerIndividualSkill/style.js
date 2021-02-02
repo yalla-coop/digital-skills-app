@@ -28,12 +28,14 @@ export const Wrapper = styled.div`
 `;
 
 export const SkillAreasTags = styled.span`
-  padding: ${({ theme }) => `${theme.spacings[2]} ${theme.spacings[1]}`};
+  padding: ${({ theme }) => `${theme.spacings[2]}`};
   margin-right: ${({ theme }) => theme.spacings[3]};
   color: ${({ theme }) => theme.colors.blue};
   background-color: ${({ theme }) => theme.colors.liteBlue};
   font-weight: 700;
   font-size: 16px;
+  display: inline-block;
+  margin-bottom: ${({ theme }) => theme.spacings[2]};
 `;
 
 export const InfoCard = styled.div`

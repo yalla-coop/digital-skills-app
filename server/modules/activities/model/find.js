@@ -2,7 +2,17 @@ import { query } from '../../../database';
 
 const findActivityById = async (id) => {
   const values = [id];
-  const sql = ``;
+  const sql = `
+    SELECT
+      title,
+      resource_created_by,
+      resource_link,
+      completion_time,
+      difficulty,
+      description
+    FROM activities
+    WHERE id = $1;
+  `;
 
   const res = await query(sql, values);
   return res.rows[0];
@@ -122,7 +132,7 @@ const findRelatedActivitiesBySkill = async ({ skillId, activityId }) => {
 const findRelatedActivitiesBySkillAndUser = async ({ skillId, userId }) => {
   const values = [userId, skillId];
   const sql = `
-  SELECT a_s.skill, a_s.activity, a.title, a.difficulty, a.completion_time,
+  SELECT a_s.skill AS skill_id, a_s.activity, a.title, a.difficulty, a.completion_time,
   (SELECT COUNT(DISTINCT u_c_a.id) FROM users_completed_activities u_c_a WHERE u_c_a.activity = a_s.activity AND u_c_a.user = $1) AS completed 
   FROM activities_skills a_s 
   INNER JOIN activities a ON (a.id = a_s.activity)
@@ -137,7 +147,7 @@ const findRelatedActivitiesBySkillAndUser = async ({ skillId, userId }) => {
 const findRelatedActivitiesByUser = async ({ userId }) => {
   const values = [userId];
   const sql = `
-  SELECT a.id, a.title, a.difficulty, a.completion_time, s_a_s.skill AS skill_id, s_a_s.skill_area AS skill_area_id, u_s_a.user,
+  SELECT a.id, a_s.activity, a.title, a.difficulty, a.completion_time, s_a_s.skill AS skill_id, s_a_s.skill_area AS skill_area_id, u_s_a.user,
   (SELECT COUNT(DISTINCT u_c_a.id) FROM users_completed_activities u_c_a WHERE u_c_a.activity = a.id AND u_c_a.user = u_s_a.user) AS completed
   FROM activities a 
   INNER JOIN activities_skills a_s ON (a.id = a_s.activity) 
@@ -184,6 +194,62 @@ const findCompletedActivityById = async ({ activityId, userId }) => {
   const res = await query(sql, values);
   return res.rows[0];
 };
+const findCompletedActivityStats = async ({ activityId, userId }) => {
+  const values = [userId, activityId];
+
+  const sql = `
+    SELECT
+      (
+        SELECT
+          COUNT(
+            DISTINCT (acs.activity::TEXT || '-' || acs.skill::TEXT)
+          )
+        FROM activities_skills AS acs
+        JOIN skill_areas_skills AS sas
+          ON sas.skill = acs.skill
+        JOIN users_skill_areas AS usa
+          ON usa.skill_area = sas.skill_area
+        LEFT JOIN users_completed_activities AS uca
+          ON uca.activity = acs.activity
+            AND uca."user" = usa."user"
+        WHERE usa."user" = $1
+          AND uca.id is null
+      ) AS remaining_activities,
+      ARRAY(
+        SELECT
+          jsonb_build_object(
+            'id', acs.skill,
+            'activities', ARRAY
+              (
+                SELECT
+                  jsonb_build_object(
+                    'activity_id', _acs.activity,
+                    'activity_completed_id', _uca.id
+                  )		
+                FROM activities_skills AS _acs
+                LEFT JOIN users_completed_activities AS _uca
+                  ON _uca.activity = _acs.activity AND _uca."user" = $1
+                WHERE _acs.skill = acs.skill
+              )
+          )
+        FROM users_skill_areas AS usa
+        JOIN skill_areas_skills AS sas
+          ON sas.skill_area = usa.skill_area
+        JOIN activities_skills AS acs
+          ON acs.skill = sas.skill
+        WHERE usa."user" = $1
+          AND acs.activity = $2
+        GROUP BY acs.skill
+      ) AS related_skills,
+      assessment_score,
+      improvement_score
+    FROM users AS u
+    WHERE u.id = $1
+  `;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
 
 export {
   findActivityById,
@@ -198,4 +264,5 @@ export {
   findCompletedActivityById,
   findActivitiesBySkillIdForVolunteer,
   findActivitiesBySkillIdForPublic,
+  findCompletedActivityStats,
 };

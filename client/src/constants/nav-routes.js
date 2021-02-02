@@ -11,10 +11,11 @@ const GENERAL = {
   HELP_OTHERS: '/help-others',
   SKILL: '/skills/:id',
   ACTIVITY: '/activity/:id',
+  SKILL_ACTIVITY: '/skills/:skillId/activity/:activityId',
+  ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success',
   SETTINGS: '/settings',
   DELETE_ACCOUNT_CONFIRM: '/settings/delete-account-confirm',
   DELETE_ACCOUNT_SUCCESS: '/delete-account-success',
-  ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success',
 };
 
 const VOLUNTEER = {
@@ -23,8 +24,7 @@ const VOLUNTEER = {
   DASHBOARD: '/dashboard',
   ENTER_POSTCODE: '/postcode',
   RESULTS: '/result',
-  INDIVIDUAL_SKILL: `/skills/:id`,
-  INDIVIDUAL_ACTIVITY: `/activities/:id`,
+  SETTINGS: '/settings',
   RECOMMENDED_SKILLS: '/recommended-skills',
   SKILLS: '/skills',
   UPDATE: '/update',

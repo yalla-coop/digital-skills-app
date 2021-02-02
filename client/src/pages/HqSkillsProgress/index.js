@@ -36,7 +36,7 @@ const cardsData = [
 function HqSkillsProgress() {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState('');
+  // const [err, setErr] = useState('');
 
   useEffect(() => {
     let mounted = true;
@@ -47,7 +47,8 @@ function HqSkillsProgress() {
       if (mounted) {
         setLoading(false);
         if (error) {
-          setErr(error.message);
+          // setErr(error.message);
+          console.log(error);
         } else {
           setStats(data);
         }

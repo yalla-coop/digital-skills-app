@@ -63,15 +63,15 @@ function ActivityHeader(props) {
 }
 
 ActivityHeader.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   createdBy: PropTypes.exact({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     icon: PropTypes.string,
     url: PropTypes.string,
   }),
-  mobileBgColor: PropTypes.string.isRequired,
-  time: PropTypes.number.isRequired,
-  difficultyLevel: PropTypes.number.isRequired,
+  mobileBgColor: PropTypes.string,
+  time: PropTypes.number,
+  difficultyLevel: PropTypes.number,
 };
 
 export default ActivityHeader;

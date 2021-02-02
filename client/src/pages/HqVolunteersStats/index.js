@@ -4,7 +4,6 @@ import { Volunteers } from './../../api-calls';
 import { BackLink, Grid, Button } from '../../components';
 import { StatsCard } from '../../components/Card';
 import * as T from '../../components/Typography';
-import * as S from './style';
 
 const { Row, Col } = Grid;
 const cardsData = [
@@ -37,7 +36,7 @@ const cardsData = [
 function HqVolunteersStats() {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState('');
+  // const [err, setErr] = useState('');
 
   useEffect(() => {
     let mounted = true;
@@ -48,7 +47,8 @@ function HqVolunteersStats() {
       if (mounted) {
         setLoading(false);
         if (error) {
-          setErr(error.message);
+          // setErr(error.message);
+          console.log(error);
         } else {
           setStats(data);
         }
@@ -68,7 +68,7 @@ function HqVolunteersStats() {
   cardsData[3].statNum = stats.volunteersFeelConfidentPerc;
 
   return (
-    <S.Wrapper>
+    <div>
       <BackLink />
       <T.H3 mt="5" mtM="4" mb="6" mbM="4">
         My volunteers
@@ -87,7 +87,7 @@ function HqVolunteersStats() {
           </Button>
         </Col>
       </Row>
-    </S.Wrapper>
+    </div>
   );
 }
 

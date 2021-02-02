@@ -15,5 +15,6 @@ CREATE TYPE "learning_paths" AS ENUM (
 
 CREATE TYPE "skills_statuses" AS ENUM (
   'ALREADY_HAS',
-  'COMPLETED'
+  'COMPLETED',
+  'IN_PROGRESS'
 );

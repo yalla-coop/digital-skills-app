@@ -5,16 +5,20 @@ import theme from '../../theme';
 import { H1, Body16, H5 } from '../Typography';
 
 const CircleDiagram = ({ totalScore, currentScore, progressScore }) => {
+  const _progressScore = Math.round(progressScore);
+  const _currentScore = Math.round(currentScore);
   return (
-    <Container progressScore={progressScore}>
+    <Container progressScore={_progressScore}>
       <Progress
         success={{
-          percent: (currentScore / totalScore) * 100,
+          percent: ((_currentScore - _progressScore) / totalScore) * 100,
           strokeColor: 'red',
         }}
         type="circle"
-        strokeColor={progressScore ? theme.colors.teal : theme.colors.blue}
-        percent={((currentScore + progressScore) / totalScore) * 100}
+        strokeColor={_progressScore ? theme.colors.teal : theme.colors.blue}
+        percent={
+          ((_currentScore + _progressScore - _progressScore) / totalScore) * 100
+        }
         strokeWidth={10}
         showInfo={false}
         strokeLinecap={'round'}
@@ -23,12 +27,12 @@ const CircleDiagram = ({ totalScore, currentScore, progressScore }) => {
       />
       <Content>
         <H1 mb="5px" color="blue">
-          {currentScore}
+          {_currentScore}
         </H1>
         <Body16 color="navy">out of {totalScore}</Body16>
-        {!!progressScore && (
+        {!!_progressScore && (
           <H5 mt="3px" color="teal">
-            +{progressScore}
+            +{_progressScore}
           </H5>
         )}
       </Content>

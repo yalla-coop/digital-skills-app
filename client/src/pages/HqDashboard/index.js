@@ -14,7 +14,7 @@ const { Row, Col } = Grid;
 function HqDashboard() {
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState('');
+  // const [err, setErr] = useState('');
   const { user } = useAuth();
 
   useEffect(() => {
@@ -26,7 +26,8 @@ function HqDashboard() {
       if (mounted) {
         setLoading(false);
         if (error) {
-          setErr(error.message);
+          // setErr(error.message);
+          console.log(error);
         } else {
           setStats(data);
         }

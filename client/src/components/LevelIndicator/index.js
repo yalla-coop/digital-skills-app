@@ -23,7 +23,7 @@ LevelIndicator.defaultProps = {
 };
 
 LevelIndicator.propTypes = {
-  level: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
+  level: PropTypes.oneOf([1, 2, 3, 4]),
   color: PropTypes.string,
   bgColor: PropTypes.string,
   size: PropTypes.string,

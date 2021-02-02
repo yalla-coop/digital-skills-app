@@ -8,6 +8,7 @@ export const Wrapper = styled.article`
   flex-direction: column;
   align-items: stretch;
   height: 100%;
+  margin-bottom: ${({ theme }) => theme.spacings[7]};
 `;
 
 export const Banner = styled.aside`

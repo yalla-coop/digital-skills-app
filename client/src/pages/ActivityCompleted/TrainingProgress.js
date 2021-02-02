@@ -32,6 +32,7 @@ const TrainingProgress = () => {
 
   const {
     user: { id, assessmentScore, improvementScore },
+    getUserInfo,
   } = useAuth();
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const TrainingProgress = () => {
         setLoaded(true);
       } else {
         setCompletedActivities(data.completedActivities);
-        setAddedScore(data.addedScore);
+        setAddedScore(Math.round(data.addedScore));
         setRelatedActivities(activities);
         setLoaded(true);
       }
@@ -57,9 +58,11 @@ const TrainingProgress = () => {
 
     if (id) {
       getActivityProgress();
+      getUserInfo();
     } else {
       setLoaded(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skillId, activityId, id]);
 
   if (!loaded) return <div>loading</div>;
@@ -69,7 +72,7 @@ const TrainingProgress = () => {
       <S.CircleHeader color="white">
         <CircleDiagram
           totalScore={100}
-          currentScore={Math.round(improvementScore + assessmentScore)}
+          currentScore={improvementScore + assessmentScore}
           progressScore={addedScore}
         />
       </S.CircleHeader>
@@ -95,7 +98,10 @@ const TrainingProgress = () => {
             You have completed {completedActivities}{' '}
             {completedActivities === 1 ? 'activity' : 'activities'} since
             starting your training, and your Digital Score has{' '}
-            <b>increased to {Math.round(improvementScore + assessmentScore)}</b>
+            <b>
+              increased to{' '}
+              {Math.round(improvementScore + assessmentScore + addedScore)}
+            </b>
             . 🎉
           </T.BodyR>
           <T.H6
@@ -126,24 +132,35 @@ const TrainingProgress = () => {
         <Row mb="6" ai="stretch">
           {relatedActivities
             .slice(0, 3)
-            .map(({ activity, title, completionTime, difficulty }, i) => (
-              <Col w={[4, 6, 4]} key={i}>
-                <ActivityCard
-                  title={title}
-                  to={navRoutes.VOLUNTEER.INDIVIDUAL_ACTIVITY.replace(
-                    ':id',
-                    activity
-                  )}
-                  completionTime={completionTime}
-                  difficulty={difficulty}
-                  color={decideColor(i)}
-                />
-              </Col>
-            ))}
+            .map(
+              (
+                {
+                  activity,
+                  title,
+                  completionTime,
+                  difficulty,
+                  skillId: _skillId,
+                },
+                i
+              ) => (
+                <Col w={[4, 6, 4]} key={i}>
+                  <ActivityCard
+                    title={title}
+                    to={navRoutes.GENERAL.SKILL_ACTIVITY.replace(
+                      ':skillId',
+                      Number(skillId) || _skillId
+                    ).replace(':activityId', activity)}
+                    completionTime={completionTime}
+                    difficulty={difficulty}
+                    color={decideColor(i)}
+                  />
+                </Col>
+              )
+            )}
         </Row>
         <Row>
           <Col w={[4, 6, 4]}>
-            <Button to={navRoutes.GENERAL.SKILLS}>Return home</Button>
+            <Button to={navRoutes.GENERAL.HOME}>Return home</Button>
           </Col>
         </Row>
       </S.Activities>

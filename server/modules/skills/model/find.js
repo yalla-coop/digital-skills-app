@@ -236,12 +236,13 @@ const findRecommendedSkillsForVolunteer = async ({ userId }) => {
       INNER JOIN activities AS a ON(a_s.activity = a.id)
       LEFT JOIN users_completed_activities AS uca ON(uca.activity = a.id AND uca.user = $1)
       WHERE a_s.skill = s.id
-      )
+      ) AS activities
     FROM users_skill_areas AS usa
     INNER JOIN skill_areas_skills AS sas ON(usa.skill_area = sas.skill_area)
     INNER JOIN skills AS s ON(s.id = sas.skill)
     LEFT JOIN users_skills AS us ON(us.skill = sas.skill)
-    WHERE usa.user = $1 AND us.id IS NULL 
+    WHERE usa.user = $1
+    ORDER BY us.id
   `;
 
   const res = await query(sql, values);

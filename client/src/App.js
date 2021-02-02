@@ -94,10 +94,30 @@ function App() {
               {/* VOLUNTEER ROUTES */}
               <Route
                 exact
-                path={navRoutes.VOLUNTEER.INDIVIDUAL_SKILL}
+                path={navRoutes.GENERAL.SKILL}
                 Component={Pages.VolunteerIndividualSkill}
                 layout="withoutHeader"
                 goBack
+                showShare
+              />
+
+              <Route
+                exact
+                path={navRoutes.GENERAL.ACTIVITY}
+                Component={Pages.VolunteerIndividualActivity}
+                layout="withoutHeader"
+                goBack
+                withoutPaddings
+                showShare
+              />
+
+              <Route
+                exact
+                path={navRoutes.GENERAL.SKILL_ACTIVITY}
+                Component={Pages.VolunteerIndividualActivity}
+                layout="withoutHeader"
+                goBack
+                withoutPaddings
                 showShare
               />
 

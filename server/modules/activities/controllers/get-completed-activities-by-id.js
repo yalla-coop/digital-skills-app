@@ -19,7 +19,6 @@ const getCompletedActivitiesById = async (req, res, next) => {
     );
 
     res.json(activities);
-    res.json([]);
   } catch (error) {
     next(error);
   }

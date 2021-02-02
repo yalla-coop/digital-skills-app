@@ -11,6 +11,9 @@ CREATE TABLE "users_completed_activities" (
   "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE UNIQUE INDEX
+unique_users_activity ON users_completed_activities ("user", activity);
+
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON "users_completed_activities"
 FOR EACH ROW

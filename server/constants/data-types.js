@@ -14,6 +14,7 @@ export const learningPaths = {
 export const skillStatuses = {
   ALREADY_HAS: 'ALREADY_HAS',
   COMPLETED: 'COMPLETED',
+  IN_PROGRESS: 'IN_PROGRESS',
 };
 
 export const skillsCodes = {
