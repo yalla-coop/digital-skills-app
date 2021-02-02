@@ -1,7 +1,11 @@
 {
-  "name": "boilerplate",
+  "name": "scouts",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"cd client && npm start\" \"cross-env DEBUG=server nodemon --exec babel-node ./server/index.js\"",
     "start": "cross-env DEBUG=server node dist/index.js",
@@ -16,6 +20,7 @@
     "cover": "nyc npm t",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "build:db": "babel-node ./server/database/build.script.js",
+    "build:staging-db": "NODE_ENV=test babel-node ./server/database/staging-db/build.script.js",
     "init:both": "npm i && cd client && npm i && npm run build",
     "heroku-postbuild": "npm run init:both && npm run build"
   },
