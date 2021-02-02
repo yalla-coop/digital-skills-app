@@ -31,6 +31,10 @@ function VolunteerIndividualSkill() {
   const [activities, setActivities] = useState({ data: [], loading: true });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getData = async () => {
       const { data, error } = await Skills.getSkillById({ id });
 

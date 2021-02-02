@@ -9,7 +9,7 @@ const GENERAL = {
   ASSESSMENT: '/digital-test',
   ASSESSMENT_STEP: '/digital-test/:step',
   HELP_OTHERS: '/help-others',
-  SKILL: '/skill/:id',
+  SKILL: '/skills/:id',
   ACTIVITY: '/activity/:id',
   SETTINGS: '/settings',
   DELETE_ACCOUNT_CONFIRM: '/settings/delete-account-confirm',

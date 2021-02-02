@@ -43,6 +43,9 @@ import CircleCrown from './icons/CircleCrown';
 import ArrowDown from './icons/ArrowDown';
 import CupWithFlash from './icons/CupWithFlash';
 import DefaultSkill from './icons/DefaultSkill';
+import Whatsapp from './icons/Whatsapp';
+import Facebook from './icons/Facebook';
+import Mail from './icons/Mail';
 
 export const IconMap = {
   email: Email,
@@ -87,6 +90,9 @@ export const IconMap = {
   circleStar: CircleStar,
   circleCrown: CircleCrown,
   defaultSkill: DefaultSkill,
+  whatsapp: Whatsapp,
+  facebook: Facebook,
+  mail: Mail,
 };
 
 const Icon = (props) => {
