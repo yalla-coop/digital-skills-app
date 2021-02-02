@@ -64,3 +64,31 @@ export const taskSearchInput = string().when('tool', (tool, schema) =>
     ? schema.required(errMsgs.DEFAULT_REQUIRED)
     : schema.nullable()
 );
+
+export const levelField = number()
+  .typeError(errMsgs.NUMBER_REQUIRED)
+  .min(1)
+  .max(4)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const timeField = number()
+  .typeError(errMsgs.NUMBER_REQUIRED)
+  .min(1)
+  .max(1000)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const TitleField = string()
+  .max(200, errMsgs.TOO_LONG_MAX_200)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const creatorField = string()
+  .max(50, errMsgs.TOO_LONG_MAX_50)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const linkField = string()
+  .max(100, errMsgs.TOO_LONG_MAX_100)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const descriptionField = string()
+  .max(500, errMsgs.TOO_LONG_MAX_500)
+  .required(errMsgs.DEFAULT_REQUIRED);

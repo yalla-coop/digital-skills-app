@@ -1,15 +1,23 @@
 import { fields, createSchema, validate as _validate } from '..';
 
-const { requiredField } = fields;
+const {
+  requiredField,
+  levelField,
+  timeField,
+  TitleField,
+  descriptionField,
+  creatorField,
+  linkField,
+} = fields;
 
 const updateActivity = createSchema({
-  title: requiredField,
-  description: requiredField,
+  title: TitleField,
+  description: descriptionField,
   skills: requiredField,
-  level: requiredField,
-  time: requiredField,
-  link: requiredField,
-  creator: requiredField,
+  level: levelField,
+  time: timeField,
+  link: linkField,
+  creator: creatorField,
 });
 
 const validate = (data) => _validate(updateActivity, data);

@@ -1,10 +1,10 @@
 import { fields, createSchema, validate as _validate } from '..';
 
-const { skillTitle, skillDescription, skillTask, requiredField } = fields;
+const { skillTitle, descriptionField, skillTask, requiredField } = fields;
 
 const updateSkill = createSchema({
   title: skillTitle,
-  description: skillDescription,
+  description: descriptionField,
   icon: requiredField,
   task1: skillTask,
   task2: skillTask,
