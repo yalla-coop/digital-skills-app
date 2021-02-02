@@ -76,7 +76,9 @@ function VolunteerIndividualActivity() {
   const activityCompleteUrl = r.GENERAL.ACTIVITY_COMPLETED.replace(
     ':skillId',
     skillId || 0
-  ).replace(':activityId', activityId);
+  )
+    .replace(':activityId', activityId)
+    .replace(':step', 1);
 
   const handleCompleteActivity = async () => {
     let error;
@@ -127,7 +129,6 @@ function VolunteerIndividualActivity() {
                   titleNum="2"
                   title="Mark this activity as complete"
                   desc="Provide your feedback to update your Digital Score, track your progress and help your fellow volunteers!"
-                  note="Please note, clicking the button will open in a new tab"
                   linkTxt={
                     assessmentScore ? 'Complete activity' : 'Provide feedback'
                   }

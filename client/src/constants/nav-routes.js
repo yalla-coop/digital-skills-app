@@ -11,8 +11,8 @@ const GENERAL = {
   HELP_OTHERS: '/help-others',
   SKILL: '/skills/:id',
   ACTIVITY: '/activity/:id',
+  ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success/:step',
   SKILL_ACTIVITY: '/skills/:skillId/activity/:activityId',
-  ACTIVITY_COMPLETED: '/skill/:skillId/activity/:activityId/success',
   SETTINGS: '/settings',
   DELETE_ACCOUNT_CONFIRM: '/settings/delete-account-confirm',
   DELETE_ACCOUNT_SUCCESS: '/delete-account-success',
@@ -28,7 +28,7 @@ const VOLUNTEER = {
   RECOMMENDED_SKILLS: '/recommended-skills',
   SKILLS: '/skills',
   UPDATE: '/update',
-  PROGRESS: `${GENERAL.ACTIVITY_COMPLETED}/2`,
+  PROGRESS: `/skill/:skillId/activity/:activityId/progress`,
 };
 
 const HQBase = '/hq';

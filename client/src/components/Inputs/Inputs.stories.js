@@ -9,6 +9,7 @@ import {
   Radio,
   Options,
   Cards,
+  Time,
 } from './index';
 
 export default {
@@ -352,4 +353,32 @@ cards.args = {
   ],
   error: '',
   disabled: false,
+};
+
+const TimeExample = (args) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <Row>
+      <Col w={[4, 6, 4]}>
+        <Time {...args} value={value} handleChange={handleChange} />
+      </Col>
+    </Row>
+  );
+};
+
+export const time = TimeExample.bind({});
+time.args = {
+  color: '',
+  label: 'How long did it take you to complete?',
+  w: '100%',
+  disabled: false,
+  error: '',
+  placeholder: '',
+  isOptional: false,
+  time: 'minutes',
 };

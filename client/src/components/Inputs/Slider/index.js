@@ -14,6 +14,8 @@ const Slider = ({
   showAnswer,
   handleChange,
   selected,
+  big,
+  ...props
 }) => {
   const decideColor = () => {
     if (error) return 'error';
@@ -39,12 +41,18 @@ const Slider = ({
   };
 
   return (
-    <S.Field disabled={disabled}>
+    <S.Field disabled={disabled} {...props}>
       {label && (
         <CS.Label htmlFor={label}>
-          <T.Body16B color={decideColor() || 'navy'} m="0" mb="1" ml="1">
-            {label}
-          </T.Body16B>
+          {big ? (
+            <T.BodyB color={decideColor() || 'navy'} m="0" mb="4" ml="1">
+              {label}
+            </T.BodyB>
+          ) : (
+            <T.Body16B color={decideColor() || 'navy'} m="0" mb="1" ml="1">
+              {label}
+            </T.Body16B>
+          )}
           {helper && (
             <T.Body16 color={decideColor()} m="0" mb="1" ml="1">
               {helper}

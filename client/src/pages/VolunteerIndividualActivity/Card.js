@@ -5,7 +5,7 @@ import * as T from '../../components/Typography';
 
 export const Wrapper = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.light};
-  padding: ${({ theme }) => theme.spacings[3]};
+  padding: ${({ theme }) => theme.spacings[4]};
   margin-bottom: ${({ theme }) => theme.spacings[5]};
 
   ${({ theme }) => theme.media.mobile} {
@@ -36,10 +36,12 @@ function Card(props) {
       <T.H6 mb="2">
         {titleNum}. {title}
       </T.H6>
-      <T.BodyR mb={note ? '2' : '3'} color="gray">
+      <T.BodyR mb={note ? '3' : '4'} color="gray">
         {desc}
       </T.BodyR>
-      <T.BodyB mb="3">{note}</T.BodyB>
+      <T.BodyB mb="3" color="navy" style={{ fontStyle: 'italic' }}>
+        {note}
+      </T.BodyB>
       {exLinkUrl ? (
         <ExtLink
           as="a"

@@ -7,6 +7,7 @@ import Radio from './Radio';
 import Options from './Options';
 import Cards from './Cards';
 import Textarea from './Textarea';
+import Time from './Time';
 
 export {
   BasicInput,
@@ -18,4 +19,5 @@ export {
   Options,
   Cards,
   Textarea,
+  Time,
 };

@@ -1,3 +1,32 @@
+import { query } from '../../../database';
+
+const createAnonFeedback = async ({
+  activityId,
+  completionTime,
+  difficulty,
+  confidenceScore,
+}) => {
+  const values = [activityId, completionTime, difficulty, confidenceScore];
+
+  const sql = `
+    INSERT INTO users_completed_activities (
+      activity,
+      completion_time,
+      difficulty,
+      confidence_score
+    ) VALUES (
+      $1,
+      $2,
+      $3,
+      $4
+      )
+      RETURNING *
+    `;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
+
 const createCompletedActivity = async (
   { activityId, userId, addedScore },
   client,
@@ -18,8 +47,8 @@ const createCompletedActivity = async (
     RETURNING *
   `;
 
-  const res = await client.query(sql, values);
+  const res = await query(sql, values);
   return res.rows[0];
 };
 
-export { createCompletedActivity };
+export { createAnonFeedback, createCompletedActivity };

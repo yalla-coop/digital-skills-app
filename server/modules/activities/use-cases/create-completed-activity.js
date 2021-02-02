@@ -18,7 +18,8 @@ const createCompletedActivity = async ({ activityId, userId }) => {
 
   const remainingScore = 100 - assessmentScore - improvementScore;
   const activityScore = remainingScore / Number(remainingActivities);
-  const addedScore = activityScore * relatedSkills.length;
+  const addedScore =
+    relatedSkills.length > 0 ? activityScore * relatedSkills.length : 1;
 
   const client = await getClient();
   try {

@@ -46,6 +46,7 @@ import DefaultSkill from './icons/DefaultSkill';
 import Whatsapp from './icons/Whatsapp';
 import Facebook from './icons/Facebook';
 import Mail from './icons/Mail';
+import TrophyStar from './icons/TrophyStar';
 
 export const IconMap = {
   email: Email,
@@ -93,6 +94,7 @@ export const IconMap = {
   whatsapp: Whatsapp,
   facebook: Facebook,
   mail: Mail,
+  trophyStar: TrophyStar,
 };
 
 const Icon = (props) => {

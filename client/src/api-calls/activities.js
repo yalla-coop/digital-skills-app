@@ -73,6 +73,22 @@ const getUserActivityProgress = async ({ activityId }) => {
   }
 };
 
+const updateActivityWithFeedback = async ({ activityId, feedback }) => {
+  try {
+    const { data } = await axios.patch(
+      `${ACTIVITIES_BASE}/feedback`,
+      feedback,
+      {
+        params: { activityId },
+      }
+    );
+    return { data };
+  } catch (error) {
+    const err = handleError(error);
+    return { error: err };
+  }
+};
+
 const completeActivity = async ({ activityId, options }) => {
   try {
     const { data } = await axios.post(
@@ -92,5 +108,6 @@ export {
   getRelatedActivities,
   getRelatedActivitiesByUser,
   getUserActivityProgress,
+  updateActivityWithFeedback,
   completeActivity,
 };

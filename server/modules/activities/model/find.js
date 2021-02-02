@@ -177,6 +177,23 @@ const findRelatedActivitiesBySkillAreasLinkedToSkill = async ({
   return res.rows;
 };
 
+const findRelatedActivitiesBySkillAreasLinkedToActivity = async ({
+  activityId,
+}) => {
+  const values = [activityId];
+
+  const sql = `
+  SELECT DISTINCT a_s.skill, a_s.activity, a.title, a.difficulty, a.completion_time, s_a_s.skill_area, s_a_s.skill
+  FROM activities_skills a_s 
+  INNER JOIN activities a ON (a.id = a_s.activity)
+  INNER JOIN skill_areas_skills s_a_s ON (s_a_s.skill = a_s.skill)
+  WHERE a_s.activity != $1;
+  `;
+
+  const res = await query(sql, values);
+  return res.rows;
+};
+
 const findCompletedActivitiesByUser = async ({ userId }) => {
   const values = [userId];
 
@@ -265,4 +282,5 @@ export {
   findActivitiesBySkillIdForVolunteer,
   findActivitiesBySkillIdForPublic,
   findCompletedActivityStats,
+  findRelatedActivitiesBySkillAreasLinkedToActivity,
 };

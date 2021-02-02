@@ -109,7 +109,7 @@ const VolunteerDashboard = () => {
             </T.H5>
             <S.ProgressWrapper>
               <CircleDiagram
-                currentScore={Math.round(score.assessmentScore)}
+                currentScore={score.assessmentScore + score.improvementScore}
                 progressScore={score.improvementScore}
                 totalScore={100}
               />
@@ -181,12 +181,25 @@ const VolunteerDashboard = () => {
                 </S.TellMeMoreButton>
               ) : (
                 <>
-                  <T.BodyR color="white">
-                    For your volunteering tasks there are {skills.totalSkills}{' '}
-                    skills we recommend learning to become a digital pro, and
-                    good news, based on your answers we reckon you already have{' '}
-                    {skills.alreadyHasSkills} of the skills in the bag!
-                  </T.BodyR>
+                  {id ? (
+                    <T.BodyR color="white">
+                      For your volunteering tasks there are {skills.totalSkills}{' '}
+                      core skills we recommend learning to become a digital pro.
+                      So far you've got{' '}
+                      {Math.round(
+                        Number(skills.newlyCompleted) +
+                          Number(skills.alreadyHasSkills)
+                      )}{' '}
+                      skills already!
+                    </T.BodyR>
+                  ) : (
+                    <T.BodyR color="white">
+                      For your volunteering tasks there are {skills.totalSkills}{' '}
+                      skills we recommend learning to become a digital pro, and
+                      good news, based on your answers we reckon you already
+                      have {skills.alreadyHasSkills} of the skills in the bag!
+                    </T.BodyR>
+                  )}
                 </>
               )}
             </S.ColouredSection>

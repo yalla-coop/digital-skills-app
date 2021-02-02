@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { Layout as AntdLayout } from 'antd';
+import setMargin from '../../helpers/set-margin';
+import * as T from '../../components/Typography';
 
 const { Header: AntdHeader } = AntdLayout;
 
@@ -60,4 +62,15 @@ export const CircleHeader = styled(AntdHeader)`
   ${({ theme }) => theme.media.mobile} {
     margin-bottom: ${({ theme }) => theme.spacings[3]};
   }
+`;
+
+export const SkillWrapper = styled.div`
+  ${setMargin}
+  display: flex;
+  align-items: center;
+`;
+
+export const SkillTitle = styled(T.H6)`
+  max-width: 80%;
+  padding-left: ${({ theme }) => theme.spacings[2]};
 `;

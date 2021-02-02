@@ -10,9 +10,8 @@ const getRelatedActivities = async ({ activityId, skillId }) => {
     return activities;
   }
 
-  const otherActivitiesForSkillArea = await Activity.findRelatedActivitiesBySkillAreasLinkedToSkill(
+  const otherActivitiesForSkillArea = await Activity.findRelatedActivitiesBySkillAreasLinkedToActivity(
     {
-      skillId,
       activityId,
     },
   );

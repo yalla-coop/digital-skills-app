@@ -4,6 +4,7 @@ import getCompletedActivitiesById from './get-completed-activities-by-id';
 import getRelatedActivitiesByUser from './get-related-activities-by-user';
 import getRelatedActivities from './get-related-activities';
 import getUserActivityProgress from './get-user-activity-progress';
+import updateActivityWithFeedback from './update-activity-with-feedback';
 import createCompletedActivity from './create-completed-activity';
 
 export {
@@ -13,5 +14,6 @@ export {
   getRelatedActivitiesByUser,
   getRelatedActivities,
   getUserActivityProgress,
+  updateActivityWithFeedback,
   createCompletedActivity,
 };

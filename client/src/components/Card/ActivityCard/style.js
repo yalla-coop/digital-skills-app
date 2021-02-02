@@ -9,6 +9,7 @@ export const CardWrapper = styled(Link)`
   overflow: hidden;
   margin-bottom: ${({ theme }) => theme.spacings[3]};
   transition: 0.5s;
+  height: 100%;
 
   :hover {
     transform: scale(1.05);

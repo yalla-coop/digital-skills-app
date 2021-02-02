@@ -98,10 +98,7 @@ const TrainingProgress = () => {
             You have completed {completedActivities}{' '}
             {completedActivities === 1 ? 'activity' : 'activities'} since
             starting your training, and your Digital Score has{' '}
-            <b>
-              increased to{' '}
-              {Math.round(improvementScore + assessmentScore + addedScore)}
-            </b>
+            <b>increased to {Math.round(improvementScore + assessmentScore)}</b>
             . 🎉
           </T.BodyR>
           <T.H6
@@ -160,7 +157,9 @@ const TrainingProgress = () => {
         </Row>
         <Row>
           <Col w={[4, 6, 4]}>
-            <Button to={navRoutes.GENERAL.HOME}>Return home</Button>
+            <Button to={navRoutes.VOLUNTEER.RECOMMENDED_SKILLS}>
+              Return home
+            </Button>
           </Col>
         </Row>
       </S.Activities>

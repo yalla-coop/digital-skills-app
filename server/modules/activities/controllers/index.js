@@ -10,7 +10,11 @@ import getRelatedActivitiesByUser from './get-related-activities-by-user';
 import getUserActivityProgress from './get-user-activity-progress';
 import createCompletedActivity from './create-completed-activity';
 
+import updateActivityWithFeedback from './update-activity-with-feedback';
+
 const router = Router();
+
+router.patch('/feedback', authenticate(true), updateActivityWithFeedback);
 
 router.get(
   '/completed',
