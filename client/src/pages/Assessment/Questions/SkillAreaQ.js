@@ -21,7 +21,8 @@ const SkillAreaQ = ({
     <>
       <Row mt={isMobile ? '4' : '7'} mb={isMobile ? '4' : '6'}>
         <Col w={[4, 12, 10]}>
-          <T.BodyLB>{skillAreaQ.question}</T.BodyLB>
+          <T.BodyLB mb="3">{skillAreaQ.question}</T.BodyLB>
+          <T.Body16 color="gray">(select as many as you like)</T.Body16>
         </Col>
       </Row>
 

@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Row, Col } from '../../../components/Grid';
 import * as T from '../../../components/Typography';
 import { breakpoints } from '../../../theme';
+import Loading from '../../../components/Loading';
 
 import {
   Options,
@@ -159,13 +160,18 @@ const GeneralQ = ({ question, decideSkills, error, oldQ }) => {
     }
   }, [question, oldQ]);
 
-  if (!loaded) return <div>Loading...</div>;
+  if (!loaded) return <Loading mt="6" w="100%" />;
 
   return (
     <>
       <Row mt={isMobile ? '4' : '7'} mb={isMobile ? '4' : '6'}>
         <Col w={[4, 12, 10]}>
-          <T.BodyLB m="0">{question.question}</T.BodyLB>
+          <T.BodyLB m="0" mb={question.type === 'optionsEqualSkills' && '3'}>
+            {question.question}
+          </T.BodyLB>
+          {question.type === 'optionsEqualSkills' && (
+            <T.Body16 color="gray">(select as many as you like)</T.Body16>
+          )}
         </Col>
       </Row>
       {question.type === 'optionsEqualSkills' && (

@@ -11,6 +11,7 @@ import Icon from '../../components/Icon';
 import { useAuth } from '../../context/auth';
 import { Skills } from '../../api-calls';
 import { getAssessmentFromStorage } from '../../helpers/assessmentStorage';
+import Loading from '../../components/Loading';
 
 const VolunteerDashboard = () => {
   const [skills, setSkills] = useState({
@@ -81,7 +82,8 @@ const VolunteerDashboard = () => {
     return navRoutes.GENERAL.ASSESSMENT;
   };
 
-  if (!loaded) return <div>Loading</div>;
+  if (!loaded) return <Loading mt="6" w="100%" />;
+
   return (
     <S.Wrapper>
       <Row>

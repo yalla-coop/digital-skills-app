@@ -13,7 +13,10 @@ import { Organisations, Users } from './../../api-calls';
 import validate from '../../validation/schemas/signup';
 import { roles, navRoutes } from '../../constants';
 import { useAuth } from '../../context/auth';
-import { getAssessmentFromStorage } from '../../helpers/assessmentStorage';
+import {
+  getAssessmentFromStorage,
+  clearAssessmentFromStorage,
+} from '../../helpers/assessmentStorage';
 
 const initialState = {
   fullName: '',
@@ -169,6 +172,7 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
       }
     } else {
       setUser(data);
+      clearAssessmentFromStorage();
       history.push(navRoutes.VOLUNTEER.RECOMMENDED_SKILLS);
     }
   };

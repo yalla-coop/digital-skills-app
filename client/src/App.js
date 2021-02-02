@@ -252,6 +252,15 @@ function App() {
                 layout="notification"
                 hideHeader
               />
+
+              <Route
+                Component={Pages.ErrorRoute}
+                layout="general"
+                goBack
+                status="404"
+                title="Page not found"
+                msg="Sorry, the page you're looking for doesn't seem to exist"
+              />
             </Switch>
           </Router>
         </AuthProvider>

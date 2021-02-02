@@ -3,9 +3,9 @@ import { LoadingOutlined } from '@ant-design/icons';
 
 import * as S from './style';
 
-function Loading({ color, fontSize = 48 }) {
+function Loading({ color, fontSize = 48, w, ...props }) {
   const antIcon = <LoadingOutlined style={{ fontSize }} spin />;
-  return <S.Loading color={color} indicator={antIcon} />;
+  return <S.Loading color={color} indicator={antIcon} w={w} {...props} />;
 }
 
 Loading.defaultProps = {

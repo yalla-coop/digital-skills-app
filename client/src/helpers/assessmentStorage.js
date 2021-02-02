@@ -6,4 +6,8 @@ const getAssessmentFromStorage = () => {
   return null;
 };
 
-export { getAssessmentFromStorage };
+const clearAssessmentFromStorage = () => {
+  localStorage.removeItem('assessment');
+};
+
+export { getAssessmentFromStorage, clearAssessmentFromStorage };

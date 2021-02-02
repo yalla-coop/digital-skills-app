@@ -25,6 +25,7 @@ import DeleteAccount from './MyAccount/DeleteAccount';
 import ActivityCompleted from './ActivityCompleted';
 import TrainingProgress from './ActivityCompleted/TrainingProgress';
 import UpdateActivity from './UpdateActivity';
+import ErrorRoute from './ErrorRoutes';
 
 export {
   Example,
@@ -53,4 +54,5 @@ export {
   TrainingProgress,
   RecommendedSkills,
   UpdateActivity,
+  ErrorRoute,
 };
