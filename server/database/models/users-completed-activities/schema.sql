@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS "users_completed_activities" CASCADE;
+DROP INDEX IF EXISTS unique_users_activity;
 
 CREATE TABLE "users_completed_activities" (
   "id" SERIAL PRIMARY KEY,
