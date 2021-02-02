@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { NAV_ROUTES } from '../../constants/nav-routes';
 import { useAuth } from '../../context/auth';
 import * as S from './style';
@@ -44,7 +44,6 @@ const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
     if (typeof closeDrawer === 'function') {
       closeDrawer();
     }
-    setSelectedKey(event.key);
     if (logout) {
       try {
         logoutApi();
@@ -53,34 +52,42 @@ const Menu = ({ closeDrawer, selectedKey, setSelectedKey }) => {
         console.error(err);
       }
     }
-    if (to) {
-      history.push(to);
-    }
   };
 
   const styledTopics = [];
   const styledAuthTopics = [];
   navRoutes.routes.forEach(({ title, to, logout }, index) =>
     styledTopics.push(
-      <S.Item key={index} onClick={(e) => handleClick(e, to, logout)}>
+      <NavLink
+        key={index}
+        exact
+        to={to}
+        activeClassName="menu__item__selected"
+        className="menu__item"
+        onClick={(e) => handleClick(e, to, logout)}
+      >
         {title}
-      </S.Item>
+      </NavLink>
     )
   );
 
   navRoutes.authRoutes.forEach(({ title, to, logout }, index) =>
     styledAuthTopics.push(
-      <S.Item
+      <NavLink
         key={navRoutes.routes.length + index}
+        exact
+        to={to}
+        className="menu__item"
+        activeClassName={!logout && 'menu__item__selected'}
         onClick={(e) => handleClick(e, to, logout)}
       >
         {title}
-      </S.Item>
+      </NavLink>
     )
   );
 
   return (
-    <S.Menu mode="inline" defaultSelectedKeys={[selectedKey]}>
+    <S.Menu style={{ display: 'flex', flexDirection: 'column' }}>
       {styledTopics}
       <S.Divider />
       {styledAuthTopics}

@@ -1,62 +1,53 @@
 import styled from '@emotion/styled';
-import { Menu as AntMenu } from 'antd';
 
-export const Menu = styled(AntMenu)`
+export const Menu = styled.ul`
   display: flex;
   flex-direction: column;
-  background-color: transparent;
-  border: none;
 
-  li:not(:last-child) {
+  a:not(:last-child) {
     margin-bottom: ${({ theme: { spacings } }) => `${spacings[4]} !important`};
   }
-`;
 
-export const Item = styled(AntMenu.Item)`
-  background-color: none;
-  color: ${({ theme: { colors } }) => colors.white};
-  padding: 0 !important;
-  font-weight: normal;
-  font-size: 18.66px;
-  line-height: 143%;
-  margin-top: 0 !important;
-
-  &.ant-menu-item-selected {
-    background-color: transparent !important;
-    font-weight: bold;
-  }
-
-  &:hover {
+  a.menu__item {
+    background-color: none;
     color: ${({ theme: { colors } }) => colors.white};
+    padding: 0 !important;
+    font-weight: normal;
+    font-size: 18.66px;
+    line-height: 143%;
+    margin-top: 0 !important;
   }
 
-  &:after {
-    border: none !important;
-    background: ${({ theme: { colors } }) => colors.white};
-    margin-left: ${({
-      theme: {
-        constants: {
-          navBar: { active },
+  a.menu__item__selected {
+    font-weight: bold;
+
+    &:after {
+      margin-left: ${({
+        theme: {
+          constants: {
+            navBar: { active },
+          },
         },
-      },
-    }) => active};
-    position: static !important;
-    width: ${({
-      theme: {
-        constants: {
-          navBar: { active },
+      }) => active};
+      content: ' ';
+      width: ${({
+        theme: {
+          constants: {
+            navBar: { active },
+          },
         },
-      },
-    }) => active};
-    height: ${({
-      theme: {
-        constants: {
-          navBar: { active },
+      }) => active};
+      height: ${({
+        theme: {
+          constants: {
+            navBar: { active },
+          },
         },
-      },
-    }) => active};
-    display: inline-block;
-    transform: rotate(45deg) !important;
+      }) => active};
+      display: inline-block;
+      background: ${({ theme: { colors } }) => colors.white};
+      transform: rotate(45deg);
+    }
   }
 `;
 

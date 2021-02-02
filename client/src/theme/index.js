@@ -106,12 +106,14 @@ export const screensWidth = {
   mobile: 768,
   tablet: 1152,
   desktop: 1440,
+  menu: 991,
 };
 
 export const media = {
   mobile: `@media (max-width: ${screensWidth.mobile}px)`,
   tablet: `@media (max-width: ${screensWidth.tablet}px)`,
   desktop: `@media (max-width: ${screensWidth.desktop}px)`,
+  menu: `@media (max-width: ${screensWidth.menu}px)`,
 };
 
 export const breakpoints = {

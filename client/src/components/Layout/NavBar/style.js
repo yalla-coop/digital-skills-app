@@ -14,7 +14,7 @@ export const Navbar = styled('nav')`
   padding-left: ${({ theme }) => theme.spacings[3]};
   padding-right: ${({ theme }) => theme.spacings[4]};
   display: none;
-  ${({ theme }) => theme.media.tablet} {
+  ${({ theme }) => theme.media.menu} {
     display: flex;
     justify-content: space-between;
     align-items: center;
