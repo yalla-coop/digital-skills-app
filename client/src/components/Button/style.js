@@ -32,10 +32,6 @@ export const Button = styled.button`
   /* for disabled style */
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-
-  :focus {
-    outline: none;
-  }
 `;
 
 export const Loading = styled(Spin)`

@@ -43,11 +43,10 @@ const findSkillByIdForVolunteerAndPublic = async (id) => {
 
 const findSkillsByAreas = async (areas) => {
   const sql = `
-  SELECT 
+  SELECT DISTINCT
   s.id, 
   s.title, 
-  s.code, 
-  a.code AS area_code, 
+  s.code,  
   ARRAY(
     SELECT a2.code 
     FROM skill_areas a2 

@@ -9,6 +9,7 @@ import theme from '../../theme';
 import * as S from './style';
 import { decideColor } from '../../helpers';
 import { Skills } from '../../api-calls';
+import { navRoutes } from '../../constants';
 
 const RecommendedSkills = () => {
   const [skills, setSkills] = useState([]);
@@ -36,7 +37,7 @@ const RecommendedSkills = () => {
     <S.Container>
       <Row>
         <Col w={[4, 6, 12]}>
-          <BackLink />
+          <BackLink customLink={navRoutes.VOLUNTEER.DASHBOARD} />
         </Col>
       </Row>
       <Row>

@@ -24,6 +24,9 @@ export const Option = styled.button`
   margin-left: 0;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   padding: 1rem;
-  outline: none;
   height: 100%;
+
+  :focus-visible {
+    outline-color: ${({ theme, color }) => theme.colors[color]};
+  }
 `;

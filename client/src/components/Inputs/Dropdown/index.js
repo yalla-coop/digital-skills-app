@@ -27,6 +27,7 @@ const Dropdown = ({
   outline,
 }) => {
   const [open, setOpen] = useState(false);
+  const [focus, setFocus] = useState(false);
 
   const decideColor = () => {
     if (error) return 'error';
@@ -62,7 +63,6 @@ const Dropdown = ({
                 display: 'flex',
                 alignItems: 'center',
                 whiteSpace: 'normal',
-                border: '1px red solid !important',
               }}
             >
               {opt.label}
@@ -86,7 +86,6 @@ const Dropdown = ({
           alignItems: 'center',
           whiteSpace: 'normal !important',
           height: 'auto',
-          border: '1px red solid !important',
         }}
       >
         {_label}
@@ -99,6 +98,7 @@ const Dropdown = ({
       w={w}
       disabled={disabled}
       open={open}
+      focus={focus}
       multi={multi}
       color={decideColor()}
       matrix={matrix}
@@ -144,6 +144,8 @@ const Dropdown = ({
             <Icon icon="tick" width="24" height="24" color="teal" />
           }
           disabled={disabled}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
         >
           {renderOptions()}
         </AntdSelect>

@@ -23,8 +23,10 @@ export const Field = styled.div`
     border-bottom: ${({ theme, outline }) => theme.borders.primary};
     border-left: ${({ theme, outline }) =>
       outline ? 'none' : theme.borders.primary};
-    border-color: ${({ theme, open, color }) =>
-      open ? theme.colors.teal : theme.colors[color] || theme.colors.gray};
+    border-color: ${({ theme, open, color, focus }) =>
+      open || focus
+        ? theme.colors.teal
+        : theme.colors[color] || theme.colors.gray};
     width: 100%;
     height: ${({ matrix }) => (matrix ? '42px' : '100%')};
     background: ${({ outline }) => outline && 'none'};
@@ -114,14 +116,18 @@ export const Field = styled.div`
     font-size: ${({ big }) => (big ? '23.3px' : '1rem')};
     color: ${({ theme, outline }) =>
       outline ? theme.colors.white : theme.colors.black};
+
+    // SEEMS WEIRD BUT YOU NEED TO DO THIS TO FORCE THE WIDTH TO STAY CONTAINED
+    width: 1px;
   }
 `;
 
 export const Label = styled.label`
   ${setMargin}
-  width: ${({ matrix }) => (matrix ? '40%' : '100%')};
+  width: ${({ matrix }) => (matrix ? '50%' : '100%')};
   display: flex;
   align-items: center;
+  padding-right: ${({ theme }) => theme.spacings[4]};
 `;
 
 export const menuStyle = styled`
@@ -129,5 +135,5 @@ export const menuStyle = styled`
 
 export const Answer = styled.div`
   flex-direction: column;
-  width: ${({ matrix }) => (matrix ? '60%' : '100%')};
+  width: ${({ matrix }) => (matrix ? '50%' : '100%')};
 `;

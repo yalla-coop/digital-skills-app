@@ -169,7 +169,7 @@ const VolunteerSignup = ({ user, onLogin, onLogout, onCreateAccount }) => {
       }
     } else {
       setUser(data);
-      history.push(navRoutes.VOLUNTEER.SKILLS);
+      history.push(navRoutes.VOLUNTEER.RECOMMENDED_SKILLS);
     }
   };
 

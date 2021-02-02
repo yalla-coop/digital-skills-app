@@ -66,6 +66,18 @@ const style = css`
     box-sizing: inherit;
     font-family: 'Nunito Sans', sans-serif;
   }
+
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    outline: #0061ce solid 2px;
+  }
+
+  *:active {
+    outline: none;
+  }
 `;
 
 export default style;

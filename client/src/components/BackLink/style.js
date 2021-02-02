@@ -10,7 +10,7 @@ export const Wrapper = styled.button`
   padding: 0;
   padding-right: 3px;
 
-  :focus {
-    outline: none;
+  :focus-visible {
+    outline: ${({ theme, color }) => `2px ${theme.colors[color]} solid`};
   }
 `;

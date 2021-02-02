@@ -45,16 +45,15 @@ const VolunteerDashboard = () => {
     const assessment = getAssessmentFromStorage();
 
     const determineTempScore = () => {
-      const {
-        possibleSkills,
-        skillsUserHas,
-        skillsUserDoesntHave,
-      } = assessment;
+      const { skillsUserHas, totalSkillsToLearn } = assessment;
       const hasNum = skillsUserHas.length;
-      const hasntNum = skillsUserDoesntHave.length;
-      const totalNum = possibleSkills.length + hasNum + hasntNum;
+      const totalNum = totalSkillsToLearn.length;
 
-      const perc = Math.floor((hasNum / totalNum) * 100);
+      const relevantSkillsNum = totalSkillsToLearn.filter(({ code }) =>
+        skillsUserHas.includes(code)
+      ).length;
+
+      const perc = Math.floor((relevantSkillsNum / totalNum) * 100);
 
       setSkills({
         alreadyHasSkills: String(hasNum),
@@ -63,11 +62,11 @@ const VolunteerDashboard = () => {
       });
       setScore({ assessmentScore: perc, improvementScore: 0 });
     };
-    if (assessment) {
-      determineTempScore();
-    } else if (id) {
+    if (id) {
       getUserSkillsStats();
       setScore({ assessmentScore, improvementScore });
+    } else if (assessment) {
+      determineTempScore();
     }
     setLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -194,7 +193,11 @@ const VolunteerDashboard = () => {
               icon: 'cup',
               strokeColor: 'white',
             }}
-            path={id ? navRoutes.VOLUNTEER.SKILLS : navRoutes.VOLUNTEER.SIGNUP}
+            path={
+              id
+                ? navRoutes.VOLUNTEER.RECOMMENDED_SKILLS
+                : navRoutes.VOLUNTEER.SIGNUP
+            }
             pathLabel="Let's do this!"
             text={
               id

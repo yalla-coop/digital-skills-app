@@ -27,6 +27,7 @@ const initFormState = {
   skillAreas: [],
   totalQs: 15,
   currentStep: '1',
+  totalSkillsToLearn: [],
   possibleSkills: [],
   skillsUserHas: [],
   skillsUserDoesntHave: [],
@@ -132,14 +133,16 @@ const Assessment = () => {
     // if no qs left push on to postcode or reset
     if (possibleSkills.length === 0) {
       const reset = questionsAsked.length === 0;
-      return history.push(
-        navRoutes.GENERAL.ASSESSMENT_STEP.replace(':step', reset ? 1 : 15)
-      );
+      if (reset)
+        return history.push(
+          navRoutes.GENERAL.ASSESSMENT_STEP.replace(':step', 1)
+        );
+      return;
     }
 
     // handle if user is going back and forth
     if (questionsAsked[numStep - 3]) {
-      return setCurrentQ(questionsAsked[step - 3]);
+      return setCurrentQ(questionsAsked[numStep - 3]);
     }
 
     // FIRST ASK BASIC Qs
@@ -247,22 +250,25 @@ const Assessment = () => {
       ({ code }) => !updatedHas.includes(code) && !updatedHasnt.includes(code)
     );
     const newQ = numStep > 2 && !questionsAsked[numStep - 3];
+    const qsToStore = newQ
+      ? [...questionsAsked, { ...question, state }]
+      : questionsAsked.map((q, i) =>
+          i === numStep - 3 ? { ...question, state } : q
+        );
 
     setFormState({
       ...formState,
       skillsUserHas: updatedHas,
       skillsUserDoesntHave: updatedHasnt,
       possibleSkills: updatedPossible,
-      questionsAsked: newQ
-        ? [...questionsAsked, { ...question, state }]
-        : [...questionsAsked],
+      questionsAsked: qsToStore,
     });
 
     nextQ();
   };
 
   const getSkills = async () => {
-    const skillCodes = formState.skillAreas.map((area) => area.value);
+    const skillCodes = formState.skillAreas.map((area) => area.code);
 
     const { data, error } = await Skills.getSkills({
       areas: [skillAreasCodes.BASICS, ...skillCodes],
@@ -285,6 +291,7 @@ const Assessment = () => {
     setFormState({
       ...formState,
       possibleSkills: data,
+      totalSkillsToLearn: data,
       skillsUserHas: [],
       skillsUserDoesntHave: [],
       questionsAsked: [],
@@ -321,6 +328,14 @@ const Assessment = () => {
 
   const decidePath = (num) =>
     navRoutes.GENERAL.ASSESSMENT_STEP.replace(':step', num);
+
+  const decidePostcodePath = () => {
+    if (formState.possibleSkills.length === 0 && Number(step) > 3) {
+      // set path to question after last question
+      const num = questionsAsked.length + 3;
+      return decidePath(num);
+    } else return decidePath(15);
+  };
 
   useEffect(() => {
     setFormState({ ...formState, currentStep: step });
@@ -389,7 +404,7 @@ const Assessment = () => {
         />
         <PostcodeQ
           exact
-          path={decidePath(15)}
+          path={decidePostcodePath()}
           handlePostcode={handlePostcode}
           handlePostcodeCheckbox={handlePostcodeCheckbox}
           postcode={postcode}

@@ -10,7 +10,7 @@ export const Card = styled.button`
   margin-bottom: ${({ theme }) => theme.spacings[5]};
   margin-left: 0;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  outline: none;
+
   padding: 0;
   height: 100%;
   display: flex;
@@ -27,4 +27,5 @@ export const Inner = styled.div`
   padding: 1rem 2rem 1rem 1.5rem;
   text-align: left;
   height: 100%;
+  width: 100%;
 `;
