@@ -98,6 +98,7 @@ const EditActivity = ({
             type="number"
             margins={{ mb: '4' }}
             error={errors.completionTime}
+            min={0}
           />
         </Col>
         <Col w={[4, 6, 4]}>

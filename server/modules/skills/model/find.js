@@ -157,29 +157,21 @@ const findSkillAndActivitiesForSearch = async ({ tool, task }) => {
   return res.rows;
 };
 
-const getPopularSkillsAndActivities = async () => {
+const getPopularSkills = async () => {
   const sql = `
     SELECT
-      type,
-      t.id,
-      COALESCE(s.title, a.title) AS title
-    FROM(
-      SELECT skill AS id, 'skill' AS type, COUNT(us.id) AS popularity
-      FROM users_skills AS us
-      WHERE status = $1
-      GROUP BY skill
-      UNION
-      SELECT activity AS id, 'activity' AS type, COUNT(uac.id) AS popularity
-      FROM users_completed_activities AS uac
-      GROUP BY activity
-    ) AS t
-    LEFT JOIN skills AS s ON(s.id = t.id AND t.type = 'skill') 
-    LEFT JOIN activities AS a ON(a.id = t.id AND t.type = 'activity') 
+      s.id,
+      s.title,
+      COUNT(us.id) AS popularity,
+      'skill' AS type
+    FROM skills AS s
+    LEFT JOIN users_skills AS us ON(us.skill = s.id)
+    GROUP BY us.id, s.id
     ORDER BY popularity DESC
-    LIMIT 10
+    LIMIT 5
   `;
 
-  const res = await query(sql, [skillStatuses.COMPLETED]);
+  const res = await query(sql, []);
   return res.rows;
 };
 
@@ -258,7 +250,7 @@ export {
   findSkillById,
   findHQSkillProgress,
   findSkillAndActivitiesForSearch,
-  getPopularSkillsAndActivities,
+  getPopularSkills,
   findSkillByIdForVolunteerAndPublic,
   findSkillsByAreas,
   findSkills,

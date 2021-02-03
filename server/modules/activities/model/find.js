@@ -292,6 +292,24 @@ const findCompletedActivityStats = async ({ activityId, userId }) => {
   return res.rows[0];
 };
 
+const getPopularActivities = async () => {
+  const sql = `
+    SELECT
+      a.id,
+      a.title,
+      COUNT(uca.id) AS popularity,
+      'activity' AS type
+    FROM activities AS a
+    LEFT JOIN users_completed_activities AS uca ON(a.id = uca.activity)
+    GROUP BY uca.id, a.id
+    ORDER BY popularity DESC
+    LIMIT 5
+  `;
+
+  const res = await query(sql);
+  return res.rows;
+};
+
 export {
   findActivityById,
   findActivityByIdForHQ,
@@ -308,4 +326,5 @@ export {
   findActivitiesBySkillIdForPublic,
   findCompletedActivityStats,
   findRelatedActivitiesBySkillAreasLinkedToActivity,
+  getPopularActivities,
 };
