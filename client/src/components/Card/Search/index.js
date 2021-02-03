@@ -15,7 +15,7 @@ function useSearch() {
   const query = new URLSearchParams(useLocation().search);
   const [search, setSearch] = useState(() => ({
     task: query.get('task') || '',
-    tool: query.get('tool') || 'a digital tool',
+    tool: query.get('tool') || dropdownData.A_DIGITAL_TOOL,
   }));
   return [search, setSearch];
 }
