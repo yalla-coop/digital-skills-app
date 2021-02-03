@@ -1,10 +1,7 @@
-import React from 'react';
 import BackLink from '../../components/BackLink';
 import { Row, Col } from '../../components/Grid';
 import Button from '../../components/Button';
-import { useMediaQuery } from 'react-responsive';
 import * as T from '../../components/Typography';
-import theme from '../../theme';
 
 import {
   BasicInput as Input,
@@ -19,12 +16,7 @@ const AddActivity = ({
   handleSubmit,
   isLoading,
   skills,
-  levels,
 }) => {
-  const isMobile = useMediaQuery({
-    query: `(max-width: ${theme.breakpoints.mobile})`,
-  });
-
   return (
     <>
       <Row>
@@ -34,19 +26,13 @@ const AddActivity = ({
       </Row>
       <Row>
         <Col w={[4, 6, 12]}>
-          {isMobile ? (
-            <T.H2 mt="4" mb="4">
-              Add activity
-            </T.H2>
-          ) : (
-            <T.H3 mt="5" mb="6">
-              Add activity
-            </T.H3>
-          )}
+          <T.H2 mt="5" mtM="4" mb="6" mbM="4">
+            Add activity
+          </T.H2>
         </Col>
       </Row>
       <Row>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Dropdown
             label="Skill(s)"
             placeholder="Please select"
@@ -61,7 +47,7 @@ const AddActivity = ({
         </Col>
       </Row>
       <Row>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Input
             label="Activity title"
             placeholder="e.g. Using Search Engines"
@@ -74,35 +60,41 @@ const AddActivity = ({
             error={errors.title}
           />
         </Col>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Dropdown
             label="Difficulty level"
-            name="level"
+            name="difficulty"
             placeholder="Please select"
-            options={levels}
+            options={[
+              { label: 1, value: 1 },
+              { label: 2, value: 2 },
+              { label: 3, value: 3 },
+              { label: 4, value: 4 },
+            ]}
             margins={{ mb: '4' }}
-            selected={state.level}
-            handleChange={(e) => handleChange('level', e)}
-            error={errors.level}
+            selected={state.difficulty}
+            handleChange={(e) => handleChange('difficulty', e)}
+            error={errors.difficulty}
           />
         </Col>
       </Row>
       <Row>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Input
             label="Estimated time to complete"
             helper="(minutes)"
-            name="time"
+            name="completionTime"
             placeholder="e.g. 10 minutes"
-            value={state.time}
+            value={state.completionTime}
             handleChange={({ target: { value } }) =>
-              handleChange('time', value)
+              handleChange('completionTime', value)
             }
+            type="number"
             margins={{ mb: '4' }}
-            error={errors.time}
+            error={errors.completionTime}
           />
         </Col>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Textarea
             label="Activity description"
             name="description"
@@ -118,35 +110,36 @@ const AddActivity = ({
         </Col>
       </Row>
       <Row>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Input
             label="Link to resource"
-            name="link"
+            name="resourceLink"
             placeholder="e.g. www.searchenginelesson.com"
-            value={state.link}
+            value={state.resourceLink}
             handleChange={({ target: { value } }) =>
-              handleChange('link', value)
+              handleChange('resourceLink', value)
             }
             margins={{ mbM: '4' }}
-            error={errors.link}
+            error={errors.resourceLink}
           />
         </Col>
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
           <Input
             label="Who created the resource?"
-            name="creator"
+            name="resourceCreatedBy"
             placeholder="e.g. GCF Global"
-            value={state.creator}
+            value={state.resourceCreatedBy}
             handleChange={({ target: { value } }) =>
-              handleChange('creator', value)
+              handleChange('resourceCreatedBy', value)
             }
             margins={{ mbM: '4' }}
-            error={errors.creator}
+            error={errors.resourceCreatedBy}
           />
         </Col>
       </Row>
       <Row mtM="4" mt="7" mb="8" mbM="6">
-        <Col w={[4, 4, 4]}>
+        <Col w={[4, 6, 4]}>
+          <T.Body16B color="red">{errors.httpError}</T.Body16B>
           <Button handleClick={handleSubmit} loading={isLoading}>
             Submit
           </Button>

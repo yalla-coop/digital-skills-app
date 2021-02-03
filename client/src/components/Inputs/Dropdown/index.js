@@ -34,7 +34,8 @@ const Dropdown = ({
     return color;
   };
 
-  const isSelected = (option) => selected && selected.includes(option);
+  const isSelected = (option) =>
+    selected === option || (selected && selected.toString().includes(option));
 
   const renderOptions = () => {
     if (groupedOptions) {
@@ -93,6 +94,10 @@ const Dropdown = ({
     ));
   };
 
+  const handleSearch = (input, option) => {
+    return option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+  };
+
   return (
     <S.Field
       w={w}
@@ -146,6 +151,7 @@ const Dropdown = ({
           disabled={disabled}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          filterOption={handleSearch}
         >
           {renderOptions()}
         </AntdSelect>

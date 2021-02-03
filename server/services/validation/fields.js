@@ -44,3 +44,35 @@ export const skillDescription = string()
 export const skillTask = string().nullable().max(50, errMsgs.TOO_LONG_MAX_50);
 
 export const requiredField = string().required(errMsgs.DEFAULT_REQUIRED);
+
+export const activityTitle = string()
+  .required(errMsgs.DEFAULT_REQUIRED)
+  .max(200, errMsgs.TOO_LONG_MAX_200);
+
+export const activityDescription = string()
+  .required(errMsgs.DEFAULT_REQUIRED)
+  .max(500, errMsgs.TOO_LONG_MAX_500);
+
+export const difficulty = number()
+  .max(4)
+  .min(1)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const completionTime = number()
+  .max(1000)
+  .min(0)
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const urlRequired = string()
+  .matches(
+    /^((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#.-]+)*\/?(\?[a-zA-Z0-9-_.-]+=[a-zA-Z0-9-%?&=.-]+&?)?$/,
+    {
+      message: errMsgs.INVALID_LINK,
+    },
+  )
+  .required(errMsgs.DEFAULT_REQUIRED);
+
+export const id = number()
+  .min(1)
+  .required(errMsgs.DEFAULT_REQUIRED)
+  .typeError(errMsgs.DEFAULT_REQUIRED);

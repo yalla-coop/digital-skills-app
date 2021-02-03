@@ -80,7 +80,7 @@ const IndividualSkillArea = () => {
       </Row>
       <Row>
         <Col w={[4, 6, 4]}>
-          <Button to={HQ.ADD_NEW_ACTIVITY} mt="5">
+          <Button to={HQ.ADD_ACTIVITY} mt="5">
             Add activity to a skill
           </Button>
         </Col>

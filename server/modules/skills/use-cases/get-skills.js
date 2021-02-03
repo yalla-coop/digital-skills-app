@@ -20,6 +20,7 @@ const getSkills = async ({ type, areas, userId, role }) => {
       skills = await Skill.findRecommendedSkillsForVolunteer({ userId });
       break;
 
+    case 'basic':
     default:
       skills = await Skill.findSkills();
       break;

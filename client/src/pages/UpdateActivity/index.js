@@ -1,72 +1,122 @@
 import React, { useState, useEffect } from 'react';
 
 import { updateActivity as validate } from '../../validation/schemas';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import AddActivity from './AddActivity';
 import EditActivity from './EditActivity';
+import { Skills, Activities } from '../../api-calls';
 
 import { HQ } from '../../constants/nav-routes';
 
 const UpdateActivity = () => {
-  const [state, setState] = useState({});
-  const [errors, setErrors] = useState({});
-  const [skills, setSkills] = useState([]);
+  const [state, setState] = useState({
+    skills: [],
+    title: '',
+    description: '',
+    completionTime: '',
+    difficulty: '',
+    resourceLink: '',
+    resourceCreatedBy: '',
+  });
+  const [errors, setErrors] = useState({
+    httpError: '',
+  });
   const [isLoading, setIsLoading] = useState(false);
+  const [skillsOptions, setSkillsOptions] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const getSkills = async () => {
+      const { data, error } = await Skills.getSkills({ type: 'basic' });
+      if (!error) {
+        setSkillsOptions(
+          data.map(({ id, title }) => {
+            return { label: title, value: id };
+          })
+        );
+      }
+    };
+    getSkills();
+  }, []);
+
   const handleChange = (name, value) => {
     setState((_state) => ({ ..._state, [name]: value }));
   };
 
-  const getSkills = async () => {
-    // const { data, error } = await Skills.getSkillsByAreas({ areas: [] });
-    // const { data, error } = await Skills.SearchSkillsAndActivities({task: ''});
-    // console.log({ data, error });
-  };
-  const {
-    location: { pathname },
-    push,
-  } = useHistory();
-  const [, , , type, activityId] = pathname.split('/');
-  console.log({ type, activityId });
+  const { push } = useHistory();
   useEffect(() => {
-    getSkills();
-    setSkills([...options]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    if (type === 'edit') {
-      // get the activity data by its id; and setState after;
+    const getActivity = async () => {
+      const { error, data } = await Activities.getActivityById({ id });
+      if (!error) {
+        setState(data);
+      }
+    };
+    if (id) {
+      getActivity();
     }
-  }, [type]);
+  }, [id]);
 
-  const options = [
-    { label: 'Option 1', value: 'Option 1' },
-    { label: 'Option 2', value: 'Option 2' },
-  ];
+  const createActivity = async () => {
+    const { error, data } = await Activities.createActivity({
+      form: {
+        skills: state.skills,
+        title: state.title,
+        description: state.description,
+        difficulty: state.difficulty,
+        completionTime: state.completionTime,
+        resourceLink: state.resourceLink,
+        resourceCreatedBy: state.resourceCreatedBy,
+      },
+    });
+    if (!error) {
+      // activityId should comes from the back
+      push(HQ.SUCCESS_ADD_ACTIVITY.replace(':id', data.id));
+    } else {
+      throw error;
+    }
+  };
 
-  const handleSubmit = () => {
+  const updateActivity = async () => {
+    const { error } = await Activities.updateActivity({
+      id,
+      form: {
+        skills: state.skills,
+        title: state.title,
+        description: state.description,
+        difficulty: state.difficulty,
+        completionTime: state.completionTime,
+        resourceLink: state.resourceLink,
+        resourceCreatedBy: state.resourceCreatedBy,
+      },
+    });
+    if (!error) {
+      push(HQ.SUCCESS_EDIT_ACTIVITY.replace(':id', id));
+    } else {
+      throw error;
+    }
+  };
+
+  const handleSubmit = async () => {
     try {
       setIsLoading(true);
       validate(state);
-      setErrors({});
-      // send the data to the backend
-      // after success the request should direct the user to success page with activity id
-      if (type === 'new') {
-        // activityId should comes from the back
-        push(HQ.SUCCESS_ADD_ACTIVITY.replace(':id', activityId));
+      if (id) {
+        await updateActivity();
       } else {
-        push(HQ.SUCCESS_EDIT_ACTIVITY.replace(':id', activityId));
+        await createActivity();
       }
+      setErrors({});
     } catch (error) {
       if (error.name === 'ValidationError') {
         setErrors({ ...error.inner });
+      } else {
+        setErrors({ httpError: error.message });
       }
     } finally {
       setIsLoading(false);
     }
   };
 
-  return type === 'new' ? (
+  return !id ? (
     <AddActivity
       state={state}
       setState={setState}
@@ -74,8 +124,7 @@ const UpdateActivity = () => {
       isLoading={isLoading}
       handleSubmit={handleSubmit}
       handleChange={handleChange}
-      levels={options}
-      skills={skills}
+      skills={skillsOptions}
       type="new"
     />
   ) : (
@@ -86,10 +135,9 @@ const UpdateActivity = () => {
       isLoading={isLoading}
       handleSubmit={handleSubmit}
       handleChange={handleChange}
-      levels={options}
-      skills={skills}
+      skills={skillsOptions}
       type="edit"
-      activityId={activityId}
+      activityId={id}
     />
   );
 };

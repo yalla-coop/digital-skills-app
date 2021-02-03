@@ -7,17 +7,17 @@ const {
   TitleField,
   descriptionField,
   creatorField,
-  linkField,
+  urlRequired,
 } = fields;
 
 const updateActivity = createSchema({
   title: TitleField,
   description: descriptionField,
   skills: requiredField,
-  level: levelField,
-  time: timeField,
-  link: linkField,
-  creator: creatorField,
+  difficulty: levelField,
+  completionTime: timeField,
+  resourceLink: urlRequired,
+  resourceCreatedBy: creatorField,
 });
 
 const validate = (data) => _validate(updateActivity, data);

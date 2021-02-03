@@ -51,4 +51,72 @@ const createCompletedActivity = async (
   return res.rows[0];
 };
 
-export { createAnonFeedback, createCompletedActivity };
+const createActivity = async (
+  {
+    title,
+    difficulty,
+    completionTime,
+    description,
+    resourceLink,
+    resourceCreatedBy,
+    createdBy,
+  },
+  client,
+) => {
+  const sql = `
+    INSERT INTO activities(
+      title,
+      difficulty,
+      completion_time,
+      description,
+      resource_link,
+      resource_created_by,
+      created_by
+    ) VALUES (
+      $1,
+      $2,
+      $3,
+      $4,
+      $5,
+      $6,
+      $7
+    )
+    RETURNING *
+    `;
+
+  const values = [
+    title,
+    difficulty,
+    completionTime,
+    description,
+    resourceLink,
+    resourceCreatedBy,
+    createdBy,
+  ];
+
+  const res = await query(sql, values, client);
+  return res.rows[0];
+};
+
+const createActivitySkills = async ({ skillsId, activityId }, client) => {
+  const values = [skillsId, skillsId.map(() => activityId)];
+  const sql = `
+  INSERT INTO activities_skills(
+    skill,
+    activity
+  ) SELECT * FROM UNNEST (
+    $1::INT[],
+    $2::INT[]
+  )
+  `;
+
+  const res = await query(sql, values, client);
+  return res.rows;
+};
+
+export {
+  createAnonFeedback,
+  createCompletedActivity,
+  createActivity,
+  createActivitySkills,
+};

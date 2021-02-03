@@ -45,12 +45,11 @@ const HQ = {
   MANAGE_VOLUNTEERS: `${HQBase}/manage-volunteers`,
   SKILLS_PROGRESS: `${HQBase}/skills-progress`,
   INDIVIDUAL_SKILL: `${HQBase}/skills/:id`,
-  EDIT_ACTIVITY: `${HQBase}/activities/edit/:id`,
+  EDIT_ACTIVITY: `${HQBase}/activities/:id/edit`,
   ADD_ACTIVITY: `${HQBase}/activities/new`,
   SUCCESS_ADD_ACTIVITY: `${HQBase}/success-add-activity/:id`,
   SUCCESS_EDIT_ACTIVITY: `${HQBase}/success-edit-activity/:id`,
   INDIVIDUAL_SKILL_AREA: `${HQBase}/manage-skills/:id`,
-  ADD_NEW_ACTIVITY: `${HQBase}/new-activity`,
 };
 
 const EXTERNAL = {

@@ -74,7 +74,7 @@ function HqIndividualSkill() {
           <>
             {activities?.data?.length ? (
               activities.data.map(({ title, id }) => (
-                <Col w={[4, 6, 4]} mt="3">
+                <Col w={[4, 6, 4]} mt="3" key={id}>
                   <S.ActivityCard
                     to={navRoutes.HQ.EDIT_ACTIVITY.replace(':id', id)}
                   >

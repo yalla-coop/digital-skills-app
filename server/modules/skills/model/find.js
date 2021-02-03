@@ -71,7 +71,12 @@ const findSkillsByAreas = async (areas) => {
 };
 
 const findSkills = async () => {
-  const sql = ``;
+  const sql = `
+    SELECT
+      id,
+      title
+    FROM skills
+  `;
   const res = await query(sql);
   return res.rows;
 };

@@ -3,16 +3,40 @@ import { query } from '../../../database';
 const findActivityById = async (id) => {
   const values = [id];
   const sql = `
-    SELECT
-      title,
-      resource_created_by,
-      resource_link,
-      completion_time,
-      difficulty,
-      description
-    FROM activities
-    WHERE id = $1;
-  `;
+  SELECT
+    title,
+    resource_created_by,
+    resource_link,
+    completion_time,
+    difficulty,
+    description
+  FROM activities
+  WHERE id = $1;
+`;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
+
+const findActivityByIdForHQ = async (id) => {
+  const values = [id];
+  const sql = `
+  SELECT
+    title,
+    resource_created_by,
+    resource_link,
+    completion_time,
+    difficulty,
+    description,
+    ARRAY(
+      SELECT
+        a_s.skill
+      FROM activities_skills AS a_s
+      WHERE a_s.activity = a.id
+    ) AS skills
+  FROM activities AS a
+  WHERE id = $1;
+`;
 
   const res = await query(sql, values);
   return res.rows[0];
@@ -270,6 +294,7 @@ const findCompletedActivityStats = async ({ activityId, userId }) => {
 
 export {
   findActivityById,
+  findActivityByIdForHQ,
   findActivitiesBySkillId,
   findCompletedActivitiesByActivityId,
   findCompletedActivitysBySkillAndActivity,

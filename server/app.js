@@ -78,8 +78,8 @@ app.use((err, _, res, next) => {
   }
 
   return res.status(statusCode).json({
-    ...payload,
     ...error.data,
+    ...payload,
   });
 });
 

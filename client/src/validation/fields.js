@@ -85,8 +85,13 @@ export const creatorField = string()
   .max(50, errMsgs.TOO_LONG_MAX_50)
   .required(errMsgs.DEFAULT_REQUIRED);
 
-export const linkField = string()
-  .max(100, errMsgs.TOO_LONG_MAX_100)
+export const urlRequired = string()
+  .matches(
+    /^((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#.-]+)*\/?(\?[a-zA-Z0-9-_.-]+=[a-zA-Z0-9-%?&=.-]+&?)?$/,
+    {
+      message: errMsgs.INVALID_LINK,
+    }
+  )
   .required(errMsgs.DEFAULT_REQUIRED);
 
 export const descriptionField = string()

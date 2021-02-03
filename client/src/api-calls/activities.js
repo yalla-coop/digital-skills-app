@@ -73,6 +73,16 @@ const getUserActivityProgress = async ({ activityId }) => {
   }
 };
 
+const createActivity = async ({ form, options }) => {
+  try {
+    const { data } = await axios.post(`${ACTIVITIES_BASE}`, form);
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
+    return { error: err };
+  }
+};
+
 const updateActivityWithFeedback = async ({ activityId, feedback }) => {
   try {
     const { data } = await axios.patch(
@@ -85,6 +95,16 @@ const updateActivityWithFeedback = async ({ activityId, feedback }) => {
     return { data };
   } catch (error) {
     const err = handleError(error);
+    return { error: err };
+  }
+};
+
+const updateActivity = async ({ id, form, options }) => {
+  try {
+    const { data } = await axios.patch(`${ACTIVITIES_BASE}/${id}`, form);
+    return { data };
+  } catch (error) {
+    const err = handleError(error, options);
     return { error: err };
   }
 };
@@ -108,6 +128,8 @@ export {
   getRelatedActivities,
   getRelatedActivitiesByUser,
   getUserActivityProgress,
+  createActivity,
+  updateActivity,
   updateActivityWithFeedback,
   completeActivity,
 };

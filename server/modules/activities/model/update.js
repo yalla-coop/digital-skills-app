@@ -1,5 +1,41 @@
 import { query } from '../../../database';
 
+const updateActivity = async ({
+  id,
+  title,
+  description,
+  difficulty,
+  completionTime,
+  resourceLink,
+  resourceCreatedBy,
+}) => {
+  const values = [
+    id,
+    title,
+    difficulty,
+    completionTime,
+    description,
+    resourceLink,
+    resourceCreatedBy,
+  ];
+  const sql = `
+    UPDATE activities
+    SET
+      title = $2,
+      difficulty = $3,
+      completion_time = $4,
+      description = $5,
+      resource_link = $6,
+      resource_created_by = $7
+     
+    WHERE id = $1
+    RETURNING *
+    `;
+
+  const res = await query(sql, values);
+  return res.rows[0];
+};
+
 const updateActivityWithFeedback = async ({
   userId,
   activityId,
@@ -23,7 +59,8 @@ const updateActivityWithFeedback = async ({
   `;
 
   const res = await query(sql, values);
+
   return res.rows;
 };
 
-export { updateActivityWithFeedback };
+export { updateActivityWithFeedback, updateActivity };
