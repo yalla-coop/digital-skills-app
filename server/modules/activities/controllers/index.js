@@ -37,7 +37,7 @@ router.get(
   getRelatedActivitiesByUser,
 );
 router.get('/related', getRelatedActivities);
-router.get('/:id', authenticate(), getActivityById);
+router.get('/:id', authenticate(true), getActivityById);
 router.patch('/:id', authenticate(), authorize([userRoles.HQ]), updateActivity);
 router.get('/', authenticate(true), getActivities);
 router.post('/', authenticate(), authorize([userRoles.HQ]), createActivity);
