@@ -24,6 +24,13 @@ const RecommendedSkills = () => {
     const getSkills = async () => {
       const { data, error } = await Skills.getSkills({ type: 'recommended' });
       if (!error) {
+        // CURRENTLY SORT ALSO BY TOTAL ACTIVITIES TO PUT ONES WITH 0 AT BOTTOM
+        data.sort(
+          (a, b) =>
+            b.activities.completedActivities -
+              a.activities.completedActivities ||
+            b.activities.totalActivities - a.activities.totalActivities
+        );
         setSkills(data);
       }
     };
@@ -59,7 +66,7 @@ const RecommendedSkills = () => {
       </Row>
       <Row ai="stretch">
         {skills.slice(0, 3).map((skill, index) => (
-          <Col w={[4, 6, 4]} key={skill.id}>
+          <Col w={[4, 6, 4]} key={skill.id} mb="4">
             <RecommendSkill
               title={skill.title}
               icon={skill.icon}
@@ -109,7 +116,7 @@ const RecommendedSkills = () => {
           </Row>
           <Row ai="stretch">
             {skills.slice(3, loadedSkills).map((skill, index) => (
-              <Col w={[4, 6, 4]} key={skill.id}>
+              <Col w={[4, 6, 4]} key={skill.id} mb="4">
                 <RecommendSkill
                   title={skill.title}
                   icon={skill.icon}

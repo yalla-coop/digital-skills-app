@@ -7,14 +7,14 @@ import LeftRow from './icons/LeftRow';
 import Planning from './icons/Planning';
 import Office from './icons/Office';
 import BrokenLamp from './icons/BrokenLamp';
-import Camera from './icons/Camera';
+import Photo from './icons/Photo';
 import File from './icons/File';
 import TextFile from './icons/TextFile';
 import Discussion from './icons/Discussion';
-import ShareMedia from './icons/ShareMedia';
+import Share from './icons/Share';
 import Backup from './icons/Backup';
 import Calendar from './icons/Calendar';
-import Notebook from './icons/Notebook';
+import DigitalTools from './icons/DigitalTools';
 import Darts from './icons/Darts';
 import Crown from './icons/Crown';
 import Flash from './icons/Flash';
@@ -47,6 +47,13 @@ import Whatsapp from './icons/Whatsapp';
 import Facebook from './icons/Facebook';
 import Mail from './icons/Mail';
 import TrophyStar from './icons/TrophyStar';
+import Calculator from './icons/Calculator';
+import Checklist from './icons/Checklist';
+import Communication from './icons/Communication';
+import Documents from './icons/Documents';
+import FolderEmail from './icons/FolderEmail';
+import Knowledge from './icons/Knowledge';
+import Notification from './icons/Notification';
 
 export const IconMap = {
   email: Email,
@@ -54,14 +61,13 @@ export const IconMap = {
   planning: Planning,
   office: Office,
   brokenLamp: BrokenLamp,
-  camera: Camera,
+  photo: Photo,
   file: File,
   textFile: TextFile,
   discussion: Discussion,
-  shareMedia: ShareMedia,
+  share: Share,
   backup: Backup,
   calendar: Calendar,
-  notebook: Notebook,
   darts: Darts,
   crown: Crown,
   flash: Flash,
@@ -95,6 +101,14 @@ export const IconMap = {
   facebook: Facebook,
   mail: Mail,
   trophyStar: TrophyStar,
+  calculator: Calculator,
+  checklist: Checklist,
+  communication: Communication,
+  documents: Documents,
+  folderEmail: FolderEmail,
+  knowledge: Knowledge,
+  notification: Notification,
+  digitalTools: DigitalTools,
 };
 
 const Icon = (props) => {

@@ -7,6 +7,10 @@ export const Container = styled.div`
   box-shadow: ${({ theme: { shadows } }) => shadows.light};
   cursor: pointer;
   margin-bottom: ${({ theme }) => theme.spacings[4]};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-end;
 `;
 export const IconContainer = styled.div`
   background-color: ${({ theme, color }) => theme.colors[color]};
@@ -22,6 +26,8 @@ export const Content = styled.div`
   display: flex;
   padding: ${({ theme: { spacings } }) => spacings[4]};
   justify-content: space-between;
+  align-items: center;
+  margin: auto 0 0 0;
 `;
 
 export const Span = styled.span`

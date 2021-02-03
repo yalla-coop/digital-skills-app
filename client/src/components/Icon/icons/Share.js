@@ -1,4 +1,4 @@
-const ShareMedia = ({ width, height, color, ...props }) => (
+const Share = ({ width, height, color, ...props }) => (
   <svg
     width={width || '120'}
     height={height || '120'}
@@ -54,4 +54,4 @@ const ShareMedia = ({ width, height, color, ...props }) => (
   </svg>
 );
 
-export default ShareMedia;
+export default Share;

@@ -40,6 +40,7 @@ export const SkillAreasTags = styled.span`
 
 export const InfoCard = styled.div`
   display: flex;
+  min-height: 120px;
   align-items: center;
   margin-top: ${({ theme }) => theme.spacings[4]};
   background-color: ${({ theme }) => theme.colors.white};

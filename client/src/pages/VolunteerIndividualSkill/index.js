@@ -86,7 +86,7 @@ function VolunteerIndividualSkill() {
           )}
         </Col>
       </Row>
-      <Row>
+      <Row ai="stretch">
         {assessmentScore !== null && (
           <Col w={[4, 6, 4]}>
             <S.InfoCard>

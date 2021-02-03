@@ -1,4 +1,4 @@
-const Camera = ({ width, height, color, ...props }) => (
+const Photo = ({ width, height, color, ...props }) => (
   <svg
     width={width || '120'}
     height={height || '120'}
@@ -26,4 +26,4 @@ const Camera = ({ width, height, color, ...props }) => (
   </svg>
 );
 
-export default Camera;
+export default Photo;

@@ -1,4 +1,4 @@
-const Notebook = ({ width, height, color, ...props }) => (
+const DigitalTools = ({ width, height, color, ...props }) => (
   <svg
     width={width || '120'}
     height={height || '120'}
@@ -28,4 +28,4 @@ const Notebook = ({ width, height, color, ...props }) => (
   </svg>
 );
 
-export default Notebook;
+export default DigitalTools;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import Icon from '../../Icon';
 import * as T from '../../Typography';
 import LevelIndicator from '../../LevelIndicator';
@@ -21,6 +23,14 @@ const RecommendSkill = ({
   const handleClick = () => {
     history.push(GENERAL.SKILL.replace(':id', id));
   };
+
+  const isDesktop = useMediaQuery({
+    query: `(min-width: ${theme.breakpoints.desktop})`,
+  });
+
+  const isTablet = useMediaQuery({
+    query: `(max-width: ${theme.breakpoints.tablet})`,
+  });
 
   const Component = AntdIcon[icon];
 
@@ -55,12 +65,14 @@ const RecommendSkill = ({
             size="large"
             color="teal"
             bgColor="mediumTeal"
-            level={level}
+            level={Math.round(level)}
             style={{ marginTop: theme.spacings[1] }}
           />
-          <T.Body16B ml="2">
-            Difficulty <S.Span>Level {Math.round(level)}</S.Span>
-          </T.Body16B>
+          {(isTablet || isDesktop) && (
+            <T.Body16B ml="2">
+              Difficulty <S.Span>Level {Math.round(level)}</S.Span>
+            </T.Body16B>
+          )}
         </S.Div>
       </S.Content>
     </S.Container>

@@ -9,7 +9,7 @@ const skillToActivities = [
     skillTitle:
       'I am kind and caring in online interactions, paying attention to others and showing empathy',
     activityTitles:
-      'Using the appropriate language|Using the correct tone of voice and language in emails|Using the correct tone of voice and language on social media',
+      'Using appropriate language online|Using the correct tone of voice and language in emails|Using the correct tone of voice and language on social media',
   },
   {
     skillTitle:
@@ -53,7 +53,7 @@ const skillToActivities = [
   },
   {
     skillTitle: 'I can ensure online meetings are set up securely',
-    activityTitles: 'Our Advice|Choosing your meeting platform',
+    activityTitles: 'Our Advice|Choosing your video platform',
   },
   {
     skillTitle:
@@ -62,7 +62,7 @@ const skillToActivities = [
   },
   {
     skillTitle: 'I can join video calls/meetings',
-    activityTitles: 'Get people chatting online|Zoom',
+    activityTitles: 'Get people chatting online|How to use Zoom',
   },
   {
     skillTitle: 'I can locate information using a search tool',
@@ -85,7 +85,7 @@ const skillToActivities = [
   },
   {
     skillTitle: 'I can run video calls/meetings ',
-    activityTitles: 'Schedule a Zoom meeting|Choosing your meeting platform',
+    activityTitles: 'Schedule a Zoom meeting|Choosing your video platform',
   },
   {
     skillTitle: 'I can run webinars for users',
@@ -157,7 +157,7 @@ const skillToActivities = [
     skillTitle:
       'I can use online collaboration tools (eg Office365/Teams/OneDrive, G-Suite/Google Drive, Dropbox)',
     activityTitles:
-      'Choosing your platform|Google Drive - Drive Cheat Sheet|Google Drive - G-Suite Learning Center|Dropbox - How to use Dropbox|Dropbox - Sharing on Dropbox|OneDrive - OneDrive Video Training|OneDrive - OneDrive on your PC',
+      'Choosing your cloud platform|Google Drive - Drive Cheat Sheet|Google Drive - G-Suite Learning Center|Dropbox - How to use Dropbox|Dropbox - Sharing on Dropbox|OneDrive - OneDrive Video Training|OneDrive - OneDrive on your PC',
   },
   {
     skillTitle: 'I can use Online Scout Manager',
@@ -214,7 +214,8 @@ const skillToActivities = [
   },
   {
     skillTitle: 'I know how to report bad content',
-    activityTitles: 'Government advice|Report on FaceBook',
+    activityTitles:
+      'Government advice on reporting bad content|Reporting on Facebook',
   },
   {
     skillTitle: 'I know how to respond to data subject access requests',
@@ -233,7 +234,7 @@ const skillToActivities = [
   {
     skillTitle: 'I know how to use social media to interact with users',
     activityTitles:
-      "Using WhatsApp|Scout Guidance|Using social media (title tbc)|Beyond email (title tbc)|Social networking (title tbc)|NSPCC's expertise (title tbc)",
+      "Using WhatsApp|Scout Guidance|Using social media (title tbc)|Communicating beyond email|Social networking (title tbc)|NSPCC's expertise (title tbc)",
   },
   {
     skillTitle:
@@ -257,12 +258,12 @@ const skillToActivities = [
   {
     skillTitle: 'I know when to use different communication methods',
     activityTitles:
-      'Resource Techniques (title tbc)|LearnMyWay (title tbc)|GCF Global (title tbc)',
+      'Resource Techniques (title tbc)|LearnMyWay (title tbc)|Communicating beyond email',
   },
   {
     skillTitle:
       'I understand GDPR and can apply it to my role within my organisation',
-    activityTitles: 'Our Advice',
+    activityTitles: 'Our Advice on GDPR',
   },
   {
     skillTitle:
@@ -279,7 +280,7 @@ const skillToActivities = [
     skillTitle:
       'I understand that my online activity produces a permanent record which could be accessed and used by others both now and in the future',
     activityTitles:
-      "Girlguide training (title tbc)|Public and private spaces (title tbc)|Volunteer training (title tbc)|NSPCC's expertise (title tbc)|Digital Unite (title tbc)|Example 1 (title tbc)|Example 2 (title tbc)",
+      "Girlguide training (title tbc)|Public and private spaces (title tbc)|Volunteer training (title tbc)|NSPCC's expertise (title tbc)|Digital Unite (title tbc)|Understanding the consequences of what you post on social media|Protecting yourself on social media",
   },
   {
     skillTitle:
@@ -295,7 +296,7 @@ const skillToActivities = [
     skillTitle:
       'I understand why it is important to keep my computer systems and security software up to date and I allow them to be updated when prompted',
     activityTitles:
-      'Update your Window 10 computer|Update your Mac|Update your iPhone, iPad or iPod|Update your Andriod Device|Why Update your apps?|Andriod Device|iPhone, iPad or iPod device',
+      'Update your Window 10 computer|Update your Mac|Update your iPhone, iPad or iPod|Update your Android Device|Why Update your apps?|Android Device|iPhone, iPad or iPod device',
   },
 ];
 
