@@ -40,7 +40,6 @@ const HQ = {
   DASHBOARD: `${HQBase}/dashboard`,
   VOLUNTEERS: `${HQBase}/volunteers`,
   MANAGE_SKILLS: `${HQBase}/manage-skills`,
-  DIGITAL_TOOL: `${HQBase}/digital-tool`,
   PROGRESS: `${HQBase}/progress`,
   MANAGE_VOLUNTEERS: `${HQBase}/manage-volunteers`,
   SKILLS_PROGRESS: `${HQBase}/skills-progress`,
@@ -85,7 +84,7 @@ const HQ_USER_LOGGED_IN = [
   { title: 'My volunteers', to: HQ.VOLUNTEERS },
   { title: 'Progress', to: HQ.SKILLS_PROGRESS },
   { title: 'Manage skills', to: HQ.MANAGE_SKILLS },
-  { title: 'View digital tool', to: HQ.DIGITAL_TOOL },
+  { title: 'View digital tool', to: GENERAL.HOME },
 ];
 
 const HQ_USER_LOGGED_IN_AUTH = [

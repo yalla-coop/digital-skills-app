@@ -15,7 +15,7 @@ function StatsCard(props) {
         <S.Loading color={color} indicator={antIcon} />
       ) : (
         <S.StatsNum color={color}>
-          {statNum || '-'}
+          {statNum || Number(statNum) === 0 || '-'}
           {statNum && percentage && (
             <T.Body16B as="span" color={color}>
               %

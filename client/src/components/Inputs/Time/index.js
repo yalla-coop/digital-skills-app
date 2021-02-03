@@ -46,6 +46,7 @@ const Time = ({
           color={decideColor()}
           disabled={disabled}
           mr="3"
+          min={0}
         />
         <T.Body16B color="gray" mb="1">
           {time}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { SkillAreas } from '../../api-calls';
 
@@ -10,7 +11,6 @@ import { HQ } from '../../constants/nav-routes';
 import Button from '../../components/Button';
 
 import * as S from './style';
-import { useParams } from 'react-router-dom';
 
 const IndividualSkillArea = () => {
   const [skillArea, setSkillArea] = useState({ skills: [] });
@@ -18,6 +18,7 @@ const IndividualSkillArea = () => {
   // eslint-disable-next-line no-unused-vars
   const [err, setErr] = useState('');
   const { id } = useParams();
+  const history = useHistory();
   useEffect(() => {
     let mounted = true;
     async function getHqSkillsProgress() {
@@ -28,6 +29,9 @@ const IndividualSkillArea = () => {
         setLoading(false);
         if (error) {
           setErr(error.message);
+          if (error.statusCode === 404) {
+            history.push('/404');
+          }
         } else {
           setSkillArea(data);
         }

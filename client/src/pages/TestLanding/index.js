@@ -4,12 +4,15 @@ import { Row, Col } from '../../components/Grid';
 import * as T from '../../components/Typography';
 import * as S from './style';
 import * as R from '../../constants/nav-routes';
+import { roles } from '../../constants';
 import Icon from '../../components/Icon';
 import Button from '../../components/Button';
+import { useAuth } from '../../context/auth';
 
 const TestLanding = () => {
   const [assessmentExists, setAssessmentExists] = useState(false);
   const history = useHistory();
+  const { user } = useAuth();
 
   const getAssessmentFromStorage = () => {
     const assessment = JSON.parse(localStorage.getItem('assessment'));
@@ -50,8 +53,18 @@ const TestLanding = () => {
               10 minutes
             </T.BodyB>
           </S.ClockWrapper>
+          {user && user.role === roles.HQ && (
+            <T.Body16B mb={2}>
+              You can only start the assessment with a volunteer account -
+              please log out and create a volunteer account if you wish to start
+              training
+            </T.Body16B>
+          )}
           {!assessmentExists && (
-            <Button to={R.GENERAL.ASSESSMENT_STEP.replace(':step', 1)}>
+            <Button
+              to={R.GENERAL.ASSESSMENT_STEP.replace(':step', 1)}
+              disabled={user && user.role === roles.HQ}
+            >
               Let's go!
             </Button>
           )}

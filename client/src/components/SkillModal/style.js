@@ -39,6 +39,11 @@ export const ContentWrapper = styled('div')`
   svg {
     cursor: pointer;
   }
+  margin-top: 200px;
+
+  ${({ theme }) => theme.media.mobile} {
+    margin-top: 0;
+  }
 `;
 
 export const Head = styled('div')`
