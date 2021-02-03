@@ -229,7 +229,12 @@ function VolunteerIndividualSkill() {
               color="teal"
               title="You’re doing great!"
               text={`We hope you’re enjoying the activities`}
-              icon={{ icon: 'help', color: 'white', strokeColor: 'white' }}
+              icon={{
+                icon: 'help',
+                color: 'white',
+                strokeColor: 'white',
+                height: '122',
+              }}
             />
           )}
         </Col>

@@ -1,4 +1,4 @@
-const Flash = ({ width, height, color, strokeColor, ...props }) => (
+const Help = ({ width, height, color, strokeColor, ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -17,4 +17,4 @@ const Flash = ({ width, height, color, strokeColor, ...props }) => (
   </svg>
 );
 
-export default Flash;
+export default Help;

@@ -22,7 +22,7 @@ const NavBar = ({ selectedKey, setSelectedKey }) => {
         <S.IconContainer>
           <S.Button
             icon={<Icon icon="search" />}
-            onClick={() => history.push(GENERAL.SUPPORT)}
+            onClick={() => history.push(GENERAL.SEARCH)}
           />
           <S.Button
             icon={<Icon icon="burger" />}

@@ -7,7 +7,6 @@ export const Wrapper = styled.section`
   filter: ${({ theme }) => theme.shadows.card};
   display: flex;
   padding: 0;
-  height: 122px;
 `;
 
 export const IconWrapper = styled.div`

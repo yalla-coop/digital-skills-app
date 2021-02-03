@@ -13,6 +13,7 @@ const HelpOut = ({ title, text, path, pathLabel, color = 'blue', icon }) => {
           strokeColor={icon.strokeColor}
           m="0 auto"
           width={80}
+          height={icon.height}
         />
       </S.IconWrapper>
       <S.Content>
