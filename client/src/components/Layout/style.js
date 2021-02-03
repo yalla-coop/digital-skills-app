@@ -13,6 +13,11 @@ export const Layout = styled(AntdLayout)`
   padding: 0;
   min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.white};
+  ${({ theme }) => theme.media.tablet} {
+    .ant-layout-sider {
+      display: none;
+    }
+  }
 `;
 
 const AntdContentComponent = ({ withoutHeader, ...props }) => (
