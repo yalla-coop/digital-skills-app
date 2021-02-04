@@ -1,11 +1,8 @@
 # Digital Skills Learning App (Scouts)
 An app designed to help volunteers improve their digital skills.
 
-Alpha version of the app:
-https://scouts-staging.herokuapp.com/
-
-Design Prototype (Volunteers): 
-https://www.figma.com/proto/9oFoQawgjFYwHi1dG77RH7/The-Scouts-Association---MVP?node-id=1449:5591&scaling=min-zoom
+- [Alpha version of the app](https://scouts-staging.herokuapp.com/)
+- [Design Prototype (Volunteers)](https://www.figma.com/proto/9oFoQawgjFYwHi1dG77RH7/The-Scouts-Association---MVP?node-id=1449:5591&scaling=min-zoom)
 
 
 ## Contributors / Team
