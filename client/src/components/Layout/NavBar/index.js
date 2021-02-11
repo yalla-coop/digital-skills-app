@@ -3,8 +3,8 @@ import * as S from './style';
 import Icon from '../../Icon';
 import theme from '../../../theme';
 import Menu from '../../Menu';
-import { useHistory } from 'react-router-dom';
-import { GENERAL } from '../../../constants/nav-routes';
+import { Link, useHistory } from 'react-router-dom';
+import { GENERAL, EXTERNAL } from '../../../constants/nav-routes';
 
 const NavBar = ({ selectedKey, setSelectedKey }) => {
   const [visible, setVisible] = useState(false);
@@ -18,7 +18,9 @@ const NavBar = ({ selectedKey, setSelectedKey }) => {
   return (
     <>
       <S.Navbar>
-        <Icon icon="logo" />
+        <Link to={{ pathname: EXTERNAL.SCOUTS }} target="_blank">
+          <Icon icon="logo" color="black" />
+        </Link>
         <S.IconContainer>
           <S.Button
             icon={<Icon icon="search" />}
@@ -32,6 +34,11 @@ const NavBar = ({ selectedKey, setSelectedKey }) => {
       </S.Navbar>
       <S.Drawer
         placement="left"
+        title={
+          <Link to={{ pathname: EXTERNAL.SCOUTS }} target="_blank">
+            <Icon icon="logo" color="white" />
+          </Link>
+        }
         onClose={() => setVisible(false)}
         visible={visible}
         mask={false}

@@ -57,6 +57,7 @@ const EXTERNAL = {
   HELP: '/help', // in search page
   TERMS_AND_CONDITIONS: 'https://www.google.com/',
   COOKIES: 'https://www.google.com/',
+  SCOUTS: 'https://www.scouts.org.uk/',
 };
 
 const VOLUNTEER_LOGGED_OUT = [

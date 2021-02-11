@@ -1,9 +1,13 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
+
 import theme from '../../../theme';
+import { EXTERNAL } from '../../../constants/nav-routes';
+
 import Icon from '../../Icon';
-import * as S from './style';
 import Menu from '../../Menu';
+
+import * as S from './style';
 
 const SideBar = ({ color, selectedKey, setSelectedKey }) => {
   return (
@@ -16,7 +20,9 @@ const SideBar = ({ color, selectedKey, setSelectedKey }) => {
     >
       <S.Container>
         <S.LogoContainer>
-          <Icon icon="logo" color="white" />
+          <Link to={{ pathname: EXTERNAL.SCOUTS }} target="_blank">
+            <Icon icon="logo" color="white" />
+          </Link>
         </S.LogoContainer>
         <Menu selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
       </S.Container>
