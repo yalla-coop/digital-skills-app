@@ -12,7 +12,7 @@ import * as S from './style';
 const SideBar = ({ color, selectedKey, setSelectedKey }) => {
   return (
     <Layout.Sider
-      breakpoint={'lg'} // 768px from antd
+      breakpoint={'lg'} // 992px from antd
       style={{ backgroundColor: color || theme.colors.blue }}
       collapsedWidth={0}
       trigger={null}
