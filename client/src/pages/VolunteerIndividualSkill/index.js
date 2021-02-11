@@ -66,7 +66,11 @@ function VolunteerIndividualSkill() {
 
   return (
     <S.Wrapper>
-      <BackLink />
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <BackLink />
+        </Col>
+      </Row>
       <Row>
         <Col w={[4, 8, 8]}>
           <T.H3 mb="3" mt="5">

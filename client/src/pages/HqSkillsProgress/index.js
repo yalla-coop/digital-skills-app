@@ -69,7 +69,11 @@ function HqSkillsProgress() {
 
   return (
     <div>
-      <BackLink />
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <BackLink />
+        </Col>
+      </Row>
       <T.H3 mt="5" mtM="4" mb="6" mbM="4">
         Skills progress
       </T.H3>

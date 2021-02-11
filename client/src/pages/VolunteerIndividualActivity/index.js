@@ -95,7 +95,9 @@ function VolunteerIndividualActivity() {
   return (
     <>
       <S.Wrapper pt="8">
-        <BackLink />
+        <Col w={[4, 12, 12]}>
+          <BackLink mb="5" />
+        </Col>
       </S.Wrapper>
       {loading ? (
         <Loading />

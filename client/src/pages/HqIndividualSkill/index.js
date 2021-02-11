@@ -45,7 +45,12 @@ function HqIndividualSkill() {
 
   return (
     <S.Wrapper>
-      <BackLink />
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <BackLink />
+        </Col>
+      </Row>
+
       <Row mt="5">
         <Col w={[4, 8, 8]}>
           <T.H3>{skill.loading ? <Skeleton active /> : skill.title}</T.H3>

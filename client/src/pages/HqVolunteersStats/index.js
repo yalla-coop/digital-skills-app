@@ -69,7 +69,11 @@ function HqVolunteersStats() {
 
   return (
     <div>
-      <BackLink />
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <BackLink />
+        </Col>
+      </Row>
       <T.H3 mt="5" mtM="4" mb="6" mbM="4">
         My volunteers
       </T.H3>
