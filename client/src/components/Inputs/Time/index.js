@@ -22,6 +22,13 @@ const Time = ({
     return color;
   };
 
+  const _handleChange = (e) => {
+    if (e.target && e.target.value) {
+      e.target.value = Math.floor(Number(e.target.value));
+    }
+    return handleChange(e);
+  };
+
   return (
     <CS.Field w={w} disabled={disabled} {...props}>
       {label && (
@@ -42,7 +49,7 @@ const Time = ({
           name={name}
           value={value}
           placeholder={placeholder}
-          onChange={handleChange}
+          onChange={_handleChange}
           color={decideColor()}
           disabled={disabled}
           mr="3"
