@@ -10,11 +10,16 @@ import * as S from './style';
 import { decideColor } from '../../helpers';
 import { Skills } from '../../api-calls';
 import { navRoutes } from '../../constants';
+import { useAppStore } from '../../context/appStore';
 
 const RecommendedSkills = () => {
   const [skills, setSkills] = useState([]);
-  const [exploreMore, setExploreMore] = useState(false);
-  const [loadedSkills, setLoadedSkills] = useState(3);
+  const {
+    exploreMore,
+    setExploreMore,
+    loadedSkills,
+    setLoadedSkills,
+  } = useAppStore();
 
   const isMobile = useMediaQuery({
     query: `(max-width: ${theme.breakpoints.mobile})`,
