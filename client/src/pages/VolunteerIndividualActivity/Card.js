@@ -30,6 +30,7 @@ function Card(props) {
     handleCompleteActivity,
     linkBgColor,
     isCompleted,
+    disabled,
   } = props;
   return (
     <Wrapper>
@@ -53,7 +54,7 @@ function Card(props) {
         </ExtLink>
       ) : (
         <Button
-          disabled={isCompleted}
+          disabled={isCompleted || disabled}
           handleClick={handleCompleteActivity}
           bgColor={linkBgColor}
           title={isCompleted && 'This activity already completed'}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { Activities } from '../../api-calls';
-import { navRoutes as r } from '../../constants';
+import { navRoutes as r, roles } from '../../constants';
 import {
   BackLink,
   Grid,
@@ -23,7 +23,7 @@ function VolunteerIndividualActivity() {
   const [loading, setLoading] = useState(false);
   // const [err, setErr] = useState('');
   const {
-    user: { assessmentScore },
+    user: { assessmentScore, role },
   } = useAuth();
   const history = useHistory();
   const params = useParams();
@@ -137,6 +137,7 @@ function VolunteerIndividualActivity() {
                   isCompleted={isCompleted}
                   linkBgColor="teal"
                   handleCompleteActivity={handleCompleteActivity}
+                  disabled={role === roles.HQ}
                 />
               </Col>
               {!assessmentScore && (
