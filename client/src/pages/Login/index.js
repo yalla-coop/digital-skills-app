@@ -5,7 +5,7 @@ import * as T from '../../components/Typography';
 import * as S from './style';
 
 import { BasicInput } from '../../components/Inputs';
-import Button from '../../components/Button';
+import { BackLink, Button } from '../../components';
 
 import { Users } from '../../api-calls';
 
@@ -31,6 +31,7 @@ const cleanEmail = (email) => email.toLowerCase().trim();
 const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
   const [state, setState] = useReducer(reducer, initialState);
   const history = useHistory();
+
   const { setUser } = useAuth();
 
   const { email, password, validationErrs, httpError, submitAttempt } = state;
@@ -93,6 +94,7 @@ const Login = ({ user, onLogin, onLogout, onCreateAccount }) => {
 
   return (
     <S.Wrapper>
+      {history.action === 'PUSH' && <BackLink mb="5" mbM="4" />}
       <S.Content>
         <T.H3 mb="3">Log in</T.H3>
         {/* ADD IN WHEN THERE ARE OTHER REASONS TO HAVE ACCOUNT
