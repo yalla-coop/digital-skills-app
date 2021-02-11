@@ -20,6 +20,9 @@ export const Field = styled.div`
 
   .ant-slider-dot {
     border-color: ${({ theme }) => theme.colors.teal};
+    top: -4px;
+    width: 12px;
+    height: 12px;
   }
 
   .ant-slider-handle {
@@ -50,6 +53,9 @@ export const Field = styled.div`
 
       .ant-slider-dot {
         border-color: ${({ theme }) => theme.colors.teal};
+        top: -4px;
+        width: 12px;
+        height: 12px;
       }
     }
   }
