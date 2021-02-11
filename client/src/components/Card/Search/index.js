@@ -81,7 +81,10 @@ const Search = ({
 
   useEffect(() => {
     // if redirected from landing page
-    if (search.task && search.tool) {
+    if (
+      search.task ||
+      (search.tool && search.tool !== dropdownData.A_DIGITAL_TOOL)
+    ) {
       handleSubmit();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

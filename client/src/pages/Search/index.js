@@ -5,7 +5,7 @@ import { Typography } from 'antd';
 import * as S from './style';
 import * as T from './../../components/Typography';
 import { Row, Col } from './../../components/Grid';
-import { navRoutes } from './../../constants';
+import { navRoutes, dropdownData } from './../../constants';
 
 import Icon from './../../components/Icon';
 import { Search as SearchCommonComponent } from './../../components/Card';
@@ -19,20 +19,20 @@ const Search = () => {
   const task = query.get('task');
   const tool = query.get('tool');
 
-  const [isSearch, setIsSearch] = useState(() => task && tool);
+  const [isSearch, setIsSearch] = useState(
+    () => task || (tool && tool !== dropdownData.A_DIGITAL_TOOL)
+  );
 
   useEffect(() => {
     const getPopularTasks = async () => {
       const { data, error } = await Skills.getMostPopularTasks();
 
       if (!error) {
-        if (setResults) {
-          setResults(data);
-          setIsSearch(false);
-        }
+        setResults(data);
+        setIsSearch(false);
       }
     };
-    if (!task || !tool) {
+    if (!task && (!tool || tool === dropdownData.A_DIGITAL_TOOL)) {
       getPopularTasks();
     }
   }, [task, tool]);
@@ -72,7 +72,7 @@ const Search = () => {
             )}
           </Col>
           {results.map(({ id, title, type, description }) => (
-            <Col w={[4, 8, 4]} key={`${id} & ${type}`}>
+            <Col w={[4, 8, 4]} key={`${id} & ${type} & ${title}`}>
               <S.Result
                 to={`${
                   type === 'skill'
