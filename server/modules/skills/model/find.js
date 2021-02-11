@@ -1,5 +1,5 @@
 import { query } from '../../../database';
-import { skillStatuses } from '../../../constants';
+import { skillStatuses as sks } from '../../../constants';
 
 const findSkillById = async (id) => {
   const values = [id];
@@ -92,7 +92,7 @@ const findSkillsByCodes = async (codes) => {
 };
 
 const findHQSkillProgress = async (orgId) => {
-  const values = [orgId, skillStatuses.COMPLETED];
+  const values = [orgId, sks.COMPLETED];
 
   const sql = `
   SELECT
@@ -198,11 +198,7 @@ const findVolunteerSkillsStats = async (id) => {
     )
   `;
 
-  const res = await query(sql, [
-    id,
-    skillStatuses.COMPLETED,
-    skillStatuses.ALREADY_HAS,
-  ]);
+  const res = await query(sql, [id, sks.COMPLETED, sks.ALREADY_HAS]);
   return res.rows[0];
 };
 
@@ -215,13 +211,20 @@ const findSkillsByActivity = async (activityId) => {
   return res.rows;
 };
 const findRecommendedSkillsForVolunteer = async ({ userId }) => {
-  const values = [userId];
+  const values = [userId, sks.IN_PROGRESS, sks.COMPLETED, sks.ALREADY_HAS];
   const sql = `
     SELECT
-      s.id,
+      DISTINCT s.id,
       s.title,
       s.description,
       s.icon,
+      (
+        CASE us.status
+          WHEN $2 THEN 'a'
+          WHEN $3 THEN 'c'
+          ELSE 'b'
+        END
+      ) AS weight,
       (
         SELECT
         jsonb_build_object(
@@ -237,9 +240,13 @@ const findRecommendedSkillsForVolunteer = async ({ userId }) => {
     FROM users_skill_areas AS usa
     INNER JOIN skill_areas_skills AS sas ON(usa.skill_area = sas.skill_area)
     INNER JOIN skills AS s ON(s.id = sas.skill)
-    LEFT JOIN users_skills AS us ON(us.skill = sas.skill)
+    LEFT JOIN users_skills AS us ON(us.skill = sas.skill AND us.user = $1)
     WHERE usa.user = $1
-    ORDER BY us.id
+      AND CASE
+        WHEN us.id IS NOT NULL THEN us.status != $4
+        ELSE TRUE
+      END
+    ORDER BY weight
   `;
 
   const res = await query(sql, values);

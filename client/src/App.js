@@ -108,6 +108,8 @@ function App() {
                 />
                 <Route
                   exact
+                  isPrivate
+                  allowedRoles={[roles.VOLUNTEER]}
                   path={navRoutes.VOLUNTEER.RECOMMENDED_SKILLS}
                   Component={Pages.RecommendedSkills}
                   layout="withoutHeader"
