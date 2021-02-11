@@ -6,7 +6,6 @@ import * as T from '../../Typography';
 import LevelIndicator from '../../LevelIndicator';
 import * as S from './style';
 import theme from '../../../theme';
-import { useHistory } from 'react-router-dom';
 import { GENERAL } from '../../../constants/nav-routes';
 import * as AntdIcon from '@ant-design/icons';
 
@@ -19,11 +18,6 @@ const RecommendSkill = ({
   level,
   color,
 }) => {
-  const history = useHistory();
-  const handleClick = () => {
-    history.push(GENERAL.SKILL.replace(':id', id));
-  };
-
   const isDesktop = useMediaQuery({
     query: `(min-width: ${theme.breakpoints.desktop})`,
   });
@@ -35,7 +29,7 @@ const RecommendSkill = ({
   const Component = AntdIcon[icon];
 
   return (
-    <S.Container onClick={handleClick}>
+    <S.Container to={GENERAL.SKILL.replace(':id', id)}>
       <S.IconContainer color={color}>
         {icon === 'defaultSkill' || !Component ? (
           <Icon icon={icon} width="120" height="120" color="white" />

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   width: 100%;
   border-radius: ${({ theme: { borderRadius } }) =>
     `0px 0px ${borderRadius.card} ${borderRadius.card}`};
