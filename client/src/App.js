@@ -17,8 +17,8 @@ function App() {
       <Global styles={globalStyle} />
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <AppStoreProvider>
-            <Router>
+          <Router>
+            <AppStoreProvider>
               <Switch>
                 {/* Auth Routes */}
                 <Route
@@ -265,8 +265,8 @@ function App() {
                   msg="Sorry, the page you're looking for doesn't seem to exist"
                 />
               </Switch>
-            </Router>
-          </AppStoreProvider>
+            </AppStoreProvider>
+          </Router>
         </AuthProvider>
       </ThemeProvider>
     </div>

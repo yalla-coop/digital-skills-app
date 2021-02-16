@@ -1,24 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import * as CS from '../style';
 import Button from '../../Button';
 import { BasicInput, Dropdown } from '../../Inputs';
 import { dropdownData } from '../../../constants';
 import { Skills } from '../../../api-calls';
 import { navRoutes } from '../../../constants';
+import { useAppStore } from '../../../context/appStore';
 
 import validate from '../../../validation/schemas/search';
 
 const { toolDropdownData } = dropdownData;
-
-function useSearch() {
-  const query = new URLSearchParams(useLocation().search);
-  const [search, setSearch] = useState(() => ({
-    task: query.get('task') || '',
-    tool: query.get('tool') || dropdownData.A_DIGITAL_TOOL,
-  }));
-  return [search, setSearch];
-}
 
 const Search = ({
   color = 'teal',
@@ -27,7 +19,7 @@ const Search = ({
   withoutShadow,
   setResults,
 }) => {
-  const [search, setSearch] = useSearch();
+  const { search, setSearch } = useAppStore();
   const [submitAttempt, setSubmitAttempt] = useState(false);
   const [errors, setErrors] = useState({});
   const history = useHistory();
