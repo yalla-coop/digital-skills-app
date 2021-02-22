@@ -90,3 +90,11 @@ To be added
 
 
 ## Ochre reporting overview: https://ochre.thecatalyst.org.uk/v2/initiatives/the-scout-association-improving-volunteers-digital-skills
+
+## Docker Setup 
+`npm i` in server
+`npm i ` in client
+`docker build --no-cache -t scouts .`
+`docker run -p 8080:8080 --env-file ./.env -d scouts`
+`docker ps` => list the running docker containers
+`docker exec -it <container-name or id> bash`  => run a bash inside the running docker container
