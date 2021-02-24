@@ -18,7 +18,11 @@ WORKDIR /usr/src/app
 COPY --from=client-build /usr/src/app/client/build ./client/build
 COPY --from=server-build /usr/src/app/server/dist ./dist
 COPY package.json package-lock.json ./
+COPY .env ./
 ENV NODE_ENV=production
+ENV LOAD_ENV=true
+ENV PORT=8080
+ENV DEBUG=server
 RUN npm ci
 EXPOSE 8080
 CMD ["node", "dist/index.js"]
