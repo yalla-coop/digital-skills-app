@@ -21,8 +21,8 @@ COPY package.json package-lock.json ./
 COPY .env ./
 ENV NODE_ENV=production
 ENV LOAD_ENV=true
-ENV PORT=8080
+ENV PORT=80
 ENV DEBUG=server
 RUN npm ci
-EXPOSE 8080
+EXPOSE 80
 CMD ["node", "dist/index.js"]
