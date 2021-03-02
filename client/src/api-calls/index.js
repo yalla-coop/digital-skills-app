@@ -7,7 +7,7 @@ import * as Skills from './skills';
 import * as SkillAreas from './skill-areas';
 import * as Volunteers from './volunteers';
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = `${process.env.PUBLIC_URL}/api`;
 
 export {
   Activities,

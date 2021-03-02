@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import favicon from 'serve-favicon';
@@ -21,37 +21,42 @@ const debug = Debug('server');
 
 const app = express();
 
+// allow subdirectory
+const _app = Router();
+
 // TODO:SETUP SENTRY SETUP
 app.use(Sentry.Handlers.requestHandler());
 app.use(logger('dev'));
 
 if (config.common.env === PRODUCTION) {
-  app.use(
+  _app.use(
     helmet({
       contentSecurityPolicy: false,
       dnsPrefetchControl: { allow: true },
       referrerPolicy: { policy: 'strict-origin' },
     }),
   );
-  app.use(requireHTTPS);
+  _app.use(requireHTTPS);
 }
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+_app.use(express.json());
+_app.use(express.urlencoded({ extended: false }));
+_app.use(cookieParser());
 
-app.use('/api', router);
+_app.use('/api', router);
 
 if (config.common.env === PRODUCTION) {
-  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
-  app.use(
+  _app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+  _app.use(
     favicon(path.join(__dirname, '..', 'client', 'build', 'favicon.ico')),
   );
 
-  app.get('*', (req, res) => {
+  _app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
   });
 }
+
+app.use(process.env.PUBLIC_URL, _app);
 
 app.use(
   Sentry.Handlers.errorHandler({

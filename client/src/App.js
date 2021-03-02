@@ -17,7 +17,7 @@ function App() {
       <Global styles={globalStyle} />
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <Router>
+          <Router basename={process.env.PUBLIC_URL}>
             <AppStoreProvider>
               <Switch>
                 {/* Auth Routes */}
