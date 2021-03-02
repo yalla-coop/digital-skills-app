@@ -85,13 +85,66 @@ Two user types: volunteers aiming to learn digital skills and HQ organisation us
 
 - [Tech Stack recommendations overview](https://www.notion.so/Tech-Stack-External-Services-Deployment-Recommendation-341fdfd5fea0466fb073221a195934e3)
 
-## Tech documentation (How to get this product to run and how to customise it)
-To be added
-
-
 ## Ochre reporting overview: https://ochre.thecatalyst.org.uk/v2/initiatives/the-scout-association-improving-volunteers-digital-skills
 
-## Docker Setup 
+
+# Digital Skills App Developers GUID (How to get this product to run and how to customise it)
+
+## Tech stack:
+The app's tech stack is built on three aspects 
+  - Front end tech stack >> main technology is ReactJS
+  - Back end tech stack >> main technology is NodeJS
+  - The Database  >> main technology is PostgresSQL
+
+## Cloud Services:
+  - Deployment Platform >> [Heroku](https://www.heroku.com/) 
+  - Scouts Website
+
+## Getting Started
+
+### How to get a copy of the project up and running on your local machine:
+Please ensure you have this software installed and running on your local machine before you attempt to run this webapp.
+Node: https://nodejs.org/en/
+Postgresql: https://www.postgresql.org/download/
+
+#### Setup
+1. Clone the repo
+2. Install Dependencies
+
+```cd scouts```
+
+```$ npm run init:both```
+
+3. Setup local Dev and Test Databases 
+    >> Follow sql / postresql steps to set up a database and create super user with admin rights
+    
+5. Add some more Environment Variables
+    >> Create a .env file in the root
+    >> Add you database connection strings as DATABASE_URL and TEST_DATABASE_URL
+    >> Add more varialbes to your .env file (these are required for our authentication system, e.g. sign-up / log-in)
+    >> SECRET=choose-your-secret, TOKEN_NAME=token, TOKEN_MAX_AGE=2592000000 
+
+6. Build the Database
+
+```npm run build:db```
+
+6. Run the Tests
+To make sure everything is working as it should.
+
+```$ npm test```
+
+8. Run the Server
+
+```npm run dev```
+
+Wait for a compiled successfully message.
+
+9. Have Fun
+The webapp should now be running on localhost:3000 Now you can play with the code all you like 🎉
+
+If you notice anything wrong with the instructions or the project isn't running as expected don't hesitate to raise an issue and we'll try to figure it out.
+
+## For external deployments use docker setup 
 
 - `npm i` in server
 - `npm i ` in client
