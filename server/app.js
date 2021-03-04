@@ -12,7 +12,7 @@ import { Sentry } from './services/error-handler';
 import router from './api';
 import config from './config';
 import * as constants from './constants';
-import { requireHTTPS } from './api/middlewares';
+// import { requireHTTPS } from './api/middlewares';
 
 const { PRODUCTION, TEST } = constants.envTypes;
 
@@ -36,7 +36,7 @@ if (config.common.env === PRODUCTION) {
       referrerPolicy: { policy: 'strict-origin' },
     }),
   );
-  _app.use(requireHTTPS);
+  // _app.use(requireHTTPS);ss
 }
 
 _app.use(express.json());
