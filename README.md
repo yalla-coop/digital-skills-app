@@ -1,5 +1,6 @@
 # Digital Skills Learning App
 An app designed to help volunteers improve their digital skills.
+This is a public repository following open source principles. Please feel free to contribute and share :) 
 
 ## Contributors / Team
 
@@ -61,6 +62,15 @@ Two user types: volunteers aiming to learn digital skills and HQ organisation us
 - User testing in Scouts
 - Seaking further funding to continue to work on the product
 - Want the product to be used by others in the sector in a really easy way
+
+## Focus: Reuse
+We would love to push this aspect further and essentially create a white-label product that organisations can easily host and customise. 
+You can already start using your own version of the app by cloning this repository and deploying / hosting the app on your preferred environment.
+Please contact us if you need support.
+
+The current version of this app comes with a lean admin panel (HQ) which allows you to manage learning resources and view insightful stats. 
+We would like to add more features to enable organisations to further customise the product in a simple way (e.g. without needing to use any code at all).
+
 
 ## Tech Stack overview
 - Frontend >> main technology is ReactJS
