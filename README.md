@@ -1,9 +1,5 @@
-# Digital Skills Learning App (Scouts)
+# Digital Skills Learning App
 An app designed to help volunteers improve their digital skills.
-
-- [Alpha version of the app](https://scouts-staging.herokuapp.com/digitalskills/)
-- [Design Prototype (Volunteers)](https://www.figma.com/proto/9oFoQawgjFYwHi1dG77RH7/The-Scouts-Association---MVP?node-id=1449:5591&scaling=min-zoom)
-
 
 ## Contributors / Team
 
@@ -111,7 +107,7 @@ Postgresql: https://www.postgresql.org/download/
 1. Clone the repo
 2. Install Dependencies
 
-```cd scouts```
+```cd digital-skills-app```
 
 ```$ npm run init:both```
 
@@ -148,7 +144,7 @@ If you notice anything wrong with the instructions or the project isn't running 
 
 - `npm i` in server
 - `npm i ` in client
-- `docker build --no-cache -t scouts .`
-- `docker run -p 8080:8080 --env-file ./.env -d scouts`
+- `docker build --no-cache -t digital-skills-app .`
+- `docker run -p 8080:8080 --env-file ./.env -d digital-skills-app`
 - `docker ps` => list the running docker containers
 - `docker exec -it <container-name or id> bash`  => run a bash inside the running docker container
