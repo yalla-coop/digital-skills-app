@@ -93,6 +93,7 @@ We would like to add more features to enable organisations to further customise 
 
 ## Ochre reporting overview: https://ochre.thecatalyst.org.uk/v2/initiatives/the-scout-association-improving-volunteers-digital-skills
 
+## License (LGPL): https://github.com/yalla-coop/digital-skills-app/blob/develop/LICENSE
 
 # Digital Skills App Developers GUID (How to get this product to run and how to customise it)
 
